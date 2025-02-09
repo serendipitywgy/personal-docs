@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="AI之覔">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>【11】项目实战 - personal-知识库</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../../stylesheets/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/diff.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/llvm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/nasm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/txt.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">personal-知识库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">技术博文</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">开发工具</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">cmake</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../01/" class="dropdown-item">【01】安装与基本介绍</a>
+</li>
+            
+<li>
+    <a href="../02/" class="dropdown-item">【02】CMake 的文件分布</a>
+</li>
+            
+<li>
+    <a href="../03/" class="dropdown-item">【03】变量的设置与引用</a>
+</li>
+            
+<li>
+    <a href="../04/" class="dropdown-item">【04】运算符与条件、循环语句</a>
+</li>
+            
+<li>
+    <a href="../05/" class="dropdown-item">【05】目标构建</a>
+</li>
+            
+<li>
+    <a href="../06/" class="dropdown-item">【06】变量参与 C++ 的编译</a>
+</li>
+            
+<li>
+    <a href="../07/" class="dropdown-item">【07】宏与函数</a>
+</li>
+            
+<li>
+    <a href="../08/" class="dropdown-item">【08】find_package 详解</a>
+</li>
+            
+<li>
+    <a href="../09/" class="dropdown-item">【09】生成器表达式</a>
+</li>
+            
+<li>
+    <a href="../10/" class="dropdown-item">【10】项目的导出与安装</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">【11】项目实战</a>
+</li>
+            
+<li>
+    <a href="../12/" class="dropdown-item">【12】CTest 工具</a>
+</li>
+            
+<li>
+    <a href="../13/" class="dropdown-item">【13】CPack 工具</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../dev/coding_standards.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/testing.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/ci_cd.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">linux系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../tools/ide_setup.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/git_workflow.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/debugging.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">构建工具</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../project/methodology.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../project/estimation.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">随笔感悟</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../thoughts/career.md" class="dropdown-item">None</a>
+</li>
+                                    
+<li>
+    <a href="../../../thoughts/learning.md" class="dropdown-item">None</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs" class="nav-link">GitHub</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../10/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../12/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs/edit/master/docs/开发工具/cmake/11.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#11" class="nav-link">【11】项目实战</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 常规非跨平台项目</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#visionlibconfigcmake" class="nav-link">用于收集所有需要参与构建的模块，给 VisionLibConfig.cmake 使用</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#visionlib" class="nav-link">更新 VisionLib 目标构建的标志位，用于控制是否构建指定模块，不影响用户的选择</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-build_xxx_init" class="nav-link">- 主要更新 BUILD_xxx_INIT 变量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-build_xxx_init-on-off" class="nav-link">- 在满足条件时，设置 BUILD_xxx_INIT 为 ON，否则为 OFF</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_2" class="nav-link">用法:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vl_update_build-condition" class="nav-link">vl_update_build( [CONDITION])</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_3" class="nav-link">示例:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vl_update_buildd-off" class="nav-link">vl_update_build(d OFF)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_1" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_2" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_4" class="nav-link">添加模块</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_5" class="nav-link">用法：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vl_add_module" class="nav-link">vl_add_module(</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#depends-vl_" class="nav-link">[DEPENDS ...] # 以 vl_ 开头的模块名</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ext_depends" class="nav-link">[EXT_DEPENDS ...] # 外部依赖</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_6" class="nav-link">)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_7" class="nav-link">示例：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vl_add_modulea" class="nav-link">vl_add_module(a</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#depends-b-c" class="nav-link">DEPENDS b c</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ext_depends-opencv_core" class="nav-link">EXT_DEPENDS opencv_core</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_8" class="nav-link">)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_3" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_4" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_9" class="nav-link">添加示例程序</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_10" class="nav-link">用法：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vl_add_exe" class="nav-link">vl_add_exe(</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#sources" class="nav-link">SOURCES ... # 源文件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#depends-vl__1" class="nav-link">[DEPENDS ...] # 以 vl_ 开头的模块名</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ext_depends_1" class="nav-link">[EXT_DEPENDS ...] # 外部依赖</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_11" class="nav-link">)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_12" class="nav-link">示例：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vl_add_exedemo" class="nav-link">vl_add_exe(demo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#sources-democpp" class="nav-link">SOURCES demo.cpp</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#depends-a-b" class="nav-link">DEPENDS a b</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ext_depends-opencv_highgui" class="nav-link">EXT_DEPENDS opencv_highgui</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_13" class="nav-link">)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_5" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 外部依赖管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 交叉编译项目</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 跨平台项目</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_6" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_14" class="nav-link">项目配置</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_7" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_8" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_15" class="nav-link">目标构建</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_9" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#main-target" class="nav-link">main target</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#executable-target" class="nav-link">executable target</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#uninstall-target" class="nav-link">uninstall target</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_10" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_16" class="nav-link">导出、安装</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_11" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_12" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#numopt-cmake" class="nav-link">numopt CMake 配置文件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_17" class="nav-link"></a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#cmake" class="nav-link">** 该文件由 CMake 生成，请勿手动修改 **</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_18" class="nav-link"></a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_19" class="nav-link">基本用法：</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#find_packagenumopt-required" class="nav-link">find_package(numopt REQUIRED)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#target_link_librariesyour_target-private-numopt_libs" class="nav-link">target_link_libraries(your_target PRIVATE ${numopt_LIBS})</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_13" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_14" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#numopt" class="nav-link">获取 numopt 安装路径</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_15" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_16" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_20" class="nav-link">设置头文件搜索路径变量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_17" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_18" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_21" class="nav-link">设置库文件路径变量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_19" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_20" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_22" class="nav-link">搜寻的结果、状态</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_21" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_23" class="nav-link">...</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_22" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_24" class="nav-link">目标构建</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#-_23" class="nav-link">----------------------------------------------------------------------------</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_25" class="nav-link">...</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_26" class="nav-link">写在后面</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="11">【11】项目实战</h1>
+<h4 id="_1">教学视频</h4>
+<p>::: tip 写在前面
+如果你觉得本教程对你有所帮助，欢迎一键三连，你的支持是我不断更新的动力！</p>
+<p>:tada: <strong>即将到来 ...</strong>
+- 【11-2】CMake：实战篇——外部依赖管理
+- 【11-3】CMake：实战篇——交叉编译
+- 【11-4】CMake：实战篇——跨平台
+:::</p>
+<p><CardGrid></p>
+<p>@<a href="BV1AcN3e6ELW">bilibili</a></p>
+<p></CardGrid></p>
+<hr />
+<h2 id="1">1. 常规非跨平台项目</h2>
+<h3 id="11_1">1.1 预期目标</h3>
+<p>现计划开发一个专为 Linux 平台设计的视觉处理库 <code>visionlib</code> 及示例程序 <code>vl_demo</code>，库在从源码编译安装的过程中需要实现以下功能：</p>
+<ol>
+<li>需要支持 C++17 标准；</li>
+<li>强制依赖 OpenCV 4 及以上版本，并用到其中的 <code>core</code>、<code>imgproc</code>、<code>highgui</code> 模块，分别对应 <code>opencv_core</code>、<code>opencv_imgproc</code>、<code>opencv_highgui</code> 这 3 个 CMake 目标；</li>
+<li>默认以静态库的形式构建 <code>visionlib</code>，但允许用户通过 CMake 选项设置构建为动态库；</li>
+<li>库包含了 <code>vl_a</code>、<code>vl_b</code>、<code>vl_c</code> 和 <code>vl_d</code> 共 4 个模块，分别对应 <code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> 4 个文件夹，均默认参与构建，但是允许用户通过 CMake 选项设置任一模块是否参与构建；</li>
+<li>项目包含了一个示例程序 <code>vl_demo</code>，默认参与构建，允许用户通过 CMake 选项设置其是否参与构建；</li>
+<li>这几个模块和示例程序之间存在依赖关系，使用 → 表示依赖关系，如 <img src="/images/cmake/11-normal-deps-example.png" alt="11-normal-deps-example" width="60" style="vertical-align: middle;"> 表示 <code>vl_c</code> 依赖 <code>vl_a</code></li>
+</ol>
+<p>::: center
+     <img src="/images/cmake/11-normal-deps.png" alt="11-normal-deps" width="500"></p>
+<pre><code> **图 1-1：依赖关系图**
+</code></pre>
+<p>:::</p>
+<ol>
+<li>项目的安装目录为 <code>/usr/local</code>，其中</li>
+<li>示例程序安装到 <code>/usr/local/bin</code></li>
+<li>头文件安装到 <code>/usr/local/include</code></li>
+<li>库文件安装到 <code>/usr/local/lib</code></li>
+<li>CMake 相关配置文件安装到 <code>/usr/local/lib/cmake/VisionLib</code></li>
+</ol>
+<h3 id="12">1.2 要求与文件结构</h3>
+<p>该项目中所有的 CMake 目标必须均以 <code>vl_</code> 开头，例如文件夹 <code>a</code> 对应的目标是 <code>vl_a</code>，该项目的文件结构如下</p>
+<p>``` :collapsed-lines
+.
+├── modules
+│   ├── a
+│   │   ├── include
+│   │   │   └── visionlib
+│   │   │       └── a.hpp
+│   │   └── src
+│   │       ├── a1.cpp
+│   │       └── a2.cpp
+│   ├── b
+│   │   ├── include
+│   │   │   └── visionlib
+│   │   │       └── b.hpp
+│   │   └── src
+│   │       ├── b1.cpp
+│   │       ├── b2.cpp
+│   │       ├── b3.cpp
+│   │       └── b4.cpp
+│   ├── c
+│   │   ├── include
+│   │   │   └── visionlib
+│   │   │       └── c.hpp
+│   │   └── src
+│   │       └── c.cpp
+│   └── d
+│       ├── include
+│       │   └── visionlib
+│       │       └── d.hpp
+│       └── src
+│           ├── d1.cpp
+│           └── d2.cpp
+└── samples
+    └── demo.cpp</p>
+<p>19 directories, 14 files</p>
+<pre><code>
+### 1.3 分析
+
+- 前 3 个预期目标是关于项目的要求，可直接在项目根目录的 `CMakeLists.txt` 中实现
+- 第 4 到第 6 个预期目标是关于项目的依赖关系，可在每个模块的 `CMakeLists.txt` 中实现
+- 每个模块均涉及到头文件搜索路径添加、源文件编译、库文件链接、依赖库添加、安装目标等操作，可以将这些内容封装到一个函数中，然后在每个模块的 `CMakeLists.txt` 中调用
+
+### 1.4 实现
+
+在项目中添加
+
+- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
+- `cmake/VisionLibInstall.cmake` —— 项目的安装路径配置文件
+- `cmake/VisionLibModule.cmake` —— 项目的 CMake 函数库，主要涉及到目标的便捷创建
+- `cmake/templates/VisionLibConfig.cmake.in` —— 项目在 `find_package` 时需要的配置文件模板
+- `modules/CMakeLists.txt` —— 项目的模块列表
+- `modules/a/CMakeLists.txt` —— 模块 `a` 的 CMake 配置文件
+- `modules/b/CMakeLists.txt` —— 模块 `b` 的 CMake 配置文件
+- `modules/c/CMakeLists.txt` —— 模块 `c` 的 CMake 配置文件
+- `modules/d/CMakeLists.txt` —— 模块 `d` 的 CMake 配置文件
+- `samples/CMakeLists.txt` —— 示例程序的 CMake 配置文件
+
+共 10 个文件。
+
+#### 1.4.1 项目配置
+
+::: code-tabs
+
+@tab CMakeLists.txt
+
+```cmake :collapsed-lines
+cmake_minimum_required(VERSION 3.10)
+
+project(VisionLib)
+
+# ----------------------------------------------------------------------------
+#   配置项目
+# ----------------------------------------------------------------------------
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(OpenCV 4 REQUIRED)
+option(BUILD_SHARED_LIBS &quot;Build shared libraries?&quot; OFF)
+
+include(cmake/VisionLibInstall.cmake)
+include(cmake/VisionLibModule.cmake)
+
+# ----------------------------------------------------------------------------
+#   将子目录添加到构建系统中
+# ----------------------------------------------------------------------------
+add_subdirectory(modules)
+add_subdirectory(samples)
+
+# ----------------------------------------------------------------------------
+#   导出、安装配置
+# ----------------------------------------------------------------------------
+install(
+  EXPORT VisionLibTargets
+  FILE VisionLibTargets.cmake
+  DESTINATION ${VL_CFG_INSTALL_PATH}
+  # VL_CFG_INSTALL_PATH 定义于 VisionLibInstall.cmake 中
+)
+
+configure_file(
+  cmake/templates/VisionLibConfig.cmake.in
+  &quot;${CMAKE_CURRENT_BINARY_DIR}/VisionLibConfig.cmake&quot;
+  @ONLY
+)
+
+install(
+  FILES &quot;${CMAKE_CURRENT_BINARY_DIR}/VisionLibConfig.cmake&quot;
+  DESTINATION ${VL_CFG_INSTALL_PATH}
+)
+</code></pre>
+<p>@tab VisionLibInstall.cmake</p>
+<pre><code class="language-cmake"># 安装路径相关配置
+
+set(CMAKE_INSTALL_PREFIX &quot;/usr/local&quot;)
+set(VL_INSTALL_PATH &quot;${CMAKE_INSTALL_PREFIX}&quot;)
+set(VL_INC_INSTALL_PATH &quot;include/VisionLib&quot;)
+set(VL_LIB_INSTALL_PATH &quot;lib&quot;)
+set(VL_CFG_INSTALL_PATH &quot;${VL_LIB_INSTALL_PATH}/cmake/VisionLib&quot;)
+</code></pre>
+<p>@tab VisionLibModule.cmake</p>
+<p>```cmake :collapsed-lines</p>
+<h1 id="visionlibconfigcmake">用于收集所有需要参与构建的模块，给 VisionLibConfig.cmake 使用</h1>
+<p>set(VL_LIB_COMPONENTS "" CACHE INTERNAL "VisionLib components")</p>
+<h1 id="-">----------------------------------------------------------------------------</h1>
+<h1 id="visionlib">更新 VisionLib 目标构建的标志位，用于控制是否构建指定模块，不影响用户的选择</h1>
+<h1 id="-build_xxx_init">- 主要更新 <code>BUILD_xxx_INIT</code> 变量</h1>
+<h1 id="-build_xxx_init-on-off">- 在满足条件时，设置 <code>BUILD_xxx_INIT</code> 为 <code>ON</code>，否则为 <code>OFF</code></h1>
+<h1 id="_2">用法:</h1>
+<h1 id="vl_update_build-condition">vl_update_build(<name> [CONDITION])</h1>
+<h1 id="_3">示例:</h1>
+<h1 id="vl_update_buildd-off">vl_update_build(d OFF)</h1>
+<h1 id="-_1">----------------------------------------------------------------------------</h1>
+<p>macro(vl_update_build <em>name)
+  if(${ARGN})
+    set(BUILD</em>${<em>name}_INIT ON)
+  else()
+    set(BUILD</em>${_name}_INIT OFF)
+  endif()
+endmacro()</p>
+<h1 id="-_2">----------------------------------------------------------------------------</h1>
+<h1 id="_4">添加模块</h1>
+<h1 id="_5">用法：</h1>
+<h1 id="vl_add_module">vl_add_module(<name></h1>
+<h1 id="depends-vl_">[DEPENDS <depend1> <depend2> ...]             # 以 vl_ 开头的模块名</h1>
+<h1 id="ext_depends">[EXT_DEPENDS <ext_depend1> <ext_depend2> ...] # 外部依赖</h1>
+<h1 id="_6">)</h1>
+<h1 id="_7">示例：</h1>
+<h1 id="vl_add_modulea">vl_add_module(a</h1>
+<h1 id="depends-b-c">DEPENDS b c</h1>
+<h1 id="ext_depends-opencv_core">EXT_DEPENDS opencv_core</h1>
+<h1 id="_8">)</h1>
+<h1 id="-_3">----------------------------------------------------------------------------</h1>
+<p>macro(vl_add_module <em>name)
+  # 判断是否参与构建
+  if(NOT DEFINED BUILD</em>${<em>name}_INIT)
+    set(BUILD</em>${<em>name}_INIT ON)
+  endif()
+  option(BUILD</em>${<em>name}
+    "Include ${_name} module into the VisionLib build" ${BUILD</em>${_name}_INIT}
+  ) # create option to enable/disable this module</p>
+<p>if(BUILD_${<em>name})
+    # 以 vl</em> 开头的模块名，例如 vl_add_module(a) 会生成 vl_a
+    set(module_name vl_${<em>name})
+    # 解析参数
+    set(multi_args DEPENDS EXT_DEPENDS)
+    cmake_parse_arguments(VLMD "" "" "${multi_args}" ${ARGN})
+    # 创建目标
+    aux_source_directory(src target_src)
+    add_library(${module_name} ${target_src})
+    # 添加头文件搜索路径，可参考【09】生成器表达式
+    target_include_directories(${module_name} PUBLIC
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+      $<INSTALL_INTERFACE:${VL_INC_INSTALL_PATH}>
+      # VL_INC_INSTALL_PATH 定义于 VisionLibInstall.cmake 中
+    )
+    # 添加依赖
+    target_link_libraries(
+      ${module_name}
+      PUBLIC ${VLMD_EXT_DEPENDS}
+    )
+    foreach(m ${VLMD_DEPENDS})
+      target_link_libraries(
+        ${module_name}
+        PUBLIC vl</em>${m}
+      )
+    endforeach()
+    # 安装目标
+    install(
+      DIRECTORY include/visionlib
+      DESTINATION ${VL_INC_INSTALL_PATH}
+    )
+    install(
+      TARGETS ${module_name}
+      EXPORT VisionLibTargets
+      LIBRARY DESTINATION ${VL_LIB_INSTALL_PATH}
+      ARCHIVE DESTINATION ${VL_LIB_INSTALL_PATH}
+    )
+    set(VL_LIB_COMPONENTS ${VL_LIB_COMPONENTS} "${module_name}" CACHE INTERNAL "VisionLib components")
+    unset(module_name)
+  endif()
+endmacro()</p>
+<h1 id="-_4">----------------------------------------------------------------------------</h1>
+<h1 id="_9">添加示例程序</h1>
+<h1 id="_10">用法：</h1>
+<h1 id="vl_add_exe">vl_add_exe(<name></h1>
+<h1 id="sources">SOURCES <source1> <source2> ...               # 源文件</h1>
+<h1 id="depends-vl__1">[DEPENDS <depend1> <depend2> ...]             # 以 vl_ 开头的模块名</h1>
+<h1 id="ext_depends_1">[EXT_DEPENDS <ext_depend1> <ext_depend2> ...] # 外部依赖</h1>
+<h1 id="_11">)</h1>
+<h1 id="_12">示例：</h1>
+<h1 id="vl_add_exedemo">vl_add_exe(demo</h1>
+<h1 id="sources-democpp">SOURCES demo.cpp</h1>
+<h1 id="depends-a-b">DEPENDS a b</h1>
+<h1 id="ext_depends-opencv_highgui">EXT_DEPENDS opencv_highgui</h1>
+<h1 id="_13">)</h1>
+<h1 id="-_5">----------------------------------------------------------------------------</h1>
+<p>macro(vl_add_exe <em>name)
+  # 判断是否参与构建
+  if(NOT DEFINED BUILD</em>${<em>name}_INIT)
+    set(BUILD</em>${<em>name}_INIT ON)
+  endif()
+  option(BUILD</em>${<em>name}
+    "Include ${_name} module into the VisionLib build" ${BUILD</em>${_name}_INIT}
+  ) # create option to enable/disable this module</p>
+<p>if(BUILD_${<em>name})
+    set(module_name vl</em>${<em>name})
+    set(multi_args SOURCES DEPENDS EXT_DEPENDS)
+    cmake_parse_arguments(VLMD "" "" "${multi_args}" ${ARGN})
+    if(NOT VLMD_SOURCES)
+      message(FATAL_ERROR "No sources provided for executable ${module_name}")
+    endif()
+    add_executable(${module_name} ${VLMD_SOURCES})
+    target_link_libraries(
+      ${module_name}
+      PRIVATE ${VLMD_EXT_DEPENDS}
+    )
+    foreach(m ${VLMD_DEPENDS})
+      target_link_libraries(
+        ${module_name}
+        PRIVATE vl</em>${m}
+      )
+    endforeach()
+    install(
+      TARGETS ${module_name}
+      RUNTIME DESTINATION bin
+    )
+    unset(module_name)
+  endif()
+endmacro()</p>
+<pre><code>
+:::
+
+#### 1.4.2 模块配置
+
+::: code-tabs
+
+@tab `modules`
+
+```cmake
+set(cur_path &quot;${CMAKE_CURRENT_SOURCE_DIR}&quot;)
+file(GLOB modules RELATIVE &quot;${cur_path}&quot; &quot;${cur_path}/*&quot;)
+
+foreach(m ${modules})
+  if(IS_DIRECTORY ${cur_path}/${m})
+    add_subdirectory(${cur_path}/${m})
+  endif()
+endforeach()
+
+# 简单起见，也可以直接写
+# add_subdirectory(a)
+# add_subdirectory(b)
+# add_subdirectory(c)
+# add_subdirectory(d)
+</code></pre>
+<p>@tab <code>modules/a</code></p>
+<pre><code class="language-cmake">vl_add_module(a)
+</code></pre>
+<p>@tab <code>modules/b</code></p>
+<pre><code class="language-cmake">vl_add_module(b
+  DEPENDS d
+  EXT_DEPENDS opencv_imgproc
+)
+</code></pre>
+<p>@tab <code>modules/c</code></p>
+<pre><code class="language-cmake">vl_add_module(c
+  DEPENDS a
+  EXT_DEPENDS opencv_core
+)
+</code></pre>
+<p>@tab <code>modules/d</code></p>
+<pre><code class="language-cmake">vl_add_module(d
+  DEPENDS b c
+)
+</code></pre>
+<p>:::</p>
+<h4 id="143">1.4.3 示例程序配置</h4>
+<p>::: code-tabs</p>
+<p>@tab samples/CMakeLists.txt</p>
+<p>```cmake :collapsed-lines
+vl_add_exe(demo
+  SOURCES demo.cpp
+  DEPENDS d
+  EXT_DEPENDS opencv_highgui
+)</p>
+<pre><code>
+:::
+
+#### 1.4.4 VisionLibConfig.cmake.in 配置
+
+若对该文件有疑问，请参考[此处](10.md#_4-xxxconfig-cmake-文件的一般写法)。
+
+::: code-tabs
+
+@tab VisionLibConfig.cmake.in
+
+```cmake :collapsed-lines
+# ----------------------------------------------------------------------------
+#  VisionLib CMake 配置文件
+#
+#                  ** 该文件由 CMake 生成，请勿手动修改 **
+#
+#  基本用法：
+#    find_package(VisionLib REQUIRED)
+#    target_link_libraries(your_target PRIVATE vl_a vl_b ...)
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+#   获取 VisionLib 安装路径
+# ----------------------------------------------------------------------------
+get_filename_component(VL_CONFIG_PATH
+  &quot;${CMAKE_CURRENT_LIST_FILE}&quot; PATH
+)
+set(VL_INSTALL_PATH &quot;@VL_INSTALL_PATH@&quot;)
+
+# ----------------------------------------------------------------------------
+#   设置头文件搜索路径变量
+# ----------------------------------------------------------------------------
+set(VisionLib_INCLUDE_DIRS &quot;${VL_INSTALL_PATH}/@VL_INC_INSTALL_PATH@&quot;)
+
+# ----------------------------------------------------------------------------
+#   设置库文件路径变量
+# ----------------------------------------------------------------------------
+set(VisionLib_LIBS @VL_LIB_COMPONENTS@)
+
+if(NOT TARGET vl_a)
+  include(&quot;${VL_CONFIG_PATH}/VisionLibTargets.cmake&quot;)
+endif()
+
+# ----------------------------------------------------------------------------
+#   搜寻的结果、状态
+# ----------------------------------------------------------------------------
+include(FindPackageHandleStandardArgs)
+
+find_package_handle_standard_args(VisionLib
+  REQUIRED_VARS VL_INSTALL_PATH
+)
+</code></pre>
+<p>:::</p>
+<h3 id="15-thinking">1.5 思考 :thinking:</h3>
+<p>用户在使用 VisionLib 中的 <code>vl_d</code> 目标的时候一般在项目中会写上</p>
+<pre><code class="language-cmake">add_executable(demo main.cpp)
+
+find_package(VisionLib REQUIRED)
+
+target_link_libraries(demo PRIVATE vl_d)
+</code></pre>
+<p>但是这时候编译会出现形如以下内容的报错</p>
+<pre><code>[ 50%] Building CXX object CMakeFiles/demo.dir/main.cpp.o
+In file included from /usr/local/include/VisionLib/visionlib/d.hpp:3,
+                 from /path/to/vl_deploy_demo/main.cpp:1:
+/usr/local/include/VisionLib/visionlib/c.hpp:5:10: fatal error: opencv2/core.hpp: No such file or directory
+    5 | #include &lt;opencv2/core.hpp&gt;
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/demo.dir/build.make:76：CMakeFiles/demo.dir/main.cpp.o] error 1
+make[1]: *** [CMakeFiles/Makefile2:83：CMakeFiles/demo.dir/all] error 2
+make: *** [Makefile:91：all] error 2
+</code></pre>
+<p>请分析出现该问题的原因以及解决方法。</p>
+<p><strong>答案</strong> <a href="11/answer.md#_1-常规非跨平台项目">【点此查看】</a></p>
+<h2 id="2">2. 外部依赖管理</h2>
+<p>C/C++ 一个饱受诟病的话题就是包管理，一些现代的语言都具有比较完善的包管理工具，例如 Python 的 <code>pip</code>、Node.js 的 <code>npm</code> 和 <code>yarn</code>、Rust 的 <code>cargo</code> 等，而 C/C++ 没有一个统一的、官方的包管理工具，导致了 C/C++ 项目的依赖管理非常困难。CMake 提供了 <code>FetchContent</code> 和 <code>ExternalProject</code> 模块，可以用于管理项目的外部依赖，相比于手动下载、编译、安装，<code>FetchContent</code> 和 <code>ExternalProject</code> 已经尽可能的简化了这个过程。</p>
+<p><code>ExternalProject</code> 用于在构建过程中下载、配置、构建和安装外部项目。它通常用于处理大型的、独立的外部项目。而 <code>FetchContent</code> 用于在配置阶段下载和添加外部项目的源代码。它适用于需要将外部项目的源代码直接集成到主项目中的情况。后文将主要介绍 <code>FetchContent</code> 的使用，<code>ExternalProject</code> 的使用可以参考<a href="https://cmake.org/cmake/help/latest/module/ExternalProject.html">官方文档</a>。</p>
+<h3 id="21-fetchcontent">2.1 <code>FetchContent</code></h3>
+<p><code>FetchContent</code> 依赖管理定义于 <code>FetchContent</code> CMake 模块中，可使用</p>
+<pre><code class="language-cmake">include(FetchContent)
+</code></pre>
+<p>来引入。<code>FetchContent</code> 模块提供了 <code>FetchContent_Declare</code>、<code>FetchContent_MakeAvailable</code> 等函数，用于下载、解压、配置、编译、安装外部项目。</p>
+<h4 id="211-fetchcontent_declare">2.1.1 <code>FetchContent_Declare</code></h4>
+<p align="right">—— 声明外部依赖项</p>
+
+<pre><code class="language-cmake">FetchContent_Declare(
+  &lt;name&gt;
+  &lt;contentOptions&gt;...
+  [EXCLUDE_FROM_ALL]          # add in CMake 3.28
+  [SYSTEM]                    # add in CMake 3.25
+  [OVERRIDE_FIND_PACKAGE |
+   FIND_PACKAGE_ARGS args...] # add in CMake 3.24
+)
+</code></pre>
+<p>上述声明的可选项均不是很重要，重要的是 <code>&lt;contentOptions&gt;</code>。以下是使用 <code>FetchContent_Declare</code> 声明 <code>googletest</code> 项目的示例，提供了两种方式声明外部依赖项，一种是使用 Git 存储库作为外部依赖项，另一种是使用 URL 地址作为外部依赖项。</p>
+<p>::: code-tabs</p>
+<p>@tab 使用 Git 存储库</p>
+<pre><code class="language-cmake">FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        703bd9caab50b139428cea1aaff9974ebee5742e # release-1.10.0
+)
+
+# GIT_REPOSITORY: 表示外部依赖项的 Git 仓库地址；
+# GIT_TAG:        表示外部依赖项的 Git 仓库的标签，可以是分支名、标签名、提交哈希等，
+#                 但建议是稳定的标签名防止不稳定的代码进入项目。
+</code></pre>
+<p>@tab 使用 URL 地址</p>
+<pre><code class="language-cmake">FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/main.zip
+)
+
+# URL: 表示外部依赖项的 URL 地址。
+</code></pre>
+<p>:::</p>
+<h4 id="212-fetchcontent_makeavailable">2.1.2 <code>FetchContent_MakeAvailable</code></h4>
+<p align="right">—— 使外部依赖项生效，并加入构建系统</p>
+
+<pre><code class="language-cmake">FetchContent_MakeAvailable(&lt;name1&gt; [&lt;name2&gt;...])
+</code></pre>
+<p>该命令保证在调用结束后，每个命名的依赖项都可供项目使用。例如上文的 <code>googletest</code> 项目，可以使用以下方式使用：</p>
+<pre><code class="language-cmake">FetchContent_MakeAvailable(googletest)
+</code></pre>
+<p>如果有多个外部依赖项，可以使用以下方式使用：</p>
+<pre><code class="language-cmake">FetchContent_MakeAvailable(ext1 ext2 ext3)
+</code></pre>
+<p>该命令将依次配置 <code>ext1</code>、<code>ext2</code> 和 <code>ext3</code> 项目</p>
+<h4 id="213-fetchcontent">2.1.3 <code>FetchContent</code> 示例</h4>
+<p>来自<a href="https://cmake.org/cmake/help/latest/module/FetchContent.html#complex-dependency-hierarchies">【复杂依赖】</a></p>
+<pre><code class="language-cmake">include(FetchContent)
+FetchContent_Declare(
+  projB
+  GIT_REPOSITORY git@mycompany.com:git/projB.git
+  GIT_TAG        4a89dc7e24ff212a7b5167bef7ab079d
+)
+FetchContent_Declare(
+  projC
+  GIT_REPOSITORY git@mycompany.com:git/projC.git
+  GIT_TAG        4ad4016bd1d8d5412d135cf8ceea1bb9
+)
+FetchContent_Declare(
+  projD
+  GIT_REPOSITORY git@mycompany.com:git/projD.git
+  GIT_TAG        origin/integrationBranch
+)
+
+# Order is important, see notes in the discussion further below
+FetchContent_MakeAvailable(projD projB projC)
+</code></pre>
+<h3 id="22">2.2 预期目标</h3>
+<p>现计划开发一个 Windows 平台下的 OPC UA 通信库 <code>opcua</code>，该库依赖于 <code>open62541</code>[^1]，<code>open62541</code> 是一个开源的 OPC UA 协议栈，提供了 OPC UA 服务端和客户端的 C 语言实现。<code>opcua</code> 库的开发需要实现以下功能：</p>
+<ol>
+<li>需要支持 C++17 标准；</li>
+<li>强制依赖 <code>open62541</code>，没有该库需要自动下载、并添加至项目中，如果是自动下载的 <code>open62541</code>，那么 <code>opcua</code> 库在安装时需要将 <code>open62541</code> ==一并安装==；</li>
+<li><code>open62541</code> 的配置要求如下</li>
+<li>==无需==启用 <code>UA_ENABLE_AMALGAMATION</code> 选项；</li>
+<li>其他选项默认即可；</li>
+<li>默认以静态库的形式构建 <code>opcua</code>，但允许用户通过 CMake 选项设置构建为动态库；</li>
+<li><code>opcua</code> 项目的安装目录为 <code>D:\opcua</code>，其中</li>
+<li>头文件安装到 <code>D:\opcua\include</code>；</li>
+<li>静态库、导入库文件安装到 <code>D:\opcua\x64\vc16\lib</code>；</li>
+<li>动态库文件安装到 <code>D:\opcua\x64\vc16\bin</code>（如果构建为动态库）；</li>
+<li>CMake 相关配置文件安装到 <code>D:\opcua\x64\vc16\bin</code>；</li>
+<li><code>open62541</code> 的安装要求由 <code>open62541Config.cmake</code> 指定了，具体安装路径不做详细说明，只需保证 <code>open62541</code> 的安装路径在 <code>D:\opcua</code> 下即可。</li>
+</ol>
+<h3 id="23">2.3 文件结构</h3>
+<p>该项目的文件结构如下，参考自 <a href="https://github.com/cv-rmvl/rmvl/tree/2.x/modules/opcua">rmvl_opcua 模块</a>。</p>
+<p>``` :collapsed-lines
+.
+├── include
+│   ├── opcua
+│   │   ├── client.hpp
+│   │   ├── event.hpp
+│   │   ├── method.hpp
+│   │   ├── object.hpp
+│   │   ├── publisher.hpp
+│   │   ├── server.hpp
+│   │   ├── subscriber.hpp
+│   │   ├── utilities.hpp
+│   │   ├── variable.hpp
+│   │   └── view.hpp
+│   └── opcua.hpp
+└── src
+    ├── client.cpp
+    ├── cvt.hpp
+    ├── helper.cpp
+    ├── publisher.cpp
+    ├── server.cpp
+    └── subscriber.cpp</p>
+<p>6 directories, 19 files</p>
+<pre><code>
+### 2.4 实现
+
+在项目中添加
+
+- `3rdparty/open62541/CMakeLists.txt` —— `open62541` 的配置文件
+- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
+- `cmake/opcuaInstall.cmake` —— 项目的安装路径配置文件
+- `cmake/opcuaConfig.cmake` —— 提供给用户在 `find_package` 时所需要的配置文件（因为整个项目只有一个目标，这里就不使用模板文件了）
+
+共 4 个文件，如下文件结构所示
+
+</code></pre>
+<p>.
+├── 3rdparty
+│   └── open62541
+│       └── CMakeLists.txt (New)
+├── CMakeLists.txt         (New)
+├── cmake
+│   ├── opcuaConfig.cmake  (New)
+│   └── opcuaInstall.cmake (New)
+├── include
+│   └── ...
+└── src
+    └── ...</p>
+<pre><code>
+#### 2.4.1 项目配置
+
+::: code-tabs
+
+@tab CMakeLists.txt
+
+```cmake :collapsed-lines
+# --------------------------------------------------------
+#  项目配置
+# --------------------------------------------------------
+cmake_minimum_required(VERSION 3.16)
+project(opcua)
+
+set(CMAKE_CXX_STANDARD 17)
+option(BUILD_SHARED_LIBS &quot;Build shared libraries?&quot; OFF)
+
+include(cmake/opcuaInstall.cmake)
+
+# --------------------------------------------------------
+#  外部依赖管理
+# --------------------------------------------------------
+find_package(open62541 QUIET)
+if(NOT open62541_FOUND)
+  add_subdirectory(3rdparty/open62541)
+endif()
+
+# --------------------------------------------------------
+#  目标构建
+# --------------------------------------------------------
+aux_source_directory(src target_src)
+add_library(opcua ${target_src})
+
+target_include_directories(opcua PUBLIC
+  $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include&gt;
+  $&lt;INSTALL_INTERFACE:include&gt;
+)
+
+target_link_libraries(opcua
+  PUBLIC open62541::open62541
+)
+
+install(
+  TARGETS opcua
+  EXPORT opcuaTarget
+  LIBRARY DESTINATION ${OPCUA_BIN_INSTALL_PATH}
+  ARCHIVE DESTINATION ${OPCUA_LIB_INSTALL_PATH}
+  RUNTIME DESTINATION ${OPCUA_BIN_INSTALL_PATH}
+  INCLUDES DESTINATION ${OPCUA_INC_INSTALL_PATH}
+)
+
+# --------------------------------------------------------
+#  导出、安装
+# --------------------------------------------------------
+install(
+  EXPORT opcuaTarget
+  FILE opcuaTarget.cmake
+  DESTINATION ${OPCUA_CFG_INSTALL_PATH}
+)
+
+install(
+  FILES cmake/opcuaConfig.cmake
+  DESTINATION ${OPCUA_CFG_INSTALL_PATH}
+)
+</code></pre>
+<p>@tab opcuaInstall.cmake</p>
+<pre><code class="language-cmake">set(CMAKE_INSTALL_PREFIX &quot;D:/opcua&quot;)
+set(OPCUA_INSTALL_PATH &quot;${CMAKE_INSTALL_PREFIX}&quot;)
+set(OPCUA_INC_INSTALL_PATH &quot;include&quot;)
+set(OPCUA_LIB_INSTALL_PATH &quot;x64/vc16/lib&quot;)
+set(OPCUA_BIN_INSTALL_PATH &quot;x64/vc16/bin&quot;)
+# 理论上这个路径要根据 MSVC 版本和系统架构来确定，这里只是举例，就不做额外判断了
+set(OPCUA_CFG_INSTALL_PATH &quot;${OPCUA_LIB_INSTALL_PATH}&quot;)
+</code></pre>
+<p>:::</p>
+<h4 id="242">2.4.2 外部依赖配置</h4>
+<p>::: code-tabs</p>
+<p>@tab 3rdparty/open62541/CMakeLists.txt</p>
+<pre><code class="language-cmake">option(UA_ENABLE_AMALGAMATION &quot;Enable amalgamation&quot; OFF)
+
+FetchContent_Declare(
+  open62541
+  GIT_REPOSITORY https://github.com/open62541/open62541.git
+  GIT_TAG        v1.4.8
+)
+
+FetchContent_MakeAvailable(open62541)
+</code></pre>
+<p>:::</p>
+<h4 id="244-opcuaconfigcmake">2.4.4 opcuaConfig.cmake 配置</h4>
+<p>由于 <code>opcua</code> 项目只有一个目标，因此 <code>opcuaConfig.cmake</code> 文件非常简单，方便起见也不需要向用户提供诸如 <code>opcua_INCLUDE_DIRS</code> 和 <code>opcua_LIBS</code> 这样的集合变量，因此 <code>opcuaConfig.cmake</code> 只需要完成以下功能即可</p>
+<ul>
+<li>提供 CMake 目标变量（导入 <code>opcua</code> 目标）</li>
+<li>提供 <code>find_package</code> 搜索的结果和状态</li>
+</ul>
+<p>::: code-tabs</p>
+<p>@tab opcuaConfig.cmake</p>
+<pre><code class="language-cmake"># ----------------------------------------------------------------------------
+#  opcua CMake 配置文件
+#
+#  基本用法：
+#    find_package(opcua REQUIRED)
+#    target_link_libraries(your_target PRIVATE opcua)
+# ----------------------------------------------------------------------------
+
+if(NOT TARGET opcua)
+  include(${CMAKE_CURRENT_LIST_DIR}/opcuaTarget.cmake)
+endif()
+
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(opcua)
+</code></pre>
+<p>:::</p>
+<h2 id="3">3. 交叉编译项目</h2>
+<p>CPU 有不同的架构、指令集，C/C++ 开发中的代码编译后的可执行文件，在不同的 CPU 上直接运行时可能会出现问题。对此有两种解决方案：</p>
+<ul>
+<li>在目标平台上直接编译代码，例如为了在 64 位 ARM 平台上运行代码，可以直接在 <code>aarch64</code> 平台上编译代码。但一般来说，ARM 平台常见于嵌入式设备，这类设备可能缺少编译工具链，在性能上也非常有限，因此这种方式并不适用于所有情况。</li>
+<li>直接在 PC 上编译目标平台的代码，然后将编译好的代码移植（复制粘贴）到目标平台上运行。这种方式称为==交叉编译==，在嵌入式 Linux 开发中非常常见，例如在 <code>amd64</code> 平台上编译 ARM 平台的代码。</li>
+</ul>
+<h3 id="31">3.1 工具链文件的编写</h3>
+<p>CMake 提供了强大的交叉编译支持，而且仅需一个==工具链文件==即可完成交叉编译的工作。工具链文件是一个 CMake 脚本，用于指定交叉编译的工具链，例如编译器、链接器、库文件路径等。工具链文件没有严格的命名规则，就如同普通的 <code>*.cmake</code> 文件一样，不过一般习惯上会在工具链文件的名字中提到平台或 <code>toolchain</code> 字样，在 CMake 配置过程中，使用 <code>-DCMAKE_TOOLCHAIN_FILE</code> 选项指定工具链文件，例如</p>
+<pre><code class="language-shell">cmake -DCMAKE_TOOLCHAIN_FILE=toolchain-aarch64.cmake ..
+</code></pre>
+<p>一般来说，工具链文件的内容如下：</p>
+<pre><code class="language-cmake"># 指定目标系统
+set(CMAKE_SYSTEM_NAME Linux)
+# 指定目标处理器架构
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+# 指定目标系统的根目录，将直接影响编译器和链接器的行为
+set(CMAKE_SYSROOT &quot;/path/to/sysroot&quot;)
+
+# 指定 C 交叉编译器
+set(CMAKE_C_COMPILER &quot;/path/to/arm-gcc&quot;)
+# 指定 C++ 交叉编译器
+set(CMAKE_CXX_COMPILER &quot;/path/to/arm-g++&quot;)
+
+# 指定 CMake 查找文件的路径，例如 find_package
+set(CMAKE_FIND_ROOT_PATH &quot;/path/to/sysroot&quot;)
+# 不查找程序
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+# 只查找库
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+# 只查找头文件
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+</code></pre>
+<h3 id="32">3.2 预期目标</h3>
+<p>现计划开发一个 EtherCAT 协议的机械臂驱动程序 <code>ec_robot</code>，该程序需要在 aarch64 架构的 Linux 平台下运行，<code>ec_robot</code> 项目的开发需要实现以下功能：</p>
+<ol>
+<li>需要使用指定的工具链进行交叉编译，目标系统根目录假设在 <code>/home/ecdev/buildroot/host/</code> 下</li>
+<li>C 交叉编译器为 <code>aarch64-linux-gnu-gcc</code>，位于目标系统根目录的 <code>/usr/bin</code> 目录下；</li>
+<li>C++ 交叉编译器为 <code>aarch64-linux-gnu-g++</code>，位于目标系统根目录的 <code>/usr/bin</code> 目录下；</li>
+<li>需要支持 C++17 标准；</li>
+<li>强制依赖 IgH 实现的 <code>EtherCAT</code> 主站驱动库，对应的配置文件在 <code>/home/ecdev/buildroot/host/usr/lib/cmake/ethercat</code> 下，对应的目标名为 <code>EtherLab::EtherCAT</code>；</li>
+<li><code>ec_robot</code> 项目==无需==安装，只需构建即可。</li>
+<li>没有复杂的文件结构，本项目只有一个 <code>src</code> 目录，内容如下：</li>
+</ol>
+<p><code>.
+   └── src
+       ├── ec_robot.cpp
+       ├── ec_robot.hpp
+       └── main.cpp</code></p>
+<h3 id="33">3.3 分析</h3>
+<ul>
+<li>需要实现一个工具链文件 <code>toolchain-aarch64.cmake</code>，用于指定交叉编译的工具链；</li>
+<li><code>EtherCATConfig.cmake</code> 文件在 <code>find_package</code> 的 Config 模式能够直接找到的位置，前提是工具链文件中的 <code>CMAKE_FIND_ROOT_PATH</code> 设置正确；</li>
+<li>项目除了工具链文件外，只需要一个 <code>CMakeLists.txt</code> 文件，并且构建方式和普通项目一样。</li>
+</ul>
+<h3 id="34">3.4 实现</h3>
+<p>在项目中添加</p>
+<ul>
+<li><code>platform/toolchain-aarch64.cmake</code> —— 交叉编译工具链文件</li>
+<li><code>CMakeLists.txt</code> —— 项目根目录的 CMake 配置文件</li>
+</ul>
+<p>共 2 个文件，如下文件结构所示</p>
+<pre><code>.
+├── CMakeLists.txt              (New)
+├── src
+│   ├── ec_robot.cpp
+│   ├── ec_robot.hpp
+│   └── main.cpp
+└── platform
+    └── toolchain-aarch64.cmake (New)
+</code></pre>
+<p>::: code-tabs</p>
+<p>@tab CMakeLists.txt</p>
+<p>```cmake :collapsed-lines
+cmake_minimum_required(VERSION 3.16)</p>
+<p>project(ec_robot)</p>
+<p>set(CMAKE_CXX_STANDARD 17)</p>
+<p>find_package(EtherCAT REQUIRED)</p>
+<p>aux_source_directory(src target_src)
+add_executable(ec_robot ${target_src})</p>
+<p>target_link_libraries(ec_robot
+  PRIVATE EtherLab::EtherCAT
+)</p>
+<pre><code>
+@tab platform/toolchain-aarch64.cmake
+
+```cmake
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+
+set(CMAKE_SYSROOT &quot;/home/ecdev/buildroot/host&quot;)
+
+set(CMAKE_C_COMPILER &quot;/home/ecdev/buildroot/host/usr/bin/aarch64-linux-gnu-gcc&quot;)
+set(CMAKE_CXX_COMPILER &quot;/home/ecdev/buildroot/host/usr/bin/aarch64-linux-gnu-g++&quot;)
+
+set(CMAKE_FIND_ROOT_PATH &quot;/home/ecdev/buildroot/host&quot;)
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+</code></pre>
+<p>:::</p>
+<p>不要惊讶为什么 <code>CMakeLists.txt</code> 中没有引用工具链文件，因为习惯上会在 CMake 执行配置生成过程时再指定工具链文件。</p>
+<p>打开项目根目录，在命令行中执行</p>
+<pre><code class="language-shell">mkdir build
+cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=platform/toolchain-aarch64.cmake
+cmake --build build
+</code></pre>
+<p>即可完成编译。可能有部分读者没有见过 <code>-B</code> 和 <code>-S</code> 选项，这是 CMake 3.13 版本引入的<a href="https://cmake.org/cmake/help/latest/manual/cmake.1.html#options">功能</a>。<code>-B</code> 选项用于指定构建目录，<code>-S</code> 选项用于指定源码目录，这样可以将构建目录和源码目录分开，避免在源码目录中生成构建文件。</p>
+<p>编译后的可执行文件在 <code>build</code> 目录下，可以直接复制到目标平台上运行，例如可以使用 SSH 工具的 <code>scp</code> 命令将文件复制到目标平台上，但要确保目标平台有 <code>libethercat.so</code> 的库文件，并且保证复制后的可执行文件能够找到。</p>
+<h2 id="4">4. 跨平台项目</h2>
+<p>交叉编译项目虽然涉及到不同的平台，但是只需要一个工具链文件即可，因为大部分交叉编译项目都只涉及 Linux 内核，只不过涉及到不同的 CPU 架构、OS、文件系统，而跨平台项目则需要考虑不同平台的差异，例如 Windows 和 Linux 两个平台的差异就非常大。</p>
+<p>跨平台是项目开发的一个重要方向，按照 ISO 标准编写的 C++ 程序跨平台性较好，但是在实际开发中，往往会使用一些平台相关或者是编译器相关的 API，这就导致了跨平台的困难。使用 CMake 完成跨平台项目的开发是一个不错的选择，CMake 提供了很多工具和函数，可以帮助开发者更好的实现跨平台项目。一般来说，跨平台项目的开发需要考虑以下几个方面：</p>
+<ul>
+<li>编译器的编译选项不同，例如用于控制 C++ 语言标准的选项，在 GCC 中是 <code>-std=c++&lt;ver&gt;</code>，在 MSVC 中是 <code>/std:c++&lt;ver&gt;</code>；</li>
+</ul>
+<p>::: important
+  不过在 CMake 中，可以使用 <code>CMAKE_CXX_STANDARD</code> 变量来指定 C++ 标准，CMake 会根据不同的编译器自动选择正确的编译选项，这里只是举个例子。
+  :::</p>
+<ul>
+<li>不同平台的库文件后缀名不同，例如 Windows 下的静态库文件后缀名是 <code>*.lib</code>，Linux 下的静态库文件后缀名是 <code>*.a</code>，并且库文件的组织方式也不同，Windows 下在链接动态库时需要使用导入库 <code>*.lib</code>，Linux 下在链接动态库时则直接使用动态库 <code>*.so</code>。</li>
+<li>默认安装路径不同，Windows 下的默认安装路径是 <code>C:\Program Files</code>，Linux 下的默认安装路径是 <code>/usr/local</code>，但 Windows 不建议直接安装到 <code>C:\Program Files</code>，而 Linux 则没有过多的限制。</li>
+</ul>
+<h3 id="41">4.1 预期目标</h3>
+<p>现计划开发一个跨平台的基础数值算法和最优化库 <code>numopt</code>，该库需要支持 Windows 和 Linux 两个平台，<code>numopt</code> 项目的开发需要实现以下功能：</p>
+<ol>
+<li>需要支持 C++17 标准；</li>
+<li>默认以静态库的形式构建 <code>numopt</code>，但允许用户通过 CMake 选项设置构建为动态库；</li>
+<li>库包含了 <code>core</code>、<code>num</code> 和 <code>opt</code> 3 个模块和 <code>numopt_version</code> 1 个可执行文件，其中 <code>num</code> 和 <code>opt</code> 依赖 <code>core</code> 模块，<code>numopt_version</code> 依赖 <code>core</code> 模块；</li>
+<li><code>numopt</code> 项目的默认安装目录如下</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">内容</th>
+<th style="text-align: center;">Window 安装路径</th>
+<th style="text-align: center;">Linux 安装路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">项目根目录</td>
+<td style="text-align: center;"><code>${CMAKE_BINARY_DIR}/install</code> 记作 <code>&lt;prefix&gt;</code></td>
+<td style="text-align: center;"><code>/usr/local</code> 记作 <code>&lt;prefix&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">头文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\include</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/include/numopt</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">可执行文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\bin</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/bin</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">静态库文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/lib</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">动态库文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\bin</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/lib</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">导入库文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
+<td style="text-align: center;">——</td>
+</tr>
+<tr>
+<td style="text-align: center;">CMake 配置文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/lib/cmake/numopt</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>需要提供 <code>uninstall</code> 目标，用于卸载已安装的文件，在执行</li>
+</ol>
+<p><code>shell
+   cmake --build . --target uninstall</code></p>
+<p>后，安装目录下的文件都会被删除。</p>
+<p>文件结构如下：</p>
+<p>``` :collapsed-lines
+.
+├── modules
+│   ├── core
+│   │   ├── include
+│   │   │   └── ...
+│   │   └── src
+│   │       └── ...
+│   ├── num
+│   │   ├── include
+│   │   │   └── ...
+│   │   └── src
+│   │       └── ...
+│   └── opt
+│       ├── include
+│       │   └── ...
+│       └── src
+│           └── ...
+└── samples
+    └── version.cpp</p>
+<pre><code>
+### 4.2 实现
+
+在项目构建部分和[常规非跨平台项目](#_1-常规非跨平台项目)一致，只是在安装部分需要考虑不同平台的差异，因此跨平台项目只是比常规项目多了一些平台相关的配置。
+
+和常规非跨平台项目一样，在项目中添加
+
+- `modules/core/CMakeLists.txt` —— `core` 模块的 CMake 配置文件
+- `modules/num/CMakeLists.txt` —— `num` 模块的 CMake 配置文件
+- `modules/opt/CMakeLists.txt` —— `opt` 模块的 CMake 配置文件
+- `modules/CMakelists.txt` —— 项目的模块列表
+- `samples/CMakeLists.txt` —— 示例程序的 CMake 配置文件
+- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
+- `cmake/numoptInstall.cmake` —— 与项目安装路径相关的配置文件
+- `cmake/templates/numoptConfig.cmake.in` —— 项目的 CMake 配置文件的模板文件
+- `cmake/templates/cmake_uninstall.cmake.in` —— 自定义卸载目标的模板文件
+
+共 7 个文件，如下文件结构所示
+
+``` :collapsed-lines
+.
+├── CMakeLists.txt                   (New)
+├── cmake
+│   ├── numoptInstall.cmake          (New)
+│   └── templates
+│       ├── cmake_uninstall.cmake.in (New)
+│       └── numoptConfig.cmake.in    (New)
+├── modules
+│   ├── core
+│   │   ├── CMakeLists.txt           (New)
+│   │   ├── include
+│   │   │   └── ...
+│   │   └── src
+│   │       └── ...
+│   ├── num
+│   │   ├── CMakeLists.txt           (New)
+│   │   ├── include
+│   │   │   └── ...
+│   │   └── src
+│   │       └── ...
+│   ├── opt
+│   │   ├── CMakeLists.txt           (New)
+│   │   ├── include
+│   │   │   └── ...
+│   │   └── src
+│   │       └── ...
+│   └── CMakeLists.txt               (New)
+└── samples
+    ├── CMakeLists.txt               (New)
+    └── version.cpp
+</code></pre>
+<p>方便起见，就不添加类似于 <code>vl_add_module</code> 和 <code>vl_add_exe</code> 的宏了。</p>
+<h4 id="421">4.2.1 项目配置</h4>
+<p>::: code-tabs</p>
+<p>@tab CMakeLists.txt</p>
+<p>```cmake :collapsed-lines</p>
+<h1 id="-_6">----------------------------------------------------------------------------</h1>
+<h1 id="_14">项目配置</h1>
+<h1 id="-_7">----------------------------------------------------------------------------</h1>
+<p>cmake_minimum_required(VERSION 3.16)</p>
+<p>project(
+  numopt
+  LANGUAGES CXX
+)</p>
+<p>set(CMAKE_CXX_STANDARD 17)</p>
+<p>option(BUILD_SHARED_LIBS "Build shared libraries?" OFF)</p>
+<p>include(cmake/numoptInstall.cmake)</p>
+<h1 id="-_8">----------------------------------------------------------------------------</h1>
+<h1 id="_15">目标构建</h1>
+<h1 id="-_9">----------------------------------------------------------------------------</h1>
+<h1 id="main-target">main target</h1>
+<p>add_subdirectory(modules)</p>
+<h1 id="executable-target">executable target</h1>
+<p>add_subdirectory(samples)</p>
+<h1 id="uninstall-target">uninstall target</h1>
+<p>if(NOT TARGET uninstall)
+  configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/templates/cmake_uninstall.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+    IMMEDIATE @ONLY
+  )</p>
+<p>add_custom_target(uninstall
+    COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake
+  )
+endif()</p>
+<h1 id="-_10">----------------------------------------------------------------------------</h1>
+<h1 id="_16">导出、安装</h1>
+<h1 id="-_11">----------------------------------------------------------------------------</h1>
+<p>install(
+  EXPORT numoptModules
+  DESTINATION ${NUMOPT_CFG_INSTALL_PATH}
+  FILE numoptModules.cmake
+)</p>
+<p>file(RELATIVE_PATH NUMOPT_INSTALL_RELATIVE_PATH 
+  "${CMAKE_INSTALL_PREFIX}/${NUMOPT_CFG_INSTALL_PATH}/" ${CMAKE_INSTALL_PREFIX})</p>
+<p>configure_file(
+  cmake/numoptConfig.cmake.in
+  "${CMAKE_CURRENT_BINARY_DIR}/numoptConfig.cmake"
+  @ONLY
+)</p>
+<p>install(
+  FILES "${CMAKE_CURRENT_BINARY_DIR}/numoptConfig.cmake"
+  DESTINATION ${NUMOPT_CFG_INSTALL_PATH}
+)</p>
+<pre><code>
+@tab cmake/numoptInstall.cmake
+
+```cmake :collapsed-lines
+# ----------------------------------------------------------
+#  项目安装路径的预先配置
+# ----------------------------------------------------------
+if(NOT CMAKE_TOOLCHAIN_FILE)
+  if(WIN32)
+    set(CMAKE_INSTALL_PREFIX &quot;${CMAKE_BINARY_DIR}/install&quot;)
+  else()
+    set(CMAKE_INSTALL_PREFIX &quot;/usr/local&quot;)
+  endif()
+else()
+  # 交叉编译时的安装路径
+  set(CMAKE_INSTALL_PREFIX &quot;${CMAKE_BINARY_DIR}/install&quot;)
+endif()
+
+# ----------------------------------------------------------
+#  MSVC 安装路径的预先配置
+# ----------------------------------------------------------
+if(MSVC)
+  if(&quot;${CMAKE_GENERATOR}&quot; MATCHES &quot;(Win64|IA64)&quot;)
+    set(ARCH_forMSVC &quot;x64&quot;)
+  elseif(&quot;${CMAKE_GENERATOR_PLATFORM}&quot; MATCHES &quot;ARM64&quot;)
+    set(ARCH_forMSVC &quot;ARM64&quot;)
+  elseif(&quot;${CMAKE_GENERATOR}&quot; MATCHES &quot;ARM&quot;)
+    set(ARCH_forMSVC &quot;ARM&quot;)
+  elseif(&quot;${CMAKE_SIZEOF_VOID_P}&quot; STREQUAL &quot;8&quot;)
+    set(ARCH_forMSVC &quot;x64&quot;)
+  else()
+    set(ARCH_forMSVC x86)
+  endif()
+
+  if(MSVC_VERSION EQUAL 1400)
+    set(RUNTIME_forMSVC vc8)
+  elseif(MSVC_VERSION EQUAL 1500)
+    set(RUNTIME_forMSVC vc9)
+  elseif(MSVC_VERSION EQUAL 1600)
+    set(RUNTIME_forMSVC vc10)
+  elseif(MSVC_VERSION EQUAL 1700)
+    set(RUNTIME_forMSVC vc11)
+  elseif(MSVC_VERSION EQUAL 1800)
+    set(RUNTIME_forMSVC vc12)
+  elseif(MSVC_VERSION EQUAL 1900)
+    set(RUNTIME_forMSVC vc14)
+  elseif(MSVC_VERSION MATCHES &quot;^191[0-9]$&quot;)
+    set(RUNTIME_forMSVC vc15)
+  elseif(MSVC_VERSION MATCHES &quot;^192[0-9]$&quot;)
+    set(RUNTIME_forMSVC vc16)
+  elseif(MSVC_VERSION MATCHES &quot;^19[34][0-9]$&quot;)
+    set(RUNTIME_forMSVC vc17)
+  endif()
+endif()
+
+# ----------------------------------------------------------
+#  安装路径设置
+# ----------------------------------------------------------
+if(MSVC)
+  if(DEFINED ARCH_forMSVC AND DEFINED RUNTIME_forMSVC)
+    set(MSVC_INSTALL_PREFIX &quot;${ARCH_forMSVC}/${RUNTIME_forMSVC}&quot;)
+  else()
+    set(MSVC_INSTALL_PREFIX &quot;&quot;)
+  endif()
+
+  set(NUMOPT_INC_INSTALL_PATH &quot;include&quot;)
+  set(NUMOPT_LIB_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/lib&quot;)
+  set(NUMOPT_BIN_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/bin&quot;)
+  set(NUMOPT_CFG_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/lib&quot;)
+elseif()
+  set(NUMOPT_INC_INSTALL_PATH &quot;include/numopt&quot;)
+  set(NUMOPT_LIB_INSTALL_PATH &quot;lib&quot;)
+  set(NUMOPT_BIN_INSTALL_PATH &quot;bin&quot;)
+  set(NUMOPT_CFG_INSTALL_PATH &quot;lib/cmake/numopt&quot;)
+endif()
+</code></pre>
+<p>:::</p>
+<h4 id="422">4.2.2 模块配置</h4>
+<p><code>modules</code> 目录下的 <code>CMakeLists.txt</code> 和各个模块的 <code>CMakeLists.txt</code> 文件如下：</p>
+<p>::: code-tabs</p>
+<p>@tab modules</p>
+<pre><code class="language-cmake">add_subdirectory(core)
+add_subdirectory(num)
+add_subdirectory(opt)
+</code></pre>
+<p>@tab <code>core</code> 模块</p>
+<p>```cmake :collapsed-lines
+aux_source_directory(src core_src)</p>
+<p>add_library(core ${core_src})</p>
+<p>target_include_directories(core PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:${NUMOPT_INC_INSTALL_PATH}>
+)</p>
+<p>install(TARGETS core
+  LIBRARY DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+  ARCHIVE DESTINATION ${NUMOPT_LIB_INSTALL_PATH}
+  RUNTIME DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+  INCLUDES DESTINATION ${NUMOPT_INC_INSTALL_PATH}
+)</p>
+<pre><code>
+@tab `num` 模块
+
+```cmake :collapsed-lines
+aux_source_directory(src num_src)
+
+add_library(num ${num_src})
+
+target_include_directories(num PUBLIC
+  $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include&gt;
+  $&lt;INSTALL_INTERFACE:${NUMOPT_INC_INSTALL_PATH}&gt;
+)
+
+target_link_libraries(num PUBLIC core)
+
+install(TARGETS num
+  LIBRARY DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+  ARCHIVE DESTINATION ${NUMOPT_LIB_INSTALL_PATH}
+  RUNTIME DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+  INCLUDES DESTINATION ${NUMOPT_INC_INSTALL_PATH}
+)
+</code></pre>
+<p>@tab <code>opt</code> 模块</p>
+<p>```cmake :collapsed-lines
+aux_source_directory(src opt_src)</p>
+<p>add_library(opt ${opt_src})</p>
+<p>target_include_directories(opt PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:${NUMOPT_INC_INSTALL_PATH}>
+)</p>
+<p>target_link_libraries(opt PUBLIC core)</p>
+<p>install(TARGETS opt
+  LIBRARY DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+  ARCHIVE DESTINATION ${NUMOPT_LIB_INSTALL_PATH}
+  RUNTIME DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+  INCLUDES DESTINATION ${NUMOPT_INC_INSTALL_PATH}
+)</p>
+<pre><code>
+:::
+
+::: tip
+由于没有使用宏，`core` 模块、`num` 模块和 `opt` 模块的配置写了大量的重复代码，可读性降低。因此在必要时候使用宏是一个不错的选择。这里就不再展示宏的使用，读者可以按照[常规非跨平台项目配置](#_1-4-1-项目配置)中的内容自行添加宏。
+:::
+
+#### 4.2.3 示例程序配置
+
+::: code-tabs
+
+@tab samples/CMakeLists.txt
+
+```cmake :collapsed-lines
+add_executable(numopt_version version.cpp)
+
+target_link_libraries(numopt_version PRIVATE core)
+</code></pre>
+<p>:::</p>
+<h4 id="424-cmake">4.2.4 CMake 配置文件模板</h4>
+<p><code>cmake_uninstall.cmake.in</code> 文件参考自<a href="https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake">此处</a>，用户在实际使用时最好加上出处。</p>
+<p>::: code-tabs</p>
+<p>@tab numoptConfig.cmake.in</p>
+<p>```cmake :collapsed-lines</p>
+<h1 id="-_12">----------------------------------------------------------------------------</h1>
+<h1 id="numopt-cmake">numopt CMake 配置文件</h1>
+<h1 id="_17"></h1>
+<h1 id="cmake">** 该文件由 CMake 生成，请勿手动修改 **</h1>
+<h1 id="_18"></h1>
+<h1 id="_19">基本用法：</h1>
+<h1 id="find_packagenumopt-required">find_package(numopt REQUIRED)</h1>
+<h1 id="target_link_librariesyour_target-private-numopt_libs">target_link_libraries(your_target PRIVATE ${numopt_LIBS})</h1>
+<h1 id="-_13">----------------------------------------------------------------------------</h1>
+<h1 id="-_14">----------------------------------------------------------------------------</h1>
+<h1 id="numopt">获取 numopt 安装路径</h1>
+<h1 id="-_15">----------------------------------------------------------------------------</h1>
+<p>get_filename_component(NUMOPT_CONFIG_PATH "${CMAKE_CURRENT_LIST_FILE}" PATH)
+get_filename_component(NUMOPT_INSTALL_PATH
+  "${NUMOPT_CONFIG_PATH}/@NUMOPT_INSTALL_RELATIVE_PATH@" REALPATH
+)</p>
+<h1 id="-_16">----------------------------------------------------------------------------</h1>
+<h1 id="_20">设置头文件搜索路径变量</h1>
+<h1 id="-_17">----------------------------------------------------------------------------</h1>
+<p>set(numopt_INCLUDE_DIRS "${NUMOPT_INSTALL_PATH}/@NUMOPT_INC_INSTALL_PATH@")</p>
+<h1 id="-_18">----------------------------------------------------------------------------</h1>
+<h1 id="_21">设置库文件路径变量</h1>
+<h1 id="-_19">----------------------------------------------------------------------------</h1>
+<p>set(numopt_LIBS @NUMOPT_LIB_COMPONENTS@)</p>
+<p>if(NOT TARGET core)
+  include("${NUMOPT_CONFIG_PATH}/numoptModules.cmake")
+endif()</p>
+<h1 id="-_20">----------------------------------------------------------------------------</h1>
+<h1 id="_22">搜寻的结果、状态</h1>
+<h1 id="-_21">----------------------------------------------------------------------------</h1>
+<p>include(FindPackageHandleStandardArgs)</p>
+<p>find_package_handle_standard_args(numopt
+  REQUIRED_VARS numopt_INSTALL_PATH
+)</p>
+<pre><code>
+@tab cmake_uninstall.cmake.in
+
+```cmake :collapsed-lines
+# -----------------------------------------------
+# File that provides &quot;make uninstall&quot; target
+# We use the file 'install_manifest.txt'
+#
+# Details:
+# https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake
+# -----------------------------------------------
+
+if(NOT EXISTS &quot;@CMAKE_BINARY_DIR@/install_manifest.txt&quot;)
+  message(FATAL_ERROR
+    &quot;Cannot find install manifest: \&quot;@CMAKE_BINARY_DIR@/install_manifest.txt\&quot;&quot;
+  )
+endif()
+
+file(READ &quot;@CMAKE_BINARY_DIR@/install_manifest.txt&quot; files)
+string(REGEX REPLACE &quot;\n&quot; &quot;;&quot; files &quot;${files}&quot;)
+foreach(file ${files})
+  message(STATUS &quot;Uninstalling: $ENV{DESTDIR}${file}&quot;)
+  if(IS_SYMLINK &quot;$ENV{DESTDIR}${file}&quot; OR EXISTS &quot;$ENV{DESTDIR}${file}&quot;)
+    execute_process(
+      COMMAND &quot;@CMAKE_COMMAND@&quot; &quot;-E&quot; &quot;remove&quot; &quot;$ENV{DESTDIR}${file}&quot;
+      OUTPUT_VARIABLE rm_out
+      RESULT_VARIABLE rm_retval
+    )
+    if(NOT &quot;${rm_retval}&quot; STREQUAL 0)
+      message(FATAL_ERROR &quot;Problem when removing $ENV{DESTDIR}${file}&quot;)
+    endif()
+  else(IS_SYMLINK &quot;$ENV{DESTDIR}${file}&quot; OR EXISTS &quot;$ENV{DESTDIR}${file}&quot;)
+    message(STATUS &quot;File $ENV{DESTDIR}${file} does not exist.&quot;)
+  endif()
+endforeach()
+</code></pre>
+<p>:::</p>
+<h3 id="43-visual-studio">4.3 针对 Visual Studio 的特殊设计</h3>
+<p>对于多个目标的项目，会生成多个库文件，例如本 <code>numopt</code> 项目，在 Windows 下会生成 <code>core.lib</code>、<code>num.lib</code> 和 <code>opt.lib</code> 3 个库文件，在 Visual Studio 中，利用这 3 个库文件进行开发，需要再项目中手动添加，这样会增加开发者的工作量。为了简化开发者的工作，可以将这 3 个库文件打包成一个 <code>numopt_world.lib</code> 文件，这样开发者只需要添加一个库文件即可。</p>
+<p>例如 OpenCV 原先会生成 <code>opencv_core.lib</code>、<code>opencv_imgproc.lib</code> 以及 <code>opencv_highgui.lib</code> 等导入库文件，在启用 <code>BUILD_opencv_world</code> 选项后，则不再生成原先的库文件，而是生成一个 <code>opencv_world.lib</code> 导入库文件。这时开发者在使用 Visual Studio 对项目的导入库进行配置的时候，只需添加 <code>opencv_world.lib</code> 该导入库文件的路径和名字即可。</p>
+<p>一个简单的实现方式是在 <code>core</code>、<code>num</code> 和 <code>opt</code> 模块的 <code>CMakeLists.txt</code> 文件中添加判断，下面以 <code>core</code> 模块为例：</p>
+<pre><code class="language-cmake">if(NOT BUILD_WORLD)
+  # 原先的配置
+else()
+  aux source_directory(src core_src)
+  set(NUMOPT_SRC &quot;${NUMOPT_SRCS} ${core_src}&quot; CACHE INTERNAL &quot;&quot;)
+  set(NUMOPT_INC &quot;${NUMOPT_INC} ${CMAKE_CURRENT_SOURCE_DIR}/include&quot; CACHE INTERNAL &quot;&quot;)
+  # 由于没有外部依赖库，所以就不写 NUMOPT_LIB 了
+endif()
+</code></pre>
+<p>修改项目的根目录的 <code>CMakeLists.txt</code> 文件</p>
+<p>```cmake :collapsed-lines</p>
+<h1 id="_23">...</h1>
+<h1 id="-_22">----------------------------------------------------------------------------</h1>
+<h1 id="_24">目标构建</h1>
+<h1 id="-_23">----------------------------------------------------------------------------</h1>
+<p>if(BUILD_WORLD)
+  set(NUMOPT_SRC "" CACHE INTERNAL "")
+  set(NUMOPT_INC "" CACHE INTERNAL "")
+  # 由于没有外部依赖库，所以就不写 NUMOPT_LIB 了
+endif()</p>
+<p>add_subdirectory(modules)
+add_subdirectory(samples)</p>
+<p>if(BUILD_WORLD)
+  add_library(numopt_world ${NUMOPT_SRC})
+  target_include_directories(numopt_world PUBLIC
+    $<BUILD_INTERFACE:${NUMOPT_INC}>
+    $<INSTALL_INTERFACE:${NUMOPT_INC_INSTALL_PATH}>
+  )
+endif()</p>
+<h1 id="_25">...</h1>
+<pre><code>
+还有一种实现方式是使用[对象库](05.md#_3-1-1-对象库)，将 `core`、`num` 和 `opt` 模块的源文件编译成对象文件，然后再将这些对象文件链接成一个库文件。例如
+
+```cmake
+add_library(core_obj OBJECT ${core_src})
+</code></pre>
+<p>开发者可以自行增加 <code>if</code> 判断，根据自己的需求来选择合适的实现方式。</p>
+<p>使用形如以下的代码来安装：</p>
+<p>::: code-tabs</p>
+<p>@tab <code>core</code> 模块</p>
+<pre><code class="language-cmake">add_library(core_obj OBJECT ${core_src})
+
+install(TARGETS core_obj
+  EXPORT numoptModules
+)
+</code></pre>
+<p>@tab <code>num</code> 模块</p>
+<pre><code class="language-cmake">add_library(num_obj OBJECT ${num_src})
+
+install(TARGETS num_obj
+  EXPORT numoptModules
+)
+</code></pre>
+<p>@tab <code>opt</code> 模块</p>
+<pre><code class="language-cmake">add_library(opt_obj OBJECT ${opt_src})
+
+install(TARGETS opt_obj
+  EXPORT numoptModules
+)
+</code></pre>
+<p>:::</p>
+<p>不过，对象库等效于安装一个接口库，安装接口库的效果可以参考<a href="../10/#思考">【10】项目的导出与安装 - 思考</a>中的第 2 个问题，因此在导出配置文件中也具有相应的信息，例如 <code>numoptModules.cmake</code> 导出配置文件中会包含大致如下内容</p>
+<pre><code class="language-cmake"># Create imported target core_obj
+add_library(core_obj INTERFACE IMPORTED)
+
+# Create imported target num_obj
+add_library(num_obj INTERFACE IMPORTED)
+
+# Create imported target opt_obj
+add_library(opt_obj INTERFACE IMPORTED)
+</code></pre>
+<p>::: warning
+如果希望在 <code>numoptModules.cmake</code> 导出配置文件中只包含一个 <code>numopt_world</code> 目标而不包含 <code>core_obj</code> 等由对象库导出生成的接口库，可以使用第一种方案。
+:::</p>
+<h2 id="_26">写在后面</h2>
+<p>有关 CMake 项目实战的内容可以参考 <a href="https://github.com/cv-rmvl/rmvl.git">RMVL</a>[^2] 项目的 CMake 框架，本文涉及到的</p>
+<ul>
+<li>常规目标构建的内容</li>
+<li>外部依赖管理的内容</li>
+<li>交叉编译的内容</li>
+<li>跨平台的内容</li>
+</ul>
+<p>对应的 CMake 配置，都能在 RMVL 项目中找到。</p>
+<p>[^1]: open62541 developers. <a href="https://github.com/open62541/open62541.git">open62541</a>, September 2014.
+[^2]: zhaoxi and other RMVL developers. <a href="https://github.com/cv-rmvl/rmvl.git">rmvl</a>, September 2023.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright © AI之覔</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

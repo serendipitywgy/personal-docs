@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="AI之覔">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>【01】安装与基本介绍 - personal-知识库</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../../stylesheets/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/diff.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/llvm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/nasm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/txt.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">personal-知识库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">技术博文</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">开发工具</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">cmake</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">【01】安装与基本介绍</a>
+</li>
+            
+<li>
+    <a href="../02/" class="dropdown-item">【02】CMake 的文件分布</a>
+</li>
+            
+<li>
+    <a href="../03/" class="dropdown-item">【03】变量的设置与引用</a>
+</li>
+            
+<li>
+    <a href="../04/" class="dropdown-item">【04】运算符与条件、循环语句</a>
+</li>
+            
+<li>
+    <a href="../05/" class="dropdown-item">【05】目标构建</a>
+</li>
+            
+<li>
+    <a href="../06/" class="dropdown-item">【06】变量参与 C++ 的编译</a>
+</li>
+            
+<li>
+    <a href="../07/" class="dropdown-item">【07】宏与函数</a>
+</li>
+            
+<li>
+    <a href="../08/" class="dropdown-item">【08】find_package 详解</a>
+</li>
+            
+<li>
+    <a href="../09/" class="dropdown-item">【09】生成器表达式</a>
+</li>
+            
+<li>
+    <a href="../10/" class="dropdown-item">【10】项目的导出与安装</a>
+</li>
+            
+<li>
+    <a href="../11/" class="dropdown-item">【11】项目实战</a>
+</li>
+            
+<li>
+    <a href="../12/" class="dropdown-item">【12】CTest 工具</a>
+</li>
+            
+<li>
+    <a href="../13/" class="dropdown-item">【13】CPack 工具</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../dev/coding_standards.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/testing.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/ci_cd.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">linux系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../tools/ide_setup.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/git_workflow.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/debugging.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">构建工具</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../project/methodology.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../project/estimation.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">随笔感悟</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../thoughts/career.md" class="dropdown-item">None</a>
+</li>
+                                    
+<li>
+    <a href="../../../thoughts/learning.md" class="dropdown-item">None</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs" class="nav-link">GitHub</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../02/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs/edit/master/docs/开发工具/cmake/01.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#01" class="nav-link">【01】安装与基本介绍</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-cmake" class="nav-link">1. CMake 是什么</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-cmake" class="nav-link">2. 为什么用 CMake</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-cmake" class="nav-link">3. 怎么用 CMake</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="01">【01】安装与基本介绍</h1>
+<h4 id="_1">教学视频</h4>
+<p>::: tip 写在前面
+如果你觉得本教程对你有所帮助，欢迎一键三连，你的支持是我不断更新的动力！
+:::</p>
+<p>@<a href="BV1D1421f7kG">bilibili</a></p>
+<hr />
+<p>在安装某些开源库的时候，如果涉及到源码编译，经常会使用 CMake 完成构建、安装，初次接触 CMake 时，我们先回答</p>
+<ul>
+<li>CMake 是什么</li>
+<li>为什么用 CMake</li>
+<li>怎么用 CMake</li>
+</ul>
+<p>这三个问题。在对 CMake 有个大概印象之后，我们就可以继续探索更高级、更现代的用法。</p>
+<h2 id="1-cmake">1. CMake 是什么</h2>
+<p>下文是一句来自百度百科的定义，我们简单做个分段，并暂时删除不必要的内容。</p>
+<blockquote>
+<ul>
+<li>CMake 是一个跨平台的安装（编译）工具，可以用简单的语句来描述所有平台的安装(编译过程)</li>
+<li>他能够输出各种各样的 makefile 或者 project 文件</li>
+<li>CMake 并不直接建构出最终的软件，而是产生标准的建构档（如 Unix 的 Makefile 或 Windows Visual C++ 的 projects/workspaces），然后再依一般的建构方式使用</li>
+</ul>
+</blockquote>
+<p>首先我们可以明确，CMake 是一个==跨平台工具==。简单的、狭隘的说，跨平台就是可以在 Windows、Linux 发行版乃至 MacOS 等操作系统上使用。</p>
+<p>其次，CMake 使用与 Python 性质等同的脚本语言。Python 一般在执行某个 <code>py</code> 文件的时候，会使用</p>
+<pre><code class="language-bash">python3 main.py
+</code></pre>
+<p>这种语句，完成对 <code>main.py</code> 的逐行解析，CMake 同样，在运行</p>
+<pre><code class="language-bash">cmake .. # .. 就表示上一级文件夹
+</code></pre>
+<p>后，可以解析来自上一级文件夹中 <code>CMakeLists.txt</code> 里的内容，并将产物输出到当前文件夹。因此，CMake 解析的文件一般都是名为 <code>CMakeLists.txt</code> 的文件，当然还有其他类型的文件，在后文会详细介绍。</p>
+<p>最后，需要强调一点，<u>CMake 并不是一个编译器，它只是一个编译工具</u>，正如百度百科所说，CMake 不直接建构出最终的软件，CMake 主要作用就是能够<font color="red">使用统一的语法，在特定平台下，生成能够指导编译器完成编译工作的文件</font>，这一文件我们称之为==建构档==，用于生成建构档的统一语法的文件，即 <code>CMakeLists.txt</code> 文件，我们称之为==组态档==。</p>
+<h2 id="2-cmake">2. 为什么用 CMake</h2>
+<h3 id="21">2.1 语法统一</h3>
+<p>不同的平台编译器、系统环境、可执行文件格式都不相同，生成可执行程序的方式也不尽相同，例如，对于同样的一个 <code>main.cpp</code></p>
+<ul>
+<li>在 Ubuntu 上，一般会使用 gcc/g++ 编译器完成 C/C++ 文件的编译，执行
+  <code>bash
+  g++ main.cpp -o demo</code>
+  最终生成一个二进制的可执行程序 <code>demo</code></li>
+<li>在 Windows 上，得益于 Visual Studio 强大的 IDE，我们可以直接使用在该 IDE 上集成好编译器（MSVC）完成源文件的编译，一般点击 Visual Studio 的<font color="red">生成解决方案</font>，可以在项目的文件夹下生成一个 <code>.exe</code> 文件，这就是在 Windows 上最终生成的二进制可执行程序</li>
+</ul>
+<p>但使用 CMake 我们可以使用统一的语句生成<strong>建构档</strong>。</p>
+<ul>
+<li>在 Ubuntu 上，生成能够被 Unix makefile 解析的 <code>Makefile</code> 文件，这一文件可以指导 gcc/g++ 编译器完成构建（编译）工作，<code>Makefile</code> 文件就是建构档。</li>
+<li>在 Windows 上，生成能够被 Visual Studio MSBuild 解析的 <code>*.sln</code> 解决方案文件，这一文件可以指导 MSVC 编译器完成构建（编译）工作，<code>*.sln</code> 文件就是建构档。</li>
+</ul>
+<h3 id="22">2.2 功能强大</h3>
+<p>迄今为止，CMake <code>3.x</code> 系列已经发布了超过 30 个版本，截至 <code>2024/11/29</code> 的最新版本是 <code>3.31.1</code>，后续的介绍均以 <code>3.16</code> 为最小版本。通过 CMake 可以在生成<strong>建构档</strong>之前实现</p>
+<ul>
+<li>第三方依赖库的下载、包含</li>
+<li>文件解析、生成</li>
+<li>C/C++ 宏的生成</li>
+</ul>
+<h2 id="3-cmake">3. 怎么用 CMake</h2>
+<h3 id="31">3.1 安装</h3>
+<p>首先安装 CMake，这里给出两种安装方式</p>
+<h4 id="311">3.1.1 软件源安装</h4>
+<p>这种安装方式最快，但版本比较受限，在较新的 Linux 发行版上版本会新一点。这里以 Debian 系发行版为例，可使用 APT 包管理工具进行安装</p>
+<pre><code class="language-bash">sudo apt install cmake cmake-qt-gui cmake-curses-gui
+</code></pre>
+<p>来安装 CMake 工具，例如，在 Ubuntu</p>
+<ul>
+<li>18.04 下，对应的版本为 <code>3.10</code></li>
+<li>20.04 下，对应的版本为 <code>3.16</code></li>
+<li>22.04 下，对应的版本为 <code>3.22</code></li>
+</ul>
+<h4 id="312">3.1.2 下载二进制包</h4>
+<p>可直接在 Github 中打开 <a href="https://github.com/Kitware/CMake/releases">CMake Release</a>，找到你想下载的版本，点击对应的压缩包，例如在 x64 环境下的 Linux 可选择 <code>cmake-x.xx.x-linux-x86_64.tar.gz</code>，下载后进行解压，就得到了所有 CMake 工具。此外，可自行安装到系统路径下，以 <code>cmake-3.29.0-linux-x86_64.tar.gz</code> 为例，可使用以下命令</p>
+<pre><code class="language-bash">tar xf cmake-3.29.0-linux-x86_64.tar.gz # 解压
+cd cmake-3.29.0-linux-x86_64
+sudo cp -r * /usr/local                 # 安装至 /usr/local
+</code></pre>
+<p>::: tip
+Windows 用户可在 <a href="https://cmake.org/download">CMake 官网</a> 下载对应的 <code>*.msi</code> 安装包，安装完成后，就可以在命令行中使用 <code>cmake</code> 命令了。
+:::</p>
+<h3 id="32-cmake">3.2 CMake 生成建构档的步骤</h3>
+<p>然后我们再对上文通过<code>main.cpp</code>生成建构档的过程做个介绍，了解 CMake 生成建构档的基本步骤。</p>
+<p>首先在<code>main.cpp</code>同级目录下创建<code>CMakeLists.txt</code>文件，这就是 CMake 生成建构档所参考（解析）的文件，并在其中写入</p>
+<pre><code class="language-cmake"># 指定 CMake 的最小版本号，低于此版本的 CMake 将终止建构档的生成过程
+cmake_minimum_required(VERSION 3.16)
+
+# 创建项目
+project(
+  Demo          # 设置项目名
+  LANGUAGES CXX # 指定语言，未指定的语言将不参与构建，例如 test.c 文件
+)
+
+# 创建可执行文件
+add_executable(
+  demo     # 目标名
+  main.cpp # 用到的源文件
+)
+</code></pre>
+<p>创建好后，在项目下创建<code>build</code>文件夹，在该文件夹下打开终端（Windows 下可以是 PowerShell），输入</p>
+<pre><code class="language-bash">cmake ..
+</code></pre>
+<p>即可在当前文件夹下生成对应的建构档。</p>
+<p>以上就是利用 CMake 生成建构档的基本流程，这里需要注意在<code>add_executable</code>中我们涉及到了一个新的名词：目标（target），目标是 CMake 抽象出来的一个概念，可以简单的理解为具有</p>
+<ul>
+<li>名称</li>
+<li>包含的文件夹</li>
+<li>其余编译属性</li>
+<li>依赖的其他目标</li>
+</ul>
+<p>的一个类，可以使用C++的类来描述目标这一概念</p>
+<pre><code class="language-cpp">// CMake 目标
+struct Target
+{
+    string name;                        // 名称
+    vector&lt;string&gt; include_directories; // 包含的文件夹
+    vector&lt;string&gt; properties;          // 其余编译属性
+    vector&lt;Target *&gt; targets;           // 依赖的其他目标
+};
+</code></pre>
+<p>通过上文可以得知，目标具有依赖关系，因此目标不仅只有可执行文件这一形式，还具有别的形式，在<a href="../05/">【05】目标构建</a>会详细给出目标包含的内容。</p>
+<p>::: tip 总结
+CMake 生成建构档的过程可以简单概括成</p>
+<ol>
+<li>创建项目</li>
+<li>目标构建</li>
+<li>导出配置（如果有安装的需求，则需要做）
+:::</li>
+</ol>
+<p>详细的内容会在后文介绍。</p>
+<p>···</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright © AI之覔</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
