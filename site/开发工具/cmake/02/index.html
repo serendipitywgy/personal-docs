@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="AI之覔">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>【02】CMake 的文件分布 - personal-知识库</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../../stylesheets/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/diff.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/llvm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/nasm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/txt.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">personal-知识库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">技术博文</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">开发工具</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">cmake</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../01/" class="dropdown-item">【01】安装与基本介绍</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">【02】CMake 的文件分布</a>
+</li>
+            
+<li>
+    <a href="../03/" class="dropdown-item">【03】变量的设置与引用</a>
+</li>
+            
+<li>
+    <a href="../04/" class="dropdown-item">【04】运算符与条件、循环语句</a>
+</li>
+            
+<li>
+    <a href="../05/" class="dropdown-item">【05】目标构建</a>
+</li>
+            
+<li>
+    <a href="../06/" class="dropdown-item">【06】变量参与 C++ 的编译</a>
+</li>
+            
+<li>
+    <a href="../07/" class="dropdown-item">【07】宏与函数</a>
+</li>
+            
+<li>
+    <a href="../08/" class="dropdown-item">【08】find_package 详解</a>
+</li>
+            
+<li>
+    <a href="../09/" class="dropdown-item">【09】生成器表达式</a>
+</li>
+            
+<li>
+    <a href="../10/" class="dropdown-item">【10】项目的导出与安装</a>
+</li>
+            
+<li>
+    <a href="../11/" class="dropdown-item">【11】项目实战</a>
+</li>
+            
+<li>
+    <a href="../12/" class="dropdown-item">【12】CTest 工具</a>
+</li>
+            
+<li>
+    <a href="../13/" class="dropdown-item">【13】CPack 工具</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../dev/coding_standards.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/testing.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/ci_cd.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">linux系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../tools/ide_setup.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/git_workflow.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/debugging.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">构建工具</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../project/methodology.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../project/estimation.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">随笔感悟</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../thoughts/career.md" class="dropdown-item">None</a>
+</li>
+                                    
+<li>
+    <a href="../../../thoughts/learning.md" class="dropdown-item">None</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs" class="nav-link">GitHub</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../01/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../03/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs/edit/master/docs/开发工具/cmake/02.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#02cmake" class="nav-link">【02】CMake 的文件分布</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-cmakeliststxt" class="nav-link">1. 按模块分层的 CMakeLists.txt</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-cmake" class="nav-link">2. 其余 CMake 文件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="02cmake">【02】CMake 的文件分布</h1>
+<h4 id="_1">教学视频</h4>
+<p>::: tip 写在前面
+如果你觉得本教程对你有所帮助，欢迎一键三连，你的支持是我不断更新的动力！
+:::</p>
+<p>@<a href="BV1dS421N7du">bilibili</a></p>
+<hr />
+<p>在正式开始学习 CMake 之前，需要清楚 CMake 文件一般在项目中是如何分布的，只有清楚各个文件是如何分布的，才能正确且合理的书写 <code>CMakeLists.txt</code> 文件。</p>
+<h2 id="1-cmakeliststxt">1. 按模块分层的 CMakeLists.txt</h2>
+<p>一般来说，自己在使用 CMake 的时候，如果项目不大，往往都喜欢仅使用一个 <code>CMakeLists.txt</code> 来管理所有的属性配置。但随着项目越做越大，一个 <code>CMakeLists.txt</code> 在可读性、可维护性上都会有所降低。为此需要对每个特定的模块编写 <code>CMakeLists.txt</code>。可以参考 OpenCV 的 <code>CMakeLists.txt</code> 布局。</p>
+<pre><code class="language-txt">.
+├── cmake
+│   └── ...
+├── CMakeLists.txt
+├── include
+│   ├── CMakeLists.txt (用于全局包含的 opencv.hpp 的导出)
+│   └── ...
+├── modules
+│   └── core
+│       ├── CMakeLists.txt
+│       ├── include
+│       │   └── ...
+│       ├── src
+│       │   └── ...
+│       └── test
+│           └── ...
+├── README.md
+└── samples
+</code></pre>
+<p>很显然，每级模块（目录）的文件夹下都会存在一个 <code>CMakeLists.txt</code>。</p>
+<ul>
+<li>最底层的 <code>CMakeLists.txt</code> 是为了管理该模块功能的编译、测试文件编译，以及提供指定的接口（可以是库，也可以是若干 CMake 变量）给外部。OpenCV 中使用语句 <code>ocv_add_module()</code> 来添加模块。例如：</li>
+</ul>
+<p><code>cmake
+  # 定义于 &lt;opencv-path&gt;/modules/core/CMakeLists.txt 中的内容
+  ocv_add_module(core
+                 OPTIONAL opencv_cudev
+                 WRAP java objc python js)</code></p>
+<p>这个语句并不是 CMake 原生语法中自带的，而是项目自行设计的宏。CMake 中的宏与C/C++中使用 <code>#define</code> 创建的宏原理类似，都是起到了文本替换的作用。根据这个宏以及此 <code>CMakeLists.txt</code> 的其余功能，可以创建该 <code>core</code> 模块的目标：<code>opencv_core</code>，并为此添加合适的依赖项。</p>
+<ul>
+<li>OpenCV 4.x 系列版本设置两级目录的 <code>CMakeList.txt</code>。根目录下即最高级目录的 <code>CMakeLists.txt</code> 一般是对于整个项目有关编译选项的设置，以及对系统、平台、编译器等编译环境信息的兼容处理。OpenCV 项目根目录的 <code>CMakeLists.txt</code> 前一大段都是在对当前平台、编译配置的信息做处理，例如：</li>
+</ul>
+<p><code>cmake
+  # 定义于 &lt;opencv-path&gt;/CMakeLists.txt 中的内容
+  if(CMAKE_SYSTEM_NAME MATCHES WindowsPhone OR CMAKE_SYSTEM_NAME MATCHES WindowsStore)
+    cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+    cmake_policy(VERSION 2.8)
+  else()
+    cmake_minimum_required(VERSION "${MIN_VER_CMAKE}" FATAL_ERROR)
+  endif()</code></p>
+<h2 id="2-cmake">2. 其余 CMake 文件</h2>
+<p>CMake 中除了解析 CMakeLists.txt 文件，还允许解析扩展名为 <code>.cmake</code> 的文件。一般有两种操作可以对这类文件进行访问，分别是</p>
+<ol>
+<li><code>find_package()</code>，用于发现第三方依赖库</li>
+<li><code>include()</code>，用于包含本地的或 CMake 标准中提供的 <code>*.cmake</code> 文件，一般这类文件会提供一系列宏或函数来辅助我们完成建构档的生成。</li>
+</ol>
+<p>其中第一种方案会在<a href="../08/">【08】find_package 详解</a>中介绍。</p>
+<h3 id="21-cmake">2.1 <code>*.cmake</code> 文件</h3>
+<p>OpenCV 中，自定义的<code>*.cmake</code>文件全部存放在<code>&lt;opencv-path&gt;/cmake</code>文件夹下，常见的名称有</p>
+<ul>
+<li><code>Findxxx.cmake</code></li>
+<li><code>OpenCVxxx.cmake</code></li>
+</ul>
+<p>第一种是本地项目中用于 <code>find_package()</code> 的，例如 FindONNX.cmake 等文件。第二种则是添加了各种各样的能够减少重复操作的宏与函数，<code>ocv_add_module()</code> 就是其中之一，他被定义在 <code>OpenCVModule.cmake</code> 中，这种一般需要执行 <code>include()</code> 操作，例如：</p>
+<pre><code class="language-cmake"># 定义于 &lt;opencv-path&gt;/CMakeLists.txt 中的内容
+# --- OpenCL ---
+if(WITH_OPENCL)
+  include(cmake/OpenCVDetectOpenCL.cmake)
+endif()
+
+# --- Halide ---
+if(WITH_HALIDE)
+  include(cmake/OpenCVDetectHalide.cmake)
+endif()
+
+# --- VkCom ---
+if(WITH_VULKAN)
+  include(cmake/OpenCVDetectVulkan.cmake)
+endif()
+
+# --- WebNN ---
+if(WITH_WEBNN)
+  include(cmake/OpenCVDetectWebNN.cmake)
+endif()
+</code></pre>
+<h3 id="22-in">2.2 <code>*.in</code> 文件</h3>
+<p><code>*.in</code> 模板文件一般是用于在 cmake 执行阶段（准确来说，应该是配置阶段）将其嵌入的 CMake 变量、列表展开，并生成目标文件的过程中的。这一步通常是由 <code>configure_file()</code> 完成，会在<a href="../06/">【06】变量参与 C++ 的编译</a> 中进行介绍。<code>*.in</code> 的后缀是约定俗成的，当然也可以使用其他形式的后缀。</p>
+<p>OpenCV中的此类文件一般放在 <code>&lt;opencv-path&gt;/cmake/template</code> 文件夹下，主要是用于在执行</p>
+<pre><code class="language-bash">cmake ..
+</code></pre>
+<p>的时候将模板文件转换为具体的文件。另外，在</p>
+<pre><code class="language-bash">cmake --install .
+</code></pre>
+<p>的时候会将生成的 <code>OpenCVConfig.cmake</code> 等一系列文件安装至目标路径下，而 <code>OpenCVConfig.cmake</code> 文件的产生，就需要 <code>&lt;opencv-path&gt;/cmake/template</code> 文件夹下的 <code>OpenCVConfig.cmake.in</code> 文件。</p>
+<p>::: important 总结
+1. 项目的根目录以及各模块都会管理一个 <code>CMakeLists.txt</code> 文件
+2. CMake 还会解析 <code>*.cmake</code> 后缀的文件
+3. <code>*.in</code> 文件一般作为模板文件，一般在 CMake 解析期间转换为具体的文件
+:::</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright © AI之覔</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

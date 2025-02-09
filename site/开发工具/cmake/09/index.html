@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="AI之覔">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>【09】生成器表达式 - personal-知识库</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <link href="../../../stylesheets/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/diff.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/llvm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/nasm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/txt.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">personal-知识库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">技术博文</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">开发工具</a>
+    <ul class="dropdown-menu">
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">cmake</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../01/" class="dropdown-item">【01】安装与基本介绍</a>
+</li>
+            
+<li>
+    <a href="../02/" class="dropdown-item">【02】CMake 的文件分布</a>
+</li>
+            
+<li>
+    <a href="../03/" class="dropdown-item">【03】变量的设置与引用</a>
+</li>
+            
+<li>
+    <a href="../04/" class="dropdown-item">【04】运算符与条件、循环语句</a>
+</li>
+            
+<li>
+    <a href="../05/" class="dropdown-item">【05】目标构建</a>
+</li>
+            
+<li>
+    <a href="../06/" class="dropdown-item">【06】变量参与 C++ 的编译</a>
+</li>
+            
+<li>
+    <a href="../07/" class="dropdown-item">【07】宏与函数</a>
+</li>
+            
+<li>
+    <a href="../08/" class="dropdown-item">【08】find_package 详解</a>
+</li>
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">【09】生成器表达式</a>
+</li>
+            
+<li>
+    <a href="../10/" class="dropdown-item">【10】项目的导出与安装</a>
+</li>
+            
+<li>
+    <a href="../11/" class="dropdown-item">【11】项目实战</a>
+</li>
+            
+<li>
+    <a href="../12/" class="dropdown-item">【12】CTest 工具</a>
+</li>
+            
+<li>
+    <a href="../13/" class="dropdown-item">【13】CPack 工具</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">编程语言</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../dev/coding_standards.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/testing.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../dev/ci_cd.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">linux系统</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../tools/ide_setup.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/git_workflow.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../tools/debugging.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">构建工具</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../project/methodology.md" class="dropdown-item">None</a>
+</li>
+            
+<li>
+    <a href="../../../project/estimation.md" class="dropdown-item">None</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">随笔感悟</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../thoughts/career.md" class="dropdown-item">None</a>
+</li>
+                                    
+<li>
+    <a href="../../../thoughts/learning.md" class="dropdown-item">None</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs" class="nav-link">GitHub</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../08/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../10/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/serendipitywgy/personal-docs/edit/master/docs/开发工具/cmake/09.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#09" class="nav-link">【09】生成器表达式</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 前言</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 常用生成器表达式</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 构建安装表达式</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="09">【09】生成器表达式</h1>
+<h4 id="_1">教学视频</h4>
+<p>::: tip 写在前面
+如果你觉得本教程对你有所帮助，欢迎一键三连，你的支持是我不断更新的动力！
+:::</p>
+<p>@<a href="BV1zM4m1Q7wZ">bilibili</a></p>
+<hr />
+<h2 id="1">1. 前言</h2>
+<h3 id="11-cmake">1.1 CMake 工作流程</h3>
+<p>CMake 工作流程分为两步，==配置阶段==和==生成阶段==。我们在命令行中输入<code>cmake ..</code>的时候，可以在输出内容的最后看到这样的两行话</p>
+<pre><code class="language-txt">-- Configuring done
+-- Generating done
+</code></pre>
+<p>分别指代了这两个阶段</p>
+<h4 id="111-configure">1.1.1 Configure 阶段</h4>
+<p>在这个阶段，CMake 会读取你的<code>CMakeLists.txt</code>文件，并执行其中的命令。这些命令可能会检查系统的特性（例如，查找库或者编译器特性），设置变量，或者定义构建目标（例如库、可执行文件，或者其他伪目标）。这个阶段的主要目的是确定构建过程需要的所有信息。</p>
+<h4 id="112-generate">1.1.2 Generate 阶段</h4>
+<p>在此阶段 CMake 会生成实际的建构档。这些文件包含了实际编译和链接你的代码所需要的命令，包括</p>
+<ul>
+<li>各种编译选项</li>
+<li>与目标相关的操作</li>
+</ul>
+<p>的命令都是在生成阶段添加至建构档中的。比方说</p>
+<pre><code class="language-cmake">target_include_directories(
+  demo
+  PUBLIC include
+)
+
+target_link_libraries(
+  demo
+  PRIVATE core
+)
+</code></pre>
+<p>这两个命令均生效于==生成阶段==。而后文准备介绍的生成器表达式，就作用于生成阶段。也正因如此，只有能够在生成阶段生效的命令才能使用生成器表达式，而在配置阶段生效的命令，例如用于设置变量的 <code>set</code> 命令并不支持生成器表达式。</p>
+<h3 id="12-cmake">1.2 CMake 的生成器表达式是什么</h3>
+<p>生成器表达式在生成构建系统期间进行计算，以生成特定于每个生成配置的信息。他们有如下形式：<code>$&lt;...&gt;</code>。可参考<a href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html#introduction">Generator Expression</a>。</p>
+<h3 id="13">1.3 为什么要引入生成器表达式</h3>
+<p>在设置某些编译选项的时候，如果当条件较多，要制作的编译选项版本也相应增多。这时可以使用生成器表达式语法，让一部分编译信息在生成阶段自动完成，无需在配置阶段设置，示例如下：</p>
+<pre><code class="language-cmake"># 现计划给 Debug 和 Release 两种构建类型添加不同的编译选项
+set(CMAKE_C_FLAGS_DEBUG &quot;${CMAKE_C_FLAGS_DEBUG} -g -O0&quot;)
+set(CMAKE_CXX_FLAGS_DEBUG &quot;${CMAKE_CXX_FLAGS_DEBUG} -g -O0&quot;)
+set(CMAKE_C_FLAGS_RELEASE &quot;${CMAKE_C_FLAGS_RELEASE} -O2&quot;)
+set(CMAKE_CXX_FLAGS_RELEASE &quot;${CMAKE_CXX_FLAGS_RELEASE} -O2&quot;)
+
+# 使用生成器表达式可以简化成
+add_compile_options(
+  $&lt;$&lt;CONFIG:Debug&gt;:-g -O0&gt;
+  $&lt;$&lt;CONFIG:Release&gt;:-O2&gt;
+)
+</code></pre>
+<p>这里的 <code>add_compile_options</code> 就属于在生成阶段生效的命令。以上代码属于==条件定义==，即在不同的条件下生成不同的变量、宏等内容。其中这段代码使用生成器表达式的效果是，在不同的构建类型下（Debug、Release），会生成不同的被添加进编译选项的字符串。</p>
+<h2 id="2">2. 常用生成器表达式</h2>
+<h3 id="21">2.1 布尔生成器表达式</h3>
+<h4 id="211">2.1.1 逻辑运算符</h4>
+<ol>
+<li><code>$&lt;BOOL:string&gt;</code></li>
+</ol>
+<p>如果字符串为空、<code>0</code>、不区分大小写的<code>FALSE</code>、<code>OFF</code>、<code>N</code>、<code>NO</code>、<code>IGNORE</code>、<code>NOTFOUND</code>，或者区分大小写的以<code>-NOTFOUND</code>结尾的字符串，则表达式的值为<code>0</code>，否则为<code>1</code></p>
+<p>```cmake
+   add_library(mylib ${SOURCES})</p>
+<p>target_compile_definitions(mylib PUBLIC
+     $&lt;$<BOOL:${USE_OTHERLIB}>:USE_OTHERLIB&gt;
+   )
+   ```</p>
+<p>在这个例子中，<code>$&lt;BOOL:${USE_OTHERLIB}&gt;</code> 会检查变量 <code>USE_OTHERLIB</code> 是否为假。如果 <code>USE_OTHERLIB</code> 为假，那么这个表达式就会返回 <code>0</code>，否则返回 <code>1</code>。然后，<code>$&lt;1:USE_OTHERLIB&gt;</code> 会在前面的表达式为真时添加一个编译定义 <code>USE_OTHERLIB</code>。</p>
+<ol>
+<li><code>$&lt;AND:conditions&gt;</code>：逻辑与</li>
+</ol>
+<p><code>conditons</code>是以逗号分割的==条件列表==，一般来说，条件是列表的，都是使用逗号进行分割，后文不再赘述。逻辑运算条件成立，表达式的值为<code>0</code>，否则为<code>1</code>，后文不再赘述。</p>
+<p>```cmake
+   add_library(mylib ${SOURCES})</p>
+<p>target_compile_definitions(mylib PUBLIC
+     $&lt;$<AND:$\<CONFIG:Debug>,$\<TARGET_EXISTS:otherlib>>:USE_OTHERLIB&gt;
+   )
+   ```</p>
+<p>在这个例子中，<code>$&lt;AND:$&lt;CONFIG:Debug&gt;,$&lt;TARGET_EXISTS:otherlib&gt;&gt;</code>会在当前配置为<code>Debug</code>并且目标 <code>otherlib</code> 存在时返回<code>1</code>，否则返回<code>0</code>。然后，<code>$&lt;1:USE_OTHERLIB&gt;</code> 会在前面的表达式为真时添加一个编译定义 <code>USE_OTHERLIB</code>。</p>
+<ol>
+<li><code>$&lt;OR:conditions&gt;</code>：逻辑或</li>
+</ol>
+<p>在给定的任何条件为真时返回<code>1</code>，否则返回<code>0</code></p>
+<p>```cmake
+   add_library(mylib ${SOURCES})</p>
+<p>target_compile_definitions(mylib PUBLIC
+     $&lt;$<OR:$\<CONFIG:Debug>,$\<TARGET_EXISTS:otherlib>>:USE_OTHERLIB&gt;
+   )
+   ```</p>
+<p>在这个例子中，<code>$&lt;OR:$&lt;CONFIG:Debug&gt;,$&lt;TARGET_EXISTS:otherlib&gt;&gt;</code>会在当前配置为 Debug 或者目标 <code>otherlib</code> 存在时返回 1，否则返回 0。然后，<code>$&lt;1:USE_OTHERLIB&gt;</code> 会在前面的表达式为真时添加一个编译定义 <code>USE_OTHERLIB</code>。</p>
+<ol>
+<li><code>$&lt;NOT:condition&gt;</code>：逻辑非</li>
+</ol>
+<p>在给定的条件为假时返回<code>1</code>，否则返回<code>0</code></p>
+<p>```cmake
+   add_library(mylib ${SOURCES})</p>
+<p>target_compile_definitions(mylib PUBLIC
+     $&lt;$<NOT:$\<TARGET_EXISTS:otherlib>>:USE_OTHERLIB&gt;
+   )
+   ```</p>
+<p>在这个例子中，<code>$&lt;NOT:$&lt;TARGET_EXISTS:otherlib&gt;&gt;</code>会在目标<code>otherlib</code>不存在时返回<code>1</code>，否则返回<code>0</code>。然后，<code>$&lt;1:USE_OTHERLIB&gt;</code> 会在前面的表达式为真时添加一个编译定义 <code>USE_OTHERLIB</code>。</p>
+<h4 id="212">2.1.2 字符串比较</h4>
+<ol>
+<li><code>$&lt;STREQUAL:string1,string2&gt;</code></li>
+</ol>
+<p>判断字符串是否相等</p>
+<ol>
+<li><code>$&lt;EQUAL:value1,value2&gt;</code></li>
+</ol>
+<p>判断数值是否相等</p>
+<ol>
+<li><code>$&lt;IN_LIST:string,list&gt;</code></li>
+</ol>
+<p>判断<code>string</code>是否包含在<code>list</code>中，<code>list</code>使用分号分割</p>
+<p>::: warning
+这里的<code>list</code>是在逗号后面的列表，即<code>${...}</code>所表示的内容，因此其内容需要使用分号分割。
+:::</p>
+<h4 id="213">2.1.3 变量查询</h4>
+<ol>
+<li><code>$&lt;TARGET_EXISTS:target&gt;</code></li>
+</ol>
+<p>判断目标是否存在</p>
+<ol>
+<li><code>$&lt;CONFIG:cfgs&gt;</code></li>
+</ol>
+<p>判断编译类型配置是否包含在<code>cfgs</code>列表（比如"Release，Debug"）中；不区分大小写</p>
+<ol>
+<li><code>$&lt;PLATFORM_ID:platform_ids&gt;</code></li>
+</ol>
+<p>判断CMake定义的平台ID是否包含在<code>platform_ids</code>列表中</p>
+<ol>
+<li><code>$&lt;COMPILE_LANGUAGE:languages&gt;</code></li>
+</ol>
+<p>判断编译语言是否包含在<code>languages</code>列表中</p>
+<h3 id="22">2.2 字符串生成器表达式</h3>
+<p>使用生成器表达式的主要目的可能就是因为此功能了。比如 CMake 官方的例子：基于编译器 ID 指定include目录：</p>
+<pre><code class="language-cmake">include_directories(&quot;/usr/include/$&lt;CXX_COMPILER_ID&gt;/&quot;)
+</code></pre>
+<p>根据编译器的类型，<code>$&lt;CXX_COMPILER_ID&gt;</code>会被替换成对应的ID（比如“GNU”、“Clang”）。</p>
+<h4 id="221">2.2.1 条件表达式</h4>
+<ul>
+<li><code>$&lt;condition:true_string&gt;</code></li>
+</ul>
+<p>如果条件为真，则结果为<code>true_string</code>，否则为空</p>
+<ul>
+<li><code>$&lt;IF:condition,str1,str2&gt;</code></li>
+</ul>
+<p>如果条件为真，则结果为<code>str1</code>，否则为<code>str2</code></p>
+<h4 id="222">2.2.2 字符串转换</h4>
+<ul>
+<li><code>$&lt;LOWER_CASE:string&gt;</code></li>
+</ul>
+<p>将字符串转为小写</p>
+<p>```cmake
+  add_library(mylib ${SOURCES})</p>
+<p>set(TARGET_NAME "MYLIB")</p>
+<p>target_compile_definitions(mylib PUBLIC
+    TARGET_NAME=$<LOWER_CASE:${TARGET_NAME}>
+  )
+  ```</p>
+<p>在这个例子中， <code>$&lt;LOWER_CASE:${TARGET_NAME}&gt;</code>会将<code>TARGET_NAME</code>变量的值转换为小写。然后，这个小写的值会被赋给编译定义 <code>TARGET_NAME</code>。</p>
+<p>所以，<code>mylib</code> 会被编译时定义 <code>TARGET_NAME</code> 为 <code>mylib</code>。</p>
+<ul>
+<li><code>$&lt;UPPER_CASE:string&gt;</code>，将字符串转为大写</li>
+</ul>
+<p>生成器表达式种类繁多，这里不再一一列举</p>
+<h2 id="3">3. 构建安装表达式</h2>
+<p>该生成器表达式属于<a href="#_2-2-字符串生成器表达式">字符串生成器表达式</a>的一种。这个问题来自于<a href="../10/">【10】项目的导出与安装</a>，但不看并不影响知识点的讲解，下面给出这个问题的产生原因。</p>
+<h3 id="31">3.1 问题引出</h3>
+<p>在安装导出目标的时候，如果导出目标中包含的目标使用了 <code>target_include_directories</code> 命令，例如</p>
+<pre><code class="language-cmake">target_include_directories(
+  my_target PUBLIC include
+)
+</code></pre>
+<p>则执行 <code>cmake ..</code> 的操作后会出现形如</p>
+<pre><code class="language-txt">-- CMake Error in xxx/xxx/CMakeLists.txt:
+-- Target &quot;my_target&quot; INTERFACE_INCLUDE_DIRECTORIES property contains
+-- path:
+--  
+--   &quot;/xxx/xxx/include&quot;
+-- 
+-- which is prefixed in the source directory.
+</code></pre>
+<p>的问题，这表示包含目录具有绝对路径，这其实是 <code>install</code> 指定的头文件安装路径（默认是 <code>/usr/local/include</code>）与 <code>target_include_directories</code> 指定的路径（这里是那串绝对路径 <code>/xxx/xxx/include</code>）互相冲突了</p>
+<h3 id="32">3.2 解决方法</h3>
+<p>最为有效且通用的解决方法是使用导出安装的生成器表达式，有 <code>$&lt;BUILD_INTERFACE&gt;:xxx</code> 和 <code>$&lt;INSTALL_INTERFACE:xxx</code>，下面给出一个比较常见的示例。</p>
+<pre><code class="language-cmake">target_include_directories(
+  my_target PUBLIC
+  $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIRS}/include&gt;
+  $&lt;INSTALL_INTERFACE:include/MyLibrary&gt;
+)
+</code></pre>
+<p>这个命令表示，将一系列内容以公开传播方式包含于目标 <code>my_target</code> 中，这里的一系列内容则是会根据当前处于何种方式（==构建==或是==安装==）进行选择。<code>BUILD_INTERFACE</code> 表示在构建时启用，<code>INSTALL_INTERFACE</code> 表示在安装时启用。</p>
+<p>假设导出目标名为 <code>MyModules</code>，可以在安装路径 <code>&lt;path-to-install&gt;/cmake/MyModules.cmake</code> 下找到如下类似的语句</p>
+<pre><code class="language-cmake">set_target_properties(my_target PROPERTIES
+  INTERFACE_INCLUDE_DIRECTORIES &quot;${_IMPORT_PREFIX}/include/MyLibrary&quot;
+)
+</code></pre>
+<p>这是 <code>INSTALL_INTERFACE</code> 生成器表达式生效的产物。</p>
+<p>::: tip 补充说明
+这里对上文出现的三个标识符做个简短的介绍
+- <code>my_target</code>，目标，包括二进制目标和伪目标，可参考<a href="../05/">【05】目标构建</a>
+- <code>MyModules</code>，导出目标，可参考<a href="../10/">【10】项目的导出与安装</a>
+- <code>MyLibrary</code>，包名，一般用于<code>find_package</code>。可参考<a href="../08/">【08】find_package 详解</a>
+:::</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright © AI之覔</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
