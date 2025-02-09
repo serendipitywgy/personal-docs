@@ -1,1 +1,80 @@
 site_name: personal-知识库
+site_description: 分享软件开发经验与技术心得的个人博客
+site_author: AI之覔
+copyright: Copyright © AI之覔
+repo_url: https://github.com/serendipitywgy/personal-docs
+
+nav:
+  - 首页: index.md
+  - 技术博文:
+    - 开发工具: 
+      - cmake:
+        - 开发工具/cmake/01.md
+        - 开发工具/cmake/02.md
+        - 开发工具/cmake/03.md
+        - 开发工具/cmake/04.md
+        - 开发工具/cmake/05.md
+        - 开发工具/cmake/06.md
+        - 开发工具/cmake/07.md
+        - 开发工具/cmake/08.md
+        - 开发工具/cmake/09.md
+        - 开发工具/cmake/10.md
+        - 开发工具/cmake/11.md
+        - 开发工具/cmake/12.md
+        - 开发工具/cmake/13.md
+    - 编程语言:
+      - dev/coding_standards.md
+      - dev/testing.md
+      - dev/ci_cd.md
+    - linux系统:
+      - tools/ide_setup.md
+      - tools/git_workflow.md
+      - tools/debugging.md
+    - 构建工具:
+      - project/methodology.md
+      - project/estimation.md
+  - 随笔感悟:
+    - thoughts/career.md
+    - thoughts/learning.md
+  - GitHub: https://github.com/serendipitywgy/personal-docs
+
+theme:
+  name: mkdocs
+  palette:
+    primary: blue grey
+    accent: indigo
+  font:
+    text: Noto Sans SC
+    code: Source Code Pro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+  highlightjs: true
+  hljs_languages: # rg '^```\w+' | sed 's/.*:```\(\w*\)/    - \1/g' | sort | uniq
+    - bash
+    - c
+    - cmake
+    - cpp
+    - diff
+    - java
+    - json
+    - llvm
+    - nasm
+    - python
+    - rust
+    - txt
+
+plugins:
+  - search
+  # - macros
+  # - print-site
+
+
+extra_javascript:
+  - javascripts/extra.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+extra_css:
+  - stylesheets/extra.css
