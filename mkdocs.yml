@@ -22,10 +22,10 @@ nav:
         - 开发工具/cmake/11-项目实战.md
         - 开发工具/cmake/12-CTest 工具.md
         - 开发工具/cmake/13-CPack 工具.md
-    - 编程语言:
-    - linux系统:
-    - 构建工具:
-  - 随笔感悟:
+  #   - 编程语言:
+  #   - linux系统:
+  #   - 构建工具:
+  # - 随笔感悟:
   - GitHub: https://github.com/serendipitywgy/personal-docs
 
 plugins:
@@ -33,35 +33,65 @@ plugins:
   # - macros
   # - print-site
 theme:
-  name: mkdocs
+  name: material
+  language: zh
   palette:
-    primary: blue grey
-    accent: indigo
-  font:
-    text: Noto Sans SC
-    code: Source Code Pro
+    # 可切换亮色/暗色模式
+    - media: "(prefers-color-scheme: light)"  
+      scheme: default
+      primary: teal
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: 切换至深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: 切换至浅色模式
+  
   features:
-    - navigation.tabs
-    - navigation.sections
-    - search.suggest
-    - search.highlight
-  highlightjs: true
-  hljs_languages: # rg '^```\w+' | sed 's/.*:```\(\w*\)/    - \1/g' | sort | uniq
-    - bash
-    - c
-    - cmake
-    - cpp
-    - diff
-    - java
-    - json
-    - llvm
-    - nasm
-    - python
-    - rust
-    - txt
-extra_javascript:
-  - extra.js
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - navigation.tabs # 顶部显示导航标签
+    - navigation.sections # 导航节
+    - navigation.expand # 导航展开
+    - navigation.top # 返回顶部按钮
+    - search.suggest # 搜索建议
+    - search.highlight # 搜索高亮
+    - content.tabs.link # 内容标签
+    - content.code.copy # 代码复制按钮
+    - content.code.annotate # 代码注释
 
+  font:
+    text: Roboto, "Noto Sans SC"
+    code: "JetBrains Mono"
+# 代码高亮
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  
+# 额外的CSS自定义
 extra_css:
-  - extra.css
+  - stylesheets/extra.css
+
+# 额外的JS
+extra_javascript:
+  - javascripts/extra.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# 页脚社交链接
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/serendipitywgy/personal-doc
