@@ -1,574 +1,979 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="分享软件开发经验与技术心得的个人博客">
+      
+      
         <meta name="author" content="AI之覔">
-        
-        <link rel="shortcut icon" href="../../../img/favicon.ico">
+      
+      
+      
+        <link rel="prev" href="../10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/">
+      
+      
+        <link rel="next" href="../12-CTest%20%E5%B7%A5%E5%85%B7/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
         <title>【11】项目实战 - personal-知识库</title>
-        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../../css/brands.min.css" rel="stylesheet">
-        <link href="../../../css/solid.min.css" rel="stylesheet">
-        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <link href="../../../extra.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/c.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/diff.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/llvm.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/nasm.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/txt.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../../..">personal-知识库</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../../.." class="nav-link">首页</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">技术博文</a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">开发工具</a>
-    <ul class="dropdown-menu">
-            
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">cmake</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="dropdown-item">【01】安装与基本介绍</a>
-</li>
-            
-<li>
-    <a href="../02-CMake%20%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%86%E5%B8%83/" class="dropdown-item">【02】CMake 的文件分布</a>
-</li>
-            
-<li>
-    <a href="../03-%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%BC%95%E7%94%A8/" class="dropdown-item">【03】变量的设置与引用</a>
-</li>
-            
-<li>
-    <a href="../04-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="dropdown-item">【04】运算符与条件、循环语句</a>
-</li>
-            
-<li>
-    <a href="../05-%E7%9B%AE%E6%A0%87%E6%9E%84%E5%BB%BA/" class="dropdown-item">【05】目标构建</a>
-</li>
-            
-<li>
-    <a href="../06-%E5%8F%98%E9%87%8F%E5%8F%82%E4%B8%8E%20C%2B%2B%20%E7%9A%84%E7%BC%96%E8%AF%91/" class="dropdown-item">【06】变量参与 C++ 的编译</a>
-</li>
-            
-<li>
-    <a href="../07-%E5%AE%8F%E4%B8%8E%E5%87%BD%E6%95%B0/" class="dropdown-item">【07】宏与函数</a>
-</li>
-            
-<li>
-    <a href="../08-find_package%20%E8%AF%A6%E8%A7%A3/" class="dropdown-item">【08】find_package 详解</a>
-</li>
-            
-<li>
-    <a href="../09-%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="dropdown-item">【09】生成器表达式</a>
-</li>
-            
-<li>
-    <a href="../10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/" class="dropdown-item">【10】项目的导出与安装</a>
-</li>
-            
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">【11】项目实战</a>
-</li>
-            
-<li>
-    <a href="../12-CTest%20%E5%B7%A5%E5%85%B7/" class="dropdown-item">【12】CTest 工具</a>
-</li>
-            
-<li>
-    <a href="../13-CPack%20%E5%B7%A5%E5%85%B7/" class="dropdown-item">【13】CPack 工具</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://github.com/serendipitywgy/personal-docs" class="nav-link">GitHub</a>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../12-CTest%20%E5%B7%A5%E5%85%B7/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://github.com/serendipitywgy/personal-docs/edit/master/docs/开发工具/cmake/11-项目实战.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#11" class="nav-link">【11】项目实战</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 常规非跨平台项目</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#visionlibconfigcmake" class="nav-link">用于收集所有需要参与构建的模块，给 VisionLibConfig.cmake 使用</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#visionlib" class="nav-link">更新 VisionLib 目标构建的标志位，用于控制是否构建指定模块，不影响用户的选择</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-build_xxx_init" class="nav-link">- 主要更新 BUILD_xxx_INIT 变量</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-build_xxx_init-on-off" class="nav-link">- 在满足条件时，设置 BUILD_xxx_INIT 为 ON，否则为 OFF</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">用法:</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#vl_update_build-condition" class="nav-link">vl_update_build( [CONDITION])</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_2" class="nav-link">示例:</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#vl_update_buildd-off" class="nav-link">vl_update_build(d OFF)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_1" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_2" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_3" class="nav-link">添加模块</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_4" class="nav-link">用法：</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#vl_add_module" class="nav-link">vl_add_module(</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#depends-vl_" class="nav-link">[DEPENDS   ...]             # 以 vl_ 开头的模块名</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#ext_depends" class="nav-link">[EXT_DEPENDS   ...] # 外部依赖</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_5" class="nav-link">)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_6" class="nav-link">示例：</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#vl_add_modulea" class="nav-link">vl_add_module(a</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#depends-b-c" class="nav-link">DEPENDS b c</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#ext_depends-opencv_core" class="nav-link">EXT_DEPENDS opencv_core</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_7" class="nav-link">)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_3" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_4" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_8" class="nav-link">添加示例程序</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_9" class="nav-link">用法：</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#vl_add_exe" class="nav-link">vl_add_exe(</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#sources" class="nav-link">SOURCES   ...               # 源文件</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#depends-vl__1" class="nav-link">[DEPENDS   ...]             # 以 vl_ 开头的模块名</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#ext_depends_1" class="nav-link">[EXT_DEPENDS   ...] # 外部依赖</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_10" class="nav-link">)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_11" class="nav-link">示例：</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#vl_add_exedemo" class="nav-link">vl_add_exe(demo</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#sources-democpp" class="nav-link">SOURCES demo.cpp</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#depends-a-b" class="nav-link">DEPENDS a b</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#ext_depends-opencv_highgui" class="nav-link">EXT_DEPENDS opencv_highgui</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_12" class="nav-link">)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_5" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 外部依赖管理</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 交叉编译项目</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 跨平台项目</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_6" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_13" class="nav-link">项目配置</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_7" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_8" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_14" class="nav-link">目标构建</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_9" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#main-target" class="nav-link">main target</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#executable-target" class="nav-link">executable target</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#uninstall-target" class="nav-link">uninstall target</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_10" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_15" class="nav-link">导出、安装</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_11" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_12" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#numopt-cmake" class="nav-link">numopt CMake 配置文件</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_16" class="nav-link"></a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#cmake" class="nav-link">该文件由 CMake 生成，请勿手动修改</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_17" class="nav-link"></a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_18" class="nav-link">基本用法：</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#find_packagenumopt-required" class="nav-link">find_package(numopt REQUIRED)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#target_link_librariesyour_target-private-numopt_libs" class="nav-link">target_link_libraries(your_target PRIVATE ${numopt_LIBS})</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_13" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_14" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#numopt" class="nav-link">获取 numopt 安装路径</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_15" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_16" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_19" class="nav-link">设置头文件搜索路径变量</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_17" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_18" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_20" class="nav-link">设置库文件路径变量</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_19" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_20" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_21" class="nav-link">搜寻的结果、状态</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_21" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_22" class="nav-link">...</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_22" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_23" class="nav-link">目标构建</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#-_23" class="nav-link">----------------------------------------------------------------------------</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#_24" class="nav-link">...</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#_25" class="nav-link">写在后面</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto,+"Noto+Sans+SC":300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto, "Noto Sans SC"";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="personal-知识库" class="md-header__button md-logo" aria-label="personal-知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            personal-知识库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              【11】项目实战
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="teal"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/serendipitywgy/personal-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-tabs__link">
+          
+  
+  技术博文
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://github.com/serendipitywgy/personal-docs" class="md-tabs__link">
+        
+  
+    
+  
+  GitHub
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="personal-知识库" class="md-nav__button md-logo" aria-label="personal-知识库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    personal-知识库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/serendipitywgy/personal-docs" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    技术博文
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            技术博文
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    开发工具
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            开发工具
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    cmake
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            cmake
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【01】安装与基本介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-CMake%20%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%86%E5%B8%83/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【02】CMake 的文件分布
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%BC%95%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【03】变量的设置与引用
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【04】运算符与条件、循环语句
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-%E7%9B%AE%E6%A0%87%E6%9E%84%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【05】目标构建
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E5%8F%98%E9%87%8F%E5%8F%82%E4%B8%8E%20C%2B%2B%20%E7%9A%84%E7%BC%96%E8%AF%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【06】变量参与 C++ 的编译
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E5%AE%8F%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【07】宏与函数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-find_package%20%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【08】find_package 详解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【09】生成器表达式
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【10】项目的导出与安装
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    【11】项目实战
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    【11】项目实战
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 常规非跨平台项目
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 常规非跨平台项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 预期目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 要求与文件结构
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-CTest%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【12】CTest 工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-CPack%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    【13】CPack 工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/serendipitywgy/personal-docs" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 常规非跨平台项目
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 常规非跨平台项目">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 预期目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 要求与文件结构
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
 
 <h1 id="11">【11】项目实战</h1>
 <h2 id="1">1. 常规非跨平台项目</h2>
@@ -584,8 +989,8 @@
 </ol>
 <p>::: center
      <img src="/images/cmake/11-normal-deps.png" alt="11-normal-deps" width="500"></p>
-<pre><code> **图 1-1：依赖关系图**
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code> **图 1-1：依赖关系图**
+</code></pre></div>
 <p>:::</p>
 <ol>
 <li>项目的安装目录为 <code>/usr/local</code>，其中</li>
@@ -630,90 +1035,89 @@
 │           └── d2.cpp
 └── samples
     └── demo.cpp</p>
-<p>19 directories, 14 files</p>
-<pre><code>
-### 1.3 分析
-
-- 前 3 个预期目标是关于项目的要求，可直接在项目根目录的 `CMakeLists.txt` 中实现
-- 第 4 到第 6 个预期目标是关于项目的依赖关系，可在每个模块的 `CMakeLists.txt` 中实现
-- 每个模块均涉及到头文件搜索路径添加、源文件编译、库文件链接、依赖库添加、安装目标等操作，可以将这些内容封装到一个函数中，然后在每个模块的 `CMakeLists.txt` 中调用
-
-### 1.4 实现
-
-在项目中添加
-
-- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
-- `cmake/VisionLibInstall.cmake` —— 项目的安装路径配置文件
-- `cmake/VisionLibModule.cmake` —— 项目的 CMake 函数库，主要涉及到目标的便捷创建
-- `cmake/templates/VisionLibConfig.cmake.in` —— 项目在 `find_package` 时需要的配置文件模板
-- `modules/CMakeLists.txt` —— 项目的模块列表
-- `modules/a/CMakeLists.txt` —— 模块 `a` 的 CMake 配置文件
-- `modules/b/CMakeLists.txt` —— 模块 `b` 的 CMake 配置文件
-- `modules/c/CMakeLists.txt` —— 模块 `c` 的 CMake 配置文件
-- `modules/d/CMakeLists.txt` —— 模块 `d` 的 CMake 配置文件
-- `samples/CMakeLists.txt` —— 示例程序的 CMake 配置文件
-
-共 10 个文件。
-
-#### 1.4.1 项目配置
-
-::: code-tabs
-
-@tab CMakeLists.txt
-
-```cmake :collapsed-lines
-cmake_minimum_required(VERSION 3.10)
-
-project(VisionLib)
-
-# ----------------------------------------------------------------------------
-#   配置项目
-# ----------------------------------------------------------------------------
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-find_package(OpenCV 4 REQUIRED)
-option(BUILD_SHARED_LIBS &quot;Build shared libraries?&quot; OFF)
-
-include(cmake/VisionLibInstall.cmake)
-include(cmake/VisionLibModule.cmake)
-
-# ----------------------------------------------------------------------------
-#   将子目录添加到构建系统中
-# ----------------------------------------------------------------------------
-add_subdirectory(modules)
-add_subdirectory(samples)
-
-# ----------------------------------------------------------------------------
-#   导出、安装配置
-# ----------------------------------------------------------------------------
-install(
-  EXPORT VisionLibTargets
-  FILE VisionLibTargets.cmake
-  DESTINATION ${VL_CFG_INSTALL_PATH}
-  # VL_CFG_INSTALL_PATH 定义于 VisionLibInstall.cmake 中
-)
-
-configure_file(
-  cmake/templates/VisionLibConfig.cmake.in
-  &quot;${CMAKE_CURRENT_BINARY_DIR}/VisionLibConfig.cmake&quot;
-  @ONLY
-)
-
-install(
-  FILES &quot;${CMAKE_CURRENT_BINARY_DIR}/VisionLibConfig.cmake&quot;
-  DESTINATION ${VL_CFG_INSTALL_PATH}
-)
-</code></pre>
+<p>19 directories, 14 files
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>### 1.3 分析
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- 前 3 个预期目标是关于项目的要求，可直接在项目根目录的 `CMakeLists.txt` 中实现
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- 第 4 到第 6 个预期目标是关于项目的依赖关系，可在每个模块的 `CMakeLists.txt` 中实现
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>- 每个模块均涉及到头文件搜索路径添加、源文件编译、库文件链接、依赖库添加、安装目标等操作，可以将这些内容封装到一个函数中，然后在每个模块的 `CMakeLists.txt` 中调用
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>### 1.4 实现
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>在项目中添加
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>- `cmake/VisionLibInstall.cmake` —— 项目的安装路径配置文件
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>- `cmake/VisionLibModule.cmake` —— 项目的 CMake 函数库，主要涉及到目标的便捷创建
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>- `cmake/templates/VisionLibConfig.cmake.in` —— 项目在 `find_package` 时需要的配置文件模板
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>- `modules/CMakeLists.txt` —— 项目的模块列表
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>- `modules/a/CMakeLists.txt` —— 模块 `a` 的 CMake 配置文件
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>- `modules/b/CMakeLists.txt` —— 模块 `b` 的 CMake 配置文件
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>- `modules/c/CMakeLists.txt` —— 模块 `c` 的 CMake 配置文件
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>- `modules/d/CMakeLists.txt` —— 模块 `d` 的 CMake 配置文件
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>- `samples/CMakeLists.txt` —— 示例程序的 CMake 配置文件
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>共 10 个文件。
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>#### 1.4.1 项目配置
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>::: code-tabs
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>@tab CMakeLists.txt
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>```cmake :collapsed-lines
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>cmake_minimum_required(VERSION 3.10)
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>project(VisionLib)
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a># ----------------------------------------------------------------------------
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>#   配置项目
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a># ----------------------------------------------------------------------------
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>set(CMAKE_CXX_STANDARD 17)
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>set(CMAKE_CXX_STANDARD_REQUIRED ON)
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>find_package(OpenCV 4 REQUIRED)
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>option(BUILD_SHARED_LIBS &quot;Build shared libraries?&quot; OFF)
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>include(cmake/VisionLibInstall.cmake)
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>include(cmake/VisionLibModule.cmake)
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a># ----------------------------------------------------------------------------
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>#   将子目录添加到构建系统中
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a># ----------------------------------------------------------------------------
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>add_subdirectory(modules)
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>add_subdirectory(samples)
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a># ----------------------------------------------------------------------------
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>#   导出、安装配置
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a># ----------------------------------------------------------------------------
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>install(
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>  EXPORT VisionLibTargets
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>  FILE VisionLibTargets.cmake
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>  DESTINATION ${VL_CFG_INSTALL_PATH}
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a>  # VL_CFG_INSTALL_PATH 定义于 VisionLibInstall.cmake 中
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>)
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a>configure_file(
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a>  cmake/templates/VisionLibConfig.cmake.in
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a>  &quot;${CMAKE_CURRENT_BINARY_DIR}/VisionLibConfig.cmake&quot;
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a>  @ONLY
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a>)
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>install(
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a>  FILES &quot;${CMAKE_CURRENT_BINARY_DIR}/VisionLibConfig.cmake&quot;
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>  DESTINATION ${VL_CFG_INSTALL_PATH}
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a>)
+</span></code></pre></div></p>
 <p>@tab VisionLibInstall.cmake</p>
-<pre><code class="language-cmake"># 安装路径相关配置
-
-set(CMAKE_INSTALL_PREFIX &quot;/usr/local&quot;)
-set(VL_INSTALL_PATH &quot;${CMAKE_INSTALL_PREFIX}&quot;)
-set(VL_INC_INSTALL_PATH &quot;include/VisionLib&quot;)
-set(VL_LIB_INSTALL_PATH &quot;lib&quot;)
-set(VL_CFG_INSTALL_PATH &quot;${VL_LIB_INSTALL_PATH}/cmake/VisionLib&quot;)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c"># 安装路径相关配置</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_INSTALL_PREFIX</span><span class="w"> </span><span class="s2">&quot;/usr/local&quot;</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">set</span><span class="p">(</span><span class="s">VL_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;${CMAKE_INSTALL_PREFIX}&quot;</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">set</span><span class="p">(</span><span class="s">VL_INC_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;include/VisionLib&quot;</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">set</span><span class="p">(</span><span class="s">VL_LIB_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;lib&quot;</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">set</span><span class="p">(</span><span class="s">VL_CFG_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;${VL_LIB_INSTALL_PATH}/cmake/VisionLib&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>@tab VisionLibModule.cmake</p>
 <p>```cmake :collapsed-lines</p>
 <h1 id="visionlibconfigcmake">用于收集所有需要参与构建的模块，给 VisionLibConfig.cmake 使用</h1>
@@ -843,52 +1247,51 @@ endmacro()</p>
     )
     unset(module_name)
   endif()
-endmacro()</p>
-<pre><code>
-:::
-
-#### 1.4.2 模块配置
-
-::: code-tabs
-
-@tab `modules`
-
-```cmake
-set(cur_path &quot;${CMAKE_CURRENT_SOURCE_DIR}&quot;)
-file(GLOB modules RELATIVE &quot;${cur_path}&quot; &quot;${cur_path}/*&quot;)
-
-foreach(m ${modules})
-  if(IS_DIRECTORY ${cur_path}/${m})
-    add_subdirectory(${cur_path}/${m})
-  endif()
-endforeach()
-
-# 简单起见，也可以直接写
-# add_subdirectory(a)
-# add_subdirectory(b)
-# add_subdirectory(c)
-# add_subdirectory(d)
-</code></pre>
+endmacro()
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>:::
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>#### 1.4.2 模块配置
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>::: code-tabs
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>@tab `modules`
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>```cmake
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>set(cur_path &quot;${CMAKE_CURRENT_SOURCE_DIR}&quot;)
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>file(GLOB modules RELATIVE &quot;${cur_path}&quot; &quot;${cur_path}/*&quot;)
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>foreach(m ${modules})
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  if(IS_DIRECTORY ${cur_path}/${m})
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    add_subdirectory(${cur_path}/${m})
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>  endif()
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>endforeach()
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a># 简单起见，也可以直接写
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a># add_subdirectory(a)
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a># add_subdirectory(b)
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a># add_subdirectory(c)
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a># add_subdirectory(d)
+</span></code></pre></div></p>
 <p>@tab <code>modules/a</code></p>
-<pre><code class="language-cmake">vl_add_module(a)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">vl_add_module</span><span class="p">(</span><span class="s">a</span><span class="p">)</span>
+</span></code></pre></div>
 <p>@tab <code>modules/b</code></p>
-<pre><code class="language-cmake">vl_add_module(b
-  DEPENDS d
-  EXT_DEPENDS opencv_imgproc
-)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">vl_add_module</span><span class="p">(</span><span class="s">b</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="s">DEPENDS</span><span class="w"> </span><span class="s">d</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="s">EXT_DEPENDS</span><span class="w"> </span><span class="s">opencv_imgproc</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>@tab <code>modules/c</code></p>
-<pre><code class="language-cmake">vl_add_module(c
-  DEPENDS a
-  EXT_DEPENDS opencv_core
-)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">vl_add_module</span><span class="p">(</span><span class="s">c</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="s">DEPENDS</span><span class="w"> </span><span class="s">a</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="s">EXT_DEPENDS</span><span class="w"> </span><span class="s">opencv_core</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>@tab <code>modules/d</code></p>
-<pre><code class="language-cmake">vl_add_module(d
-  DEPENDS b c
-)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">vl_add_module</span><span class="p">(</span><span class="s">d</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="s">DEPENDS</span><span class="w"> </span><span class="s">b</span><span class="w"> </span><span class="s">c</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>:::</p>
 <h4 id="143">1.4.3 示例程序配置</h4>
 <p>::: code-tabs</p>
@@ -898,81 +1301,80 @@ vl_add_exe(demo
   SOURCES demo.cpp
   DEPENDS d
   EXT_DEPENDS opencv_highgui
-)</p>
-<pre><code>
-:::
-
-#### 1.4.4 VisionLibConfig.cmake.in 配置
-
-若对该文件有疑问，请参考[此处](10-项目的导出与安装.md#_4-xxxconfig-cmake-文件的一般写法)。
-
-::: code-tabs
-
-@tab VisionLibConfig.cmake.in
-
-```cmake :collapsed-lines
-# ----------------------------------------------------------------------------
-#  VisionLib CMake 配置文件
-#
-#                  ** 该文件由 CMake 生成，请勿手动修改 **
-#
-#  基本用法：
-#    find_package(VisionLib REQUIRED)
-#    target_link_libraries(your_target PRIVATE vl_a vl_b ...)
-# ----------------------------------------------------------------------------
-
-# ----------------------------------------------------------------------------
-#   获取 VisionLib 安装路径
-# ----------------------------------------------------------------------------
-get_filename_component(VL_CONFIG_PATH
-  &quot;${CMAKE_CURRENT_LIST_FILE}&quot; PATH
 )
-set(VL_INSTALL_PATH &quot;@VL_INSTALL_PATH@&quot;)
-
-# ----------------------------------------------------------------------------
-#   设置头文件搜索路径变量
-# ----------------------------------------------------------------------------
-set(VisionLib_INCLUDE_DIRS &quot;${VL_INSTALL_PATH}/@VL_INC_INSTALL_PATH@&quot;)
-
-# ----------------------------------------------------------------------------
-#   设置库文件路径变量
-# ----------------------------------------------------------------------------
-set(VisionLib_LIBS @VL_LIB_COMPONENTS@)
-
-if(NOT TARGET vl_a)
-  include(&quot;${VL_CONFIG_PATH}/VisionLibTargets.cmake&quot;)
-endif()
-
-# ----------------------------------------------------------------------------
-#   搜寻的结果、状态
-# ----------------------------------------------------------------------------
-include(FindPackageHandleStandardArgs)
-
-find_package_handle_standard_args(VisionLib
-  REQUIRED_VARS VL_INSTALL_PATH
-)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>:::
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>#### 1.4.4 VisionLibConfig.cmake.in 配置
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>若对该文件有疑问，请参考[此处](10-项目的导出与安装.md#_4-xxxconfig-cmake-文件的一般写法)。
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>::: code-tabs
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>@tab VisionLibConfig.cmake.in
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>```cmake :collapsed-lines
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>#  VisionLib CMake 配置文件
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>#
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>#                  ** 该文件由 CMake 生成，请勿手动修改 **
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>#
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>#  基本用法：
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>#    find_package(VisionLib REQUIRED)
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>#    target_link_libraries(your_target PRIVATE vl_a vl_b ...)
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>#   获取 VisionLib 安装路径
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>get_filename_component(VL_CONFIG_PATH
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>  &quot;${CMAKE_CURRENT_LIST_FILE}&quot; PATH
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>)
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>set(VL_INSTALL_PATH &quot;@VL_INSTALL_PATH@&quot;)
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>#   设置头文件搜索路径变量
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>set(VisionLib_INCLUDE_DIRS &quot;${VL_INSTALL_PATH}/@VL_INC_INSTALL_PATH@&quot;)
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>#   设置库文件路径变量
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>set(VisionLib_LIBS @VL_LIB_COMPONENTS@)
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>if(NOT TARGET vl_a)
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>  include(&quot;${VL_CONFIG_PATH}/VisionLibTargets.cmake&quot;)
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>endif()
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>#   搜寻的结果、状态
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a># ----------------------------------------------------------------------------
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>include(FindPackageHandleStandardArgs)
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>find_package_handle_standard_args(VisionLib
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>  REQUIRED_VARS VL_INSTALL_PATH
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>)
+</span></code></pre></div></p>
 <p>:::</p>
 <h3 id="15-thinking">1.5 思考 :thinking:</h3>
 <p>用户在使用 VisionLib 中的 <code>vl_d</code> 目标的时候一般在项目中会写上</p>
-<pre><code class="language-cmake">add_executable(demo main.cpp)
-
-find_package(VisionLib REQUIRED)
-
-target_link_libraries(demo PRIVATE vl_d)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">demo</span><span class="w"> </span><span class="s">main.cpp</span><span class="p">)</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">VisionLib</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">demo</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">vl_d</span><span class="p">)</span>
+</span></code></pre></div>
 <p>但是这时候编译会出现形如以下内容的报错</p>
-<pre><code>[ 50%] Building CXX object CMakeFiles/demo.dir/main.cpp.o
-In file included from /usr/local/include/VisionLib/visionlib/d.hpp:3,
-                 from /path/to/vl_deploy_demo/main.cpp:1:
-/usr/local/include/VisionLib/visionlib/c.hpp:5:10: fatal error: opencv2/core.hpp: No such file or directory
-    5 | #include &lt;opencv2/core.hpp&gt;
-      |          ^~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [CMakeFiles/demo.dir/build.make:76：CMakeFiles/demo.dir/main.cpp.o] error 1
-make[1]: *** [CMakeFiles/Makefile2:83：CMakeFiles/demo.dir/all] error 2
-make: *** [Makefile:91：all] error 2
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[ 50%] Building CXX object CMakeFiles/demo.dir/main.cpp.o
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>In file included from /usr/local/include/VisionLib/visionlib/d.hpp:3,
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                 from /path/to/vl_deploy_demo/main.cpp:1:
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>/usr/local/include/VisionLib/visionlib/c.hpp:5:10: fatal error: opencv2/core.hpp: No such file or directory
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    5 | #include &lt;opencv2/core.hpp&gt;
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>      |          ^~~~~~~~~~~~~~~~~~
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>compilation terminated.
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>make[2]: *** [CMakeFiles/demo.dir/build.make:76：CMakeFiles/demo.dir/main.cpp.o] error 1
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>make[1]: *** [CMakeFiles/Makefile2:83：CMakeFiles/demo.dir/all] error 2
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>make: *** [Makefile:91：all] error 2
+</span></code></pre></div>
 <p>请分析出现该问题的原因以及解决方法。</p>
 <p><strong>答案</strong> <a href="11/answer.md#_1-常规非跨平台项目">【点此查看】</a></p>
 <h2 id="2">2. 外部依赖管理</h2>
@@ -980,77 +1382,77 @@ make: *** [Makefile:91：all] error 2
 <p><code>ExternalProject</code> 用于在构建过程中下载、配置、构建和安装外部项目。它通常用于处理大型的、独立的外部项目。而 <code>FetchContent</code> 用于在配置阶段下载和添加外部项目的源代码。它适用于需要将外部项目的源代码直接集成到主项目中的情况。后文将主要介绍 <code>FetchContent</code> 的使用，<code>ExternalProject</code> 的使用可以参考<a href="https://cmake.org/cmake/help/latest/module/ExternalProject.html">官方文档</a>。</p>
 <h3 id="21-fetchcontent">2.1 <code>FetchContent</code></h3>
 <p><code>FetchContent</code> 依赖管理定义于 <code>FetchContent</code> CMake 模块中，可使用</p>
-<pre><code class="language-cmake">include(FetchContent)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+</span></code></pre></div>
 <p>来引入。<code>FetchContent</code> 模块提供了 <code>FetchContent_Declare</code>、<code>FetchContent_MakeAvailable</code> 等函数，用于下载、解压、配置、编译、安装外部项目。</p>
 <h4 id="211-fetchcontent_declare">2.1.1 <code>FetchContent_Declare</code></h4>
 <p align="right">—— 声明外部依赖项</p>
 
-<pre><code class="language-cmake">FetchContent_Declare(
-  &lt;name&gt;
-  &lt;contentOptions&gt;...
-  [EXCLUDE_FROM_ALL]          # add in CMake 3.28
-  [SYSTEM]                    # add in CMake 3.25
-  [OVERRIDE_FIND_PACKAGE |
-   FIND_PACKAGE_ARGS args...] # add in CMake 3.24
-)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="s">&lt;name&gt;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="s">&lt;contentOptions&gt;...</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="s">[EXCLUDE_FROM_ALL]</span><span class="w">          </span><span class="c"># add in CMake 3.28</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="s">[SYSTEM]</span><span class="w">                    </span><span class="c"># add in CMake 3.25</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="s">[OVERRIDE_FIND_PACKAGE</span><span class="w"> </span><span class="s">|</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">   </span><span class="s">FIND_PACKAGE_ARGS</span><span class="w"> </span><span class="s">args...]</span><span class="w"> </span><span class="c"># add in CMake 3.24</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>上述声明的可选项均不是很重要，重要的是 <code>&lt;contentOptions&gt;</code>。以下是使用 <code>FetchContent_Declare</code> 声明 <code>googletest</code> 项目的示例，提供了两种方式声明外部依赖项，一种是使用 Git 存储库作为外部依赖项，另一种是使用 URL 地址作为外部依赖项。</p>
 <p>::: code-tabs</p>
 <p>@tab 使用 Git 存储库</p>
-<pre><code class="language-cmake">FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        703bd9caab50b139428cea1aaff9974ebee5742e # release-1.10.0
-)
-
-# GIT_REPOSITORY: 表示外部依赖项的 Git 仓库地址；
-# GIT_TAG:        表示外部依赖项的 Git 仓库的标签，可以是分支名、标签名、提交哈希等，
-#                 但建议是稳定的标签名防止不稳定的代码进入项目。
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="s">googletest</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="s">GIT_REPOSITORY</span><span class="w"> </span><span class="s">https://github.com/google/googletest.git</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="s">GIT_TAG</span><span class="w">        </span><span class="s">703bd9caab50b139428cea1aaff9974ebee5742e</span><span class="w"> </span><span class="c"># release-1.10.0</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c"># GIT_REPOSITORY: 表示外部依赖项的 Git 仓库地址；</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c"># GIT_TAG:        表示外部依赖项的 Git 仓库的标签，可以是分支名、标签名、提交哈希等，</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c">#                 但建议是稳定的标签名防止不稳定的代码进入项目。</span>
+</span></code></pre></div>
 <p>@tab 使用 URL 地址</p>
-<pre><code class="language-cmake">FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/main.zip
-)
-
-# URL: 表示外部依赖项的 URL 地址。
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="s">googletest</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="s">URL</span><span class="w"> </span><span class="s">https://github.com/google/googletest/archive/main.zip</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">)</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c"># URL: 表示外部依赖项的 URL 地址。</span>
+</span></code></pre></div>
 <p>:::</p>
 <h4 id="212-fetchcontent_makeavailable">2.1.2 <code>FetchContent_MakeAvailable</code></h4>
 <p align="right">—— 使外部依赖项生效，并加入构建系统</p>
 
-<pre><code class="language-cmake">FetchContent_MakeAvailable(&lt;name1&gt; [&lt;name2&gt;...])
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">&lt;name1&gt;</span><span class="w"> </span><span class="s">[&lt;name2&gt;...]</span><span class="p">)</span>
+</span></code></pre></div>
 <p>该命令保证在调用结束后，每个命名的依赖项都可供项目使用。例如上文的 <code>googletest</code> 项目，可以使用以下方式使用：</p>
-<pre><code class="language-cmake">FetchContent_MakeAvailable(googletest)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">googletest</span><span class="p">)</span>
+</span></code></pre></div>
 <p>如果有多个外部依赖项，可以使用以下方式使用：</p>
-<pre><code class="language-cmake">FetchContent_MakeAvailable(ext1 ext2 ext3)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">ext1</span><span class="w"> </span><span class="s">ext2</span><span class="w"> </span><span class="s">ext3</span><span class="p">)</span>
+</span></code></pre></div>
 <p>该命令将依次配置 <code>ext1</code>、<code>ext2</code> 和 <code>ext3</code> 项目</p>
 <h4 id="213-fetchcontent">2.1.3 <code>FetchContent</code> 示例</h4>
 <p>来自<a href="https://cmake.org/cmake/help/latest/module/FetchContent.html#complex-dependency-hierarchies">【复杂依赖】</a></p>
-<pre><code class="language-cmake">include(FetchContent)
-FetchContent_Declare(
-  projB
-  GIT_REPOSITORY git@mycompany.com:git/projB.git
-  GIT_TAG        4a89dc7e24ff212a7b5167bef7ab079d
-)
-FetchContent_Declare(
-  projC
-  GIT_REPOSITORY git@mycompany.com:git/projC.git
-  GIT_TAG        4ad4016bd1d8d5412d135cf8ceea1bb9
-)
-FetchContent_Declare(
-  projD
-  GIT_REPOSITORY git@mycompany.com:git/projD.git
-  GIT_TAG        origin/integrationBranch
-)
-
-# Order is important, see notes in the discussion further below
-FetchContent_MakeAvailable(projD projB projC)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="s">projB</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="s">GIT_REPOSITORY</span><span class="w"> </span><span class="s">git@mycompany.com:git/projB.git</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="s">GIT_TAG</span><span class="w">        </span><span class="s">4a89dc7e24ff212a7b5167bef7ab079d</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">)</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="s">projC</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="s">GIT_REPOSITORY</span><span class="w"> </span><span class="s">git@mycompany.com:git/projC.git</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">  </span><span class="s">GIT_TAG</span><span class="w">        </span><span class="s">4ad4016bd1d8d5412d135cf8ceea1bb9</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="p">)</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span><span class="s">projD</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">  </span><span class="s">GIT_REPOSITORY</span><span class="w"> </span><span class="s">git@mycompany.com:git/projD.git</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">  </span><span class="s">GIT_TAG</span><span class="w">        </span><span class="s">origin/integrationBranch</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="p">)</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="c"># Order is important, see notes in the discussion further below</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">projD</span><span class="w"> </span><span class="s">projB</span><span class="w"> </span><span class="s">projC</span><span class="p">)</span>
+</span></code></pre></div>
 <h3 id="22">2.2 预期目标</h3>
 <p>现计划开发一个 Windows 平台下的 OPC UA 通信库 <code>opcua</code>，该库依赖于 <code>open62541</code>[^1]，<code>open62541</code> 是一个开源的 OPC UA 协议栈，提供了 OPC UA 服务端和客户端的 C 语言实现。<code>opcua</code> 库的开发需要实现以下功能：</p>
 <ol>
@@ -1091,21 +1493,19 @@ FetchContent_MakeAvailable(projD projB projC)
     ├── publisher.cpp
     ├── server.cpp
     └── subscriber.cpp</p>
-<p>6 directories, 19 files</p>
-<pre><code>
-### 2.4 实现
-
-在项目中添加
-
-- `3rdparty/open62541/CMakeLists.txt` —— `open62541` 的配置文件
-- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
-- `cmake/opcuaInstall.cmake` —— 项目的安装路径配置文件
-- `cmake/opcuaConfig.cmake` —— 提供给用户在 `find_package` 时所需要的配置文件（因为整个项目只有一个目标，这里就不使用模板文件了）
-
-共 4 个文件，如下文件结构所示
-
-</code></pre>
-<p>.
+<p>6 directories, 19 files
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>### 2.4 实现
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>在项目中添加
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>- `3rdparty/open62541/CMakeLists.txt` —— `open62541` 的配置文件
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>- `cmake/opcuaInstall.cmake` —— 项目的安装路径配置文件
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>- `cmake/opcuaConfig.cmake` —— 提供给用户在 `find_package` 时所需要的配置文件（因为整个项目只有一个目标，这里就不使用模板文件了）
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>共 4 个文件，如下文件结构所示
+</span></code></pre></div>
+.
 ├── 3rdparty
 │   └── open62541
 │       └── CMakeLists.txt (New)
@@ -1116,95 +1516,94 @@ FetchContent_MakeAvailable(projD projB projC)
 ├── include
 │   └── ...
 └── src
-    └── ...</p>
-<pre><code>
-#### 2.4.1 项目配置
-
-::: code-tabs
-
-@tab CMakeLists.txt
-
-```cmake :collapsed-lines
-# --------------------------------------------------------
-#  项目配置
-# --------------------------------------------------------
-cmake_minimum_required(VERSION 3.16)
-project(opcua)
-
-set(CMAKE_CXX_STANDARD 17)
-option(BUILD_SHARED_LIBS &quot;Build shared libraries?&quot; OFF)
-
-include(cmake/opcuaInstall.cmake)
-
-# --------------------------------------------------------
-#  外部依赖管理
-# --------------------------------------------------------
-find_package(open62541 QUIET)
-if(NOT open62541_FOUND)
-  add_subdirectory(3rdparty/open62541)
-endif()
-
-# --------------------------------------------------------
-#  目标构建
-# --------------------------------------------------------
-aux_source_directory(src target_src)
-add_library(opcua ${target_src})
-
-target_include_directories(opcua PUBLIC
-  $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include&gt;
-  $&lt;INSTALL_INTERFACE:include&gt;
-)
-
-target_link_libraries(opcua
-  PUBLIC open62541::open62541
-)
-
-install(
-  TARGETS opcua
-  EXPORT opcuaTarget
-  LIBRARY DESTINATION ${OPCUA_BIN_INSTALL_PATH}
-  ARCHIVE DESTINATION ${OPCUA_LIB_INSTALL_PATH}
-  RUNTIME DESTINATION ${OPCUA_BIN_INSTALL_PATH}
-  INCLUDES DESTINATION ${OPCUA_INC_INSTALL_PATH}
-)
-
-# --------------------------------------------------------
-#  导出、安装
-# --------------------------------------------------------
-install(
-  EXPORT opcuaTarget
-  FILE opcuaTarget.cmake
-  DESTINATION ${OPCUA_CFG_INSTALL_PATH}
-)
-
-install(
-  FILES cmake/opcuaConfig.cmake
-  DESTINATION ${OPCUA_CFG_INSTALL_PATH}
-)
-</code></pre>
+    └── ...
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>#### 2.4.1 项目配置
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>::: code-tabs
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>@tab CMakeLists.txt
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>```cmake :collapsed-lines
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a># --------------------------------------------------------
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>#  项目配置
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a># --------------------------------------------------------
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>cmake_minimum_required(VERSION 3.16)
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>project(opcua)
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>set(CMAKE_CXX_STANDARD 17)
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>option(BUILD_SHARED_LIBS &quot;Build shared libraries?&quot; OFF)
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>include(cmake/opcuaInstall.cmake)
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a># --------------------------------------------------------
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>#  外部依赖管理
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a># --------------------------------------------------------
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>find_package(open62541 QUIET)
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>if(NOT open62541_FOUND)
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>  add_subdirectory(3rdparty/open62541)
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>endif()
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a># --------------------------------------------------------
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>#  目标构建
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a># --------------------------------------------------------
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>aux_source_directory(src target_src)
+</span><span id="__span-19-31"><a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>add_library(opcua ${target_src})
+</span><span id="__span-19-32"><a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>
+</span><span id="__span-19-33"><a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>target_include_directories(opcua PUBLIC
+</span><span id="__span-19-34"><a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>  $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include&gt;
+</span><span id="__span-19-35"><a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>  $&lt;INSTALL_INTERFACE:include&gt;
+</span><span id="__span-19-36"><a id="__codelineno-19-36" name="__codelineno-19-36" href="#__codelineno-19-36"></a>)
+</span><span id="__span-19-37"><a id="__codelineno-19-37" name="__codelineno-19-37" href="#__codelineno-19-37"></a>
+</span><span id="__span-19-38"><a id="__codelineno-19-38" name="__codelineno-19-38" href="#__codelineno-19-38"></a>target_link_libraries(opcua
+</span><span id="__span-19-39"><a id="__codelineno-19-39" name="__codelineno-19-39" href="#__codelineno-19-39"></a>  PUBLIC open62541::open62541
+</span><span id="__span-19-40"><a id="__codelineno-19-40" name="__codelineno-19-40" href="#__codelineno-19-40"></a>)
+</span><span id="__span-19-41"><a id="__codelineno-19-41" name="__codelineno-19-41" href="#__codelineno-19-41"></a>
+</span><span id="__span-19-42"><a id="__codelineno-19-42" name="__codelineno-19-42" href="#__codelineno-19-42"></a>install(
+</span><span id="__span-19-43"><a id="__codelineno-19-43" name="__codelineno-19-43" href="#__codelineno-19-43"></a>  TARGETS opcua
+</span><span id="__span-19-44"><a id="__codelineno-19-44" name="__codelineno-19-44" href="#__codelineno-19-44"></a>  EXPORT opcuaTarget
+</span><span id="__span-19-45"><a id="__codelineno-19-45" name="__codelineno-19-45" href="#__codelineno-19-45"></a>  LIBRARY DESTINATION ${OPCUA_BIN_INSTALL_PATH}
+</span><span id="__span-19-46"><a id="__codelineno-19-46" name="__codelineno-19-46" href="#__codelineno-19-46"></a>  ARCHIVE DESTINATION ${OPCUA_LIB_INSTALL_PATH}
+</span><span id="__span-19-47"><a id="__codelineno-19-47" name="__codelineno-19-47" href="#__codelineno-19-47"></a>  RUNTIME DESTINATION ${OPCUA_BIN_INSTALL_PATH}
+</span><span id="__span-19-48"><a id="__codelineno-19-48" name="__codelineno-19-48" href="#__codelineno-19-48"></a>  INCLUDES DESTINATION ${OPCUA_INC_INSTALL_PATH}
+</span><span id="__span-19-49"><a id="__codelineno-19-49" name="__codelineno-19-49" href="#__codelineno-19-49"></a>)
+</span><span id="__span-19-50"><a id="__codelineno-19-50" name="__codelineno-19-50" href="#__codelineno-19-50"></a>
+</span><span id="__span-19-51"><a id="__codelineno-19-51" name="__codelineno-19-51" href="#__codelineno-19-51"></a># --------------------------------------------------------
+</span><span id="__span-19-52"><a id="__codelineno-19-52" name="__codelineno-19-52" href="#__codelineno-19-52"></a>#  导出、安装
+</span><span id="__span-19-53"><a id="__codelineno-19-53" name="__codelineno-19-53" href="#__codelineno-19-53"></a># --------------------------------------------------------
+</span><span id="__span-19-54"><a id="__codelineno-19-54" name="__codelineno-19-54" href="#__codelineno-19-54"></a>install(
+</span><span id="__span-19-55"><a id="__codelineno-19-55" name="__codelineno-19-55" href="#__codelineno-19-55"></a>  EXPORT opcuaTarget
+</span><span id="__span-19-56"><a id="__codelineno-19-56" name="__codelineno-19-56" href="#__codelineno-19-56"></a>  FILE opcuaTarget.cmake
+</span><span id="__span-19-57"><a id="__codelineno-19-57" name="__codelineno-19-57" href="#__codelineno-19-57"></a>  DESTINATION ${OPCUA_CFG_INSTALL_PATH}
+</span><span id="__span-19-58"><a id="__codelineno-19-58" name="__codelineno-19-58" href="#__codelineno-19-58"></a>)
+</span><span id="__span-19-59"><a id="__codelineno-19-59" name="__codelineno-19-59" href="#__codelineno-19-59"></a>
+</span><span id="__span-19-60"><a id="__codelineno-19-60" name="__codelineno-19-60" href="#__codelineno-19-60"></a>install(
+</span><span id="__span-19-61"><a id="__codelineno-19-61" name="__codelineno-19-61" href="#__codelineno-19-61"></a>  FILES cmake/opcuaConfig.cmake
+</span><span id="__span-19-62"><a id="__codelineno-19-62" name="__codelineno-19-62" href="#__codelineno-19-62"></a>  DESTINATION ${OPCUA_CFG_INSTALL_PATH}
+</span><span id="__span-19-63"><a id="__codelineno-19-63" name="__codelineno-19-63" href="#__codelineno-19-63"></a>)
+</span></code></pre></div></p>
 <p>@tab opcuaInstall.cmake</p>
-<pre><code class="language-cmake">set(CMAKE_INSTALL_PREFIX &quot;D:/opcua&quot;)
-set(OPCUA_INSTALL_PATH &quot;${CMAKE_INSTALL_PREFIX}&quot;)
-set(OPCUA_INC_INSTALL_PATH &quot;include&quot;)
-set(OPCUA_LIB_INSTALL_PATH &quot;x64/vc16/lib&quot;)
-set(OPCUA_BIN_INSTALL_PATH &quot;x64/vc16/bin&quot;)
-# 理论上这个路径要根据 MSVC 版本和系统架构来确定，这里只是举例，就不做额外判断了
-set(OPCUA_CFG_INSTALL_PATH &quot;${OPCUA_LIB_INSTALL_PATH}&quot;)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_INSTALL_PREFIX</span><span class="w"> </span><span class="s2">&quot;D:/opcua&quot;</span><span class="p">)</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">set</span><span class="p">(</span><span class="s">OPCUA_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;${CMAKE_INSTALL_PREFIX}&quot;</span><span class="p">)</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nb">set</span><span class="p">(</span><span class="s">OPCUA_INC_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;include&quot;</span><span class="p">)</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">set</span><span class="p">(</span><span class="s">OPCUA_LIB_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;x64/vc16/lib&quot;</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="nb">set</span><span class="p">(</span><span class="s">OPCUA_BIN_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;x64/vc16/bin&quot;</span><span class="p">)</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="c"># 理论上这个路径要根据 MSVC 版本和系统架构来确定，这里只是举例，就不做额外判断了</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="nb">set</span><span class="p">(</span><span class="s">OPCUA_CFG_INSTALL_PATH</span><span class="w"> </span><span class="s2">&quot;${OPCUA_LIB_INSTALL_PATH}&quot;</span><span class="p">)</span>
+</span></code></pre></div>
 <p>:::</p>
 <h4 id="242">2.4.2 外部依赖配置</h4>
 <p>::: code-tabs</p>
 <p>@tab 3rdparty/open62541/CMakeLists.txt</p>
-<pre><code class="language-cmake">option(UA_ENABLE_AMALGAMATION &quot;Enable amalgamation&quot; OFF)
-
-FetchContent_Declare(
-  open62541
-  GIT_REPOSITORY https://github.com/open62541/open62541.git
-  GIT_TAG        v1.4.8
-)
-
-FetchContent_MakeAvailable(open62541)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">option</span><span class="p">(</span><span class="s">UA_ENABLE_AMALGAMATION</span><span class="w"> </span><span class="s2">&quot;Enable amalgamation&quot;</span><span class="w"> </span><span class="s">OFF</span><span class="p">)</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nb">FetchContent_Declare</span><span class="p">(</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="s">open62541</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="s">GIT_REPOSITORY</span><span class="w"> </span><span class="s">https://github.com/open62541/open62541.git</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="s">GIT_TAG</span><span class="w">        </span><span class="s">v1.4.8</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">)</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">open62541</span><span class="p">)</span>
+</span></code></pre></div>
 <p>:::</p>
 <h4 id="244-opcuaconfigcmake">2.4.4 opcuaConfig.cmake 配置</h4>
 <p>由于 <code>opcua</code> 项目只有一个目标，因此 <code>opcuaConfig.cmake</code> 文件非常简单，方便起见也不需要向用户提供诸如 <code>opcua_INCLUDE_DIRS</code> 和 <code>opcua_LIBS</code> 这样的集合变量，因此 <code>opcuaConfig.cmake</code> 只需要完成以下功能即可</p>
@@ -1214,21 +1613,21 @@ FetchContent_MakeAvailable(open62541)
 </ul>
 <p>::: code-tabs</p>
 <p>@tab opcuaConfig.cmake</p>
-<pre><code class="language-cmake"># ----------------------------------------------------------------------------
-#  opcua CMake 配置文件
-#
-#  基本用法：
-#    find_package(opcua REQUIRED)
-#    target_link_libraries(your_target PRIVATE opcua)
-# ----------------------------------------------------------------------------
-
-if(NOT TARGET opcua)
-  include(${CMAKE_CURRENT_LIST_DIR}/opcuaTarget.cmake)
-endif()
-
-include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(opcua)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c"># ----------------------------------------------------------------------------</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c">#  opcua CMake 配置文件</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c">#</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c">#  基本用法：</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c">#    find_package(opcua REQUIRED)</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="c">#    target_link_libraries(your_target PRIVATE opcua)</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="c"># ----------------------------------------------------------------------------</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">TARGET</span><span class="w"> </span><span class="s">opcua</span><span class="p">)</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">  </span><span class="nb">include</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_CURRENT_LIST_DIR</span><span class="o">}</span><span class="s">/opcuaTarget.cmake</span><span class="p">)</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="nb">endif</span><span class="p">()</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="nb">include</span><span class="p">(</span><span class="s">FindPackageHandleStandardArgs</span><span class="p">)</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="nb">find_package_handle_standard_args</span><span class="p">(</span><span class="s">opcua</span><span class="p">)</span>
+</span></code></pre></div>
 <p>:::</p>
 <h2 id="3">3. 交叉编译项目</h2>
 <p>CPU 有不同的架构、指令集，C/C++ 开发中的代码编译后的可执行文件，在不同的 CPU 上直接运行时可能会出现问题。对此有两种解决方案：</p>
@@ -1238,31 +1637,31 @@ find_package_handle_standard_args(opcua)
 </ul>
 <h3 id="31">3.1 工具链文件的编写</h3>
 <p>CMake 提供了强大的交叉编译支持，而且仅需一个==工具链文件==即可完成交叉编译的工作。工具链文件是一个 CMake 脚本，用于指定交叉编译的工具链，例如编译器、链接器、库文件路径等。工具链文件没有严格的命名规则，就如同普通的 <code>*.cmake</code> 文件一样，不过一般习惯上会在工具链文件的名字中提到平台或 <code>toolchain</code> 字样，在 CMake 配置过程中，使用 <code>-DCMAKE_TOOLCHAIN_FILE</code> 选项指定工具链文件，例如</p>
-<pre><code class="language-shell">cmake -DCMAKE_TOOLCHAIN_FILE=toolchain-aarch64.cmake ..
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>cmake<span class="w"> </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>toolchain-aarch64.cmake<span class="w"> </span>..
+</span></code></pre></div>
 <p>一般来说，工具链文件的内容如下：</p>
-<pre><code class="language-cmake"># 指定目标系统
-set(CMAKE_SYSTEM_NAME Linux)
-# 指定目标处理器架构
-set(CMAKE_SYSTEM_PROCESSOR aarch64)
-
-# 指定目标系统的根目录，将直接影响编译器和链接器的行为
-set(CMAKE_SYSROOT &quot;/path/to/sysroot&quot;)
-
-# 指定 C 交叉编译器
-set(CMAKE_C_COMPILER &quot;/path/to/arm-gcc&quot;)
-# 指定 C++ 交叉编译器
-set(CMAKE_CXX_COMPILER &quot;/path/to/arm-g++&quot;)
-
-# 指定 CMake 查找文件的路径，例如 find_package
-set(CMAKE_FIND_ROOT_PATH &quot;/path/to/sysroot&quot;)
-# 不查找程序
-set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-# 只查找库
-set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-# 只查找头文件
-set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c"># 指定目标系统</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_SYSTEM_NAME</span><span class="w"> </span><span class="s">Linux</span><span class="p">)</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="c"># 指定目标处理器架构</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_SYSTEM_PROCESSOR</span><span class="w"> </span><span class="s">aarch64</span><span class="p">)</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="c"># 指定目标系统的根目录，将直接影响编译器和链接器的行为</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_SYSROOT</span><span class="w"> </span><span class="s2">&quot;/path/to/sysroot&quot;</span><span class="p">)</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="c"># 指定 C 交叉编译器</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_C_COMPILER</span><span class="w"> </span><span class="s2">&quot;/path/to/arm-gcc&quot;</span><span class="p">)</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="c"># 指定 C++ 交叉编译器</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_COMPILER</span><span class="w"> </span><span class="s2">&quot;/path/to/arm-g++&quot;</span><span class="p">)</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="c"># 指定 CMake 查找文件的路径，例如 find_package</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_FIND_ROOT_PATH</span><span class="w"> </span><span class="s2">&quot;/path/to/sysroot&quot;</span><span class="p">)</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="c"># 不查找程序</span>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_FIND_ROOT_PATH_MODE_PROGRAM</span><span class="w"> </span><span class="s">NEVER</span><span class="p">)</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="c"># 只查找库</span>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_FIND_ROOT_PATH_MODE_LIBRARY</span><span class="w"> </span><span class="s">ONLY</span><span class="p">)</span>
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a><span class="c"># 只查找头文件</span>
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_FIND_ROOT_PATH_MODE_INCLUDE</span><span class="w"> </span><span class="s">ONLY</span><span class="p">)</span>
+</span></code></pre></div>
 <h3 id="32">3.2 预期目标</h3>
 <p>现计划开发一个 EtherCAT 协议的机械臂驱动程序 <code>ec_robot</code>，该程序需要在 aarch64 架构的 Linux 平台下运行，<code>ec_robot</code> 项目的开发需要实现以下功能：</p>
 <ol>
@@ -1274,11 +1673,12 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 <li><code>ec_robot</code> 项目==无需==安装，只需构建即可。</li>
 <li>没有复杂的文件结构，本项目只有一个 <code>src</code> 目录，内容如下：</li>
 </ol>
-<p><code>.
-   └── src
-       ├── ec_robot.cpp
-       ├── ec_robot.hpp
-       └── main.cpp</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>.
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>└── src
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    ├── ec_robot.cpp
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    ├── ec_robot.hpp
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    └── main.cpp
+</span></code></pre></div>
 <h3 id="33">3.3 分析</h3>
 <ul>
 <li>需要实现一个工具链文件 <code>toolchain-aarch64.cmake</code>，用于指定交叉编译的工具链；</li>
@@ -1292,15 +1692,15 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 <li><code>CMakeLists.txt</code> —— 项目根目录的 CMake 配置文件</li>
 </ul>
 <p>共 2 个文件，如下文件结构所示</p>
-<pre><code>.
-├── CMakeLists.txt              (New)
-├── src
-│   ├── ec_robot.cpp
-│   ├── ec_robot.hpp
-│   └── main.cpp
-└── platform
-    └── toolchain-aarch64.cmake (New)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>.
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>├── CMakeLists.txt              (New)
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>├── src
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>│   ├── ec_robot.cpp
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>│   ├── ec_robot.hpp
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>│   └── main.cpp
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>└── platform
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    └── toolchain-aarch64.cmake (New)
+</span></code></pre></div>
 <p>::: code-tabs</p>
 <p>@tab CMakeLists.txt</p>
 <p>```cmake :collapsed-lines
@@ -1312,31 +1712,30 @@ cmake_minimum_required(VERSION 3.16)</p>
 add_executable(ec_robot ${target_src})</p>
 <p>target_link_libraries(ec_robot
   PRIVATE EtherLab::EtherCAT
-)</p>
-<pre><code>
-@tab platform/toolchain-aarch64.cmake
-
-```cmake
-set(CMAKE_SYSTEM_NAME Linux)
-set(CMAKE_SYSTEM_PROCESSOR aarch64)
-
-set(CMAKE_SYSROOT &quot;/home/ecdev/buildroot/host&quot;)
-
-set(CMAKE_C_COMPILER &quot;/home/ecdev/buildroot/host/usr/bin/aarch64-linux-gnu-gcc&quot;)
-set(CMAKE_CXX_COMPILER &quot;/home/ecdev/buildroot/host/usr/bin/aarch64-linux-gnu-g++&quot;)
-
-set(CMAKE_FIND_ROOT_PATH &quot;/home/ecdev/buildroot/host&quot;)
-set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-</code></pre>
+)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>@tab platform/toolchain-aarch64.cmake
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>```cmake
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>set(CMAKE_SYSTEM_NAME Linux)
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>set(CMAKE_SYSTEM_PROCESSOR aarch64)
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>set(CMAKE_SYSROOT &quot;/home/ecdev/buildroot/host&quot;)
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>set(CMAKE_C_COMPILER &quot;/home/ecdev/buildroot/host/usr/bin/aarch64-linux-gnu-gcc&quot;)
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>set(CMAKE_CXX_COMPILER &quot;/home/ecdev/buildroot/host/usr/bin/aarch64-linux-gnu-g++&quot;)
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>set(CMAKE_FIND_ROOT_PATH &quot;/home/ecdev/buildroot/host&quot;)
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+</span></code></pre></div></p>
 <p>:::</p>
 <p>不要惊讶为什么 <code>CMakeLists.txt</code> 中没有引用工具链文件，因为习惯上会在 CMake 执行配置生成过程时再指定工具链文件。</p>
 <p>打开项目根目录，在命令行中执行</p>
-<pre><code class="language-shell">mkdir build
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=platform/toolchain-aarch64.cmake
-cmake --build build
-</code></pre>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>mkdir<span class="w"> </span>build
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-DCMAKE_TOOLCHAIN_FILE<span class="o">=</span>platform/toolchain-aarch64.cmake
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build
+</span></code></pre></div>
 <p>即可完成编译。可能有部分读者没有见过 <code>-B</code> 和 <code>-S</code> 选项，这是 CMake 3.13 版本引入的<a href="https://cmake.org/cmake/help/latest/manual/cmake.1.html#options">功能</a>。<code>-B</code> 选项用于指定构建目录，<code>-S</code> 选项用于指定源码目录，这样可以将构建目录和源码目录分开，避免在源码目录中生成构建文件。</p>
 <p>编译后的可执行文件在 <code>build</code> 目录下，可以直接复制到目标平台上运行，例如可以使用 SSH 工具的 <code>scp</code> 命令将文件复制到目标平台上，但要确保目标平台有 <code>libethercat.so</code> 的库文件，并且保证复制后的可执行文件能够找到。</p>
 <h2 id="4">4. 跨平台项目</h2>
@@ -1363,54 +1762,54 @@ cmake --build build
 <table>
 <thead>
 <tr>
-<th align="center">内容</th>
-<th align="center">Window 安装路径</th>
-<th align="center">Linux 安装路径</th>
+<th style="text-align: center;">内容</th>
+<th style="text-align: center;">Window 安装路径</th>
+<th style="text-align: center;">Linux 安装路径</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">项目根目录</td>
-<td align="center"><code>${CMAKE_BINARY_DIR}/install</code> 记作 <code>&lt;prefix&gt;</code></td>
-<td align="center"><code>/usr/local</code> 记作 <code>&lt;prefix&gt;</code></td>
+<td style="text-align: center;">项目根目录</td>
+<td style="text-align: center;"><code>${CMAKE_BINARY_DIR}/install</code> 记作 <code>&lt;prefix&gt;</code></td>
+<td style="text-align: center;"><code>/usr/local</code> 记作 <code>&lt;prefix&gt;</code></td>
 </tr>
 <tr>
-<td align="center">头文件</td>
-<td align="center"><code>&lt;prefix&gt;\include</code></td>
-<td align="center"><code>&lt;prefix&gt;/include/numopt</code></td>
+<td style="text-align: center;">头文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\include</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/include/numopt</code></td>
 </tr>
 <tr>
-<td align="center">可执行文件</td>
-<td align="center"><code>&lt;prefix&gt;\x64\vc16\bin</code></td>
-<td align="center"><code>&lt;prefix&gt;/bin</code></td>
+<td style="text-align: center;">可执行文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\bin</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/bin</code></td>
 </tr>
 <tr>
-<td align="center">静态库文件</td>
-<td align="center"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
-<td align="center"><code>&lt;prefix&gt;/lib</code></td>
+<td style="text-align: center;">静态库文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/lib</code></td>
 </tr>
 <tr>
-<td align="center">动态库文件</td>
-<td align="center"><code>&lt;prefix&gt;\x64\vc16\bin</code></td>
-<td align="center"><code>&lt;prefix&gt;/lib</code></td>
+<td style="text-align: center;">动态库文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\bin</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/lib</code></td>
 </tr>
 <tr>
-<td align="center">导入库文件</td>
-<td align="center"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
-<td align="center">——</td>
+<td style="text-align: center;">导入库文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
+<td style="text-align: center;">——</td>
 </tr>
 <tr>
-<td align="center">CMake 配置文件</td>
-<td align="center"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
-<td align="center"><code>&lt;prefix&gt;/lib/cmake/numopt</code></td>
+<td style="text-align: center;">CMake 配置文件</td>
+<td style="text-align: center;"><code>&lt;prefix&gt;\x64\vc16\lib</code></td>
+<td style="text-align: center;"><code>&lt;prefix&gt;/lib/cmake/numopt</code></td>
 </tr>
 </tbody>
 </table>
 <ol>
 <li>需要提供 <code>uninstall</code> 目标，用于卸载已安装的文件，在执行</li>
 </ol>
-<p><code>shell
-   cmake --build . --target uninstall</code></p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>cmake<span class="w"> </span>--build<span class="w"> </span>.<span class="w"> </span>--target<span class="w"> </span>uninstall
+</span></code></pre></div>
 <p>后，安装目录下的文件都会被删除。</p>
 <p>文件结构如下：</p>
 <p>``` :collapsed-lines
@@ -1432,58 +1831,57 @@ cmake --build build
 │       └── src
 │           └── ...
 └── samples
-    └── version.cpp</p>
-<pre><code>
-### 4.2 实现
-
-在项目构建部分和[常规非跨平台项目](#_1-常规非跨平台项目)一致，只是在安装部分需要考虑不同平台的差异，因此跨平台项目只是比常规项目多了一些平台相关的配置。
-
-和常规非跨平台项目一样，在项目中添加
-
-- `modules/core/CMakeLists.txt` —— `core` 模块的 CMake 配置文件
-- `modules/num/CMakeLists.txt` —— `num` 模块的 CMake 配置文件
-- `modules/opt/CMakeLists.txt` —— `opt` 模块的 CMake 配置文件
-- `modules/CMakelists.txt` —— 项目的模块列表
-- `samples/CMakeLists.txt` —— 示例程序的 CMake 配置文件
-- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
-- `cmake/numoptInstall.cmake` —— 与项目安装路径相关的配置文件
-- `cmake/templates/numoptConfig.cmake.in` —— 项目的 CMake 配置文件的模板文件
-- `cmake/templates/cmake_uninstall.cmake.in` —— 自定义卸载目标的模板文件
-
-共 7 个文件，如下文件结构所示
-
-``` :collapsed-lines
-.
-├── CMakeLists.txt                   (New)
-├── cmake
-│   ├── numoptInstall.cmake          (New)
-│   └── templates
-│       ├── cmake_uninstall.cmake.in (New)
-│       └── numoptConfig.cmake.in    (New)
-├── modules
-│   ├── core
-│   │   ├── CMakeLists.txt           (New)
-│   │   ├── include
-│   │   │   └── ...
-│   │   └── src
-│   │       └── ...
-│   ├── num
-│   │   ├── CMakeLists.txt           (New)
-│   │   ├── include
-│   │   │   └── ...
-│   │   └── src
-│   │       └── ...
-│   ├── opt
-│   │   ├── CMakeLists.txt           (New)
-│   │   ├── include
-│   │   │   └── ...
-│   │   └── src
-│   │       └── ...
-│   └── CMakeLists.txt               (New)
-└── samples
-    ├── CMakeLists.txt               (New)
     └── version.cpp
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>### 4.2 实现
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>在项目构建部分和[常规非跨平台项目](#_1-常规非跨平台项目)一致，只是在安装部分需要考虑不同平台的差异，因此跨平台项目只是比常规项目多了一些平台相关的配置。
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>和常规非跨平台项目一样，在项目中添加
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>- `modules/core/CMakeLists.txt` —— `core` 模块的 CMake 配置文件
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>- `modules/num/CMakeLists.txt` —— `num` 模块的 CMake 配置文件
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>- `modules/opt/CMakeLists.txt` —— `opt` 模块的 CMake 配置文件
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>- `modules/CMakelists.txt` —— 项目的模块列表
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>- `samples/CMakeLists.txt` —— 示例程序的 CMake 配置文件
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>- `CMakeLists.txt` —— 项目根目录的 CMake 配置文件
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>- `cmake/numoptInstall.cmake` —— 与项目安装路径相关的配置文件
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>- `cmake/templates/numoptConfig.cmake.in` —— 项目的 CMake 配置文件的模板文件
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>- `cmake/templates/cmake_uninstall.cmake.in` —— 自定义卸载目标的模板文件
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>共 7 个文件，如下文件结构所示
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a>``` :collapsed-lines
+</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a>.
+</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a>├── CMakeLists.txt                   (New)
+</span><span id="__span-30-22"><a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>├── cmake
+</span><span id="__span-30-23"><a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a>│   ├── numoptInstall.cmake          (New)
+</span><span id="__span-30-24"><a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>│   └── templates
+</span><span id="__span-30-25"><a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>│       ├── cmake_uninstall.cmake.in (New)
+</span><span id="__span-30-26"><a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>│       └── numoptConfig.cmake.in    (New)
+</span><span id="__span-30-27"><a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a>├── modules
+</span><span id="__span-30-28"><a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a>│   ├── core
+</span><span id="__span-30-29"><a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a>│   │   ├── CMakeLists.txt           (New)
+</span><span id="__span-30-30"><a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a>│   │   ├── include
+</span><span id="__span-30-31"><a id="__codelineno-30-31" name="__codelineno-30-31" href="#__codelineno-30-31"></a>│   │   │   └── ...
+</span><span id="__span-30-32"><a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a>│   │   └── src
+</span><span id="__span-30-33"><a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a>│   │       └── ...
+</span><span id="__span-30-34"><a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a>│   ├── num
+</span><span id="__span-30-35"><a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a>│   │   ├── CMakeLists.txt           (New)
+</span><span id="__span-30-36"><a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a>│   │   ├── include
+</span><span id="__span-30-37"><a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a>│   │   │   └── ...
+</span><span id="__span-30-38"><a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a>│   │   └── src
+</span><span id="__span-30-39"><a id="__codelineno-30-39" name="__codelineno-30-39" href="#__codelineno-30-39"></a>│   │       └── ...
+</span><span id="__span-30-40"><a id="__codelineno-30-40" name="__codelineno-30-40" href="#__codelineno-30-40"></a>│   ├── opt
+</span><span id="__span-30-41"><a id="__codelineno-30-41" name="__codelineno-30-41" href="#__codelineno-30-41"></a>│   │   ├── CMakeLists.txt           (New)
+</span><span id="__span-30-42"><a id="__codelineno-30-42" name="__codelineno-30-42" href="#__codelineno-30-42"></a>│   │   ├── include
+</span><span id="__span-30-43"><a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a>│   │   │   └── ...
+</span><span id="__span-30-44"><a id="__codelineno-30-44" name="__codelineno-30-44" href="#__codelineno-30-44"></a>│   │   └── src
+</span><span id="__span-30-45"><a id="__codelineno-30-45" name="__codelineno-30-45" href="#__codelineno-30-45"></a>│   │       └── ...
+</span><span id="__span-30-46"><a id="__codelineno-30-46" name="__codelineno-30-46" href="#__codelineno-30-46"></a>│   └── CMakeLists.txt               (New)
+</span><span id="__span-30-47"><a id="__codelineno-30-47" name="__codelineno-30-47" href="#__codelineno-30-47"></a>└── samples
+</span><span id="__span-30-48"><a id="__codelineno-30-48" name="__codelineno-30-48" href="#__codelineno-30-48"></a>    ├── CMakeLists.txt               (New)
+</span><span id="__span-30-49"><a id="__codelineno-30-49" name="__codelineno-30-49" href="#__codelineno-30-49"></a>    └── version.cpp
+</span></code></pre></div></p>
 <p>方便起见，就不添加类似于 <code>vl_add_module</code> 和 <code>vl_add_exe</code> 的宏了。</p>
 <h4 id="421">4.2.1 项目配置</h4>
 <p>::: code-tabs</p>
@@ -1536,92 +1934,91 @@ endif()</p>
 <p>install(
   FILES "${CMAKE_CURRENT_BINARY_DIR}/numoptConfig.cmake"
   DESTINATION ${NUMOPT_CFG_INSTALL_PATH}
-)</p>
-<pre><code>
-@tab cmake/numoptInstall.cmake
-
-```cmake :collapsed-lines
-# ----------------------------------------------------------
-#  项目安装路径的预先配置
-# ----------------------------------------------------------
-if(NOT CMAKE_TOOLCHAIN_FILE)
-  if(WIN32)
-    set(CMAKE_INSTALL_PREFIX &quot;${CMAKE_BINARY_DIR}/install&quot;)
-  else()
-    set(CMAKE_INSTALL_PREFIX &quot;/usr/local&quot;)
-  endif()
-else()
-  # 交叉编译时的安装路径
-  set(CMAKE_INSTALL_PREFIX &quot;${CMAKE_BINARY_DIR}/install&quot;)
-endif()
-
-# ----------------------------------------------------------
-#  MSVC 安装路径的预先配置
-# ----------------------------------------------------------
-if(MSVC)
-  if(&quot;${CMAKE_GENERATOR}&quot; MATCHES &quot;(Win64|IA64)&quot;)
-    set(ARCH_forMSVC &quot;x64&quot;)
-  elseif(&quot;${CMAKE_GENERATOR_PLATFORM}&quot; MATCHES &quot;ARM64&quot;)
-    set(ARCH_forMSVC &quot;ARM64&quot;)
-  elseif(&quot;${CMAKE_GENERATOR}&quot; MATCHES &quot;ARM&quot;)
-    set(ARCH_forMSVC &quot;ARM&quot;)
-  elseif(&quot;${CMAKE_SIZEOF_VOID_P}&quot; STREQUAL &quot;8&quot;)
-    set(ARCH_forMSVC &quot;x64&quot;)
-  else()
-    set(ARCH_forMSVC x86)
-  endif()
-
-  if(MSVC_VERSION EQUAL 1400)
-    set(RUNTIME_forMSVC vc8)
-  elseif(MSVC_VERSION EQUAL 1500)
-    set(RUNTIME_forMSVC vc9)
-  elseif(MSVC_VERSION EQUAL 1600)
-    set(RUNTIME_forMSVC vc10)
-  elseif(MSVC_VERSION EQUAL 1700)
-    set(RUNTIME_forMSVC vc11)
-  elseif(MSVC_VERSION EQUAL 1800)
-    set(RUNTIME_forMSVC vc12)
-  elseif(MSVC_VERSION EQUAL 1900)
-    set(RUNTIME_forMSVC vc14)
-  elseif(MSVC_VERSION MATCHES &quot;^191[0-9]$&quot;)
-    set(RUNTIME_forMSVC vc15)
-  elseif(MSVC_VERSION MATCHES &quot;^192[0-9]$&quot;)
-    set(RUNTIME_forMSVC vc16)
-  elseif(MSVC_VERSION MATCHES &quot;^19[34][0-9]$&quot;)
-    set(RUNTIME_forMSVC vc17)
-  endif()
-endif()
-
-# ----------------------------------------------------------
-#  安装路径设置
-# ----------------------------------------------------------
-if(MSVC)
-  if(DEFINED ARCH_forMSVC AND DEFINED RUNTIME_forMSVC)
-    set(MSVC_INSTALL_PREFIX &quot;${ARCH_forMSVC}/${RUNTIME_forMSVC}&quot;)
-  else()
-    set(MSVC_INSTALL_PREFIX &quot;&quot;)
-  endif()
-
-  set(NUMOPT_INC_INSTALL_PATH &quot;include&quot;)
-  set(NUMOPT_LIB_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/lib&quot;)
-  set(NUMOPT_BIN_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/bin&quot;)
-  set(NUMOPT_CFG_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/lib&quot;)
-elseif()
-  set(NUMOPT_INC_INSTALL_PATH &quot;include/numopt&quot;)
-  set(NUMOPT_LIB_INSTALL_PATH &quot;lib&quot;)
-  set(NUMOPT_BIN_INSTALL_PATH &quot;bin&quot;)
-  set(NUMOPT_CFG_INSTALL_PATH &quot;lib/cmake/numopt&quot;)
-endif()
-</code></pre>
+)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>@tab cmake/numoptInstall.cmake
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>```cmake :collapsed-lines
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a># ----------------------------------------------------------
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>#  项目安装路径的预先配置
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a># ----------------------------------------------------------
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>if(NOT CMAKE_TOOLCHAIN_FILE)
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>  if(WIN32)
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>    set(CMAKE_INSTALL_PREFIX &quot;${CMAKE_BINARY_DIR}/install&quot;)
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>  else()
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>    set(CMAKE_INSTALL_PREFIX &quot;/usr/local&quot;)
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>  endif()
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>else()
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>  # 交叉编译时的安装路径
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>  set(CMAKE_INSTALL_PREFIX &quot;${CMAKE_BINARY_DIR}/install&quot;)
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>endif()
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a># ----------------------------------------------------------
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>#  MSVC 安装路径的预先配置
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a># ----------------------------------------------------------
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>if(MSVC)
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>  if(&quot;${CMAKE_GENERATOR}&quot; MATCHES &quot;(Win64|IA64)&quot;)
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>    set(ARCH_forMSVC &quot;x64&quot;)
+</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>  elseif(&quot;${CMAKE_GENERATOR_PLATFORM}&quot; MATCHES &quot;ARM64&quot;)
+</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>    set(ARCH_forMSVC &quot;ARM64&quot;)
+</span><span id="__span-31-26"><a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a>  elseif(&quot;${CMAKE_GENERATOR}&quot; MATCHES &quot;ARM&quot;)
+</span><span id="__span-31-27"><a id="__codelineno-31-27" name="__codelineno-31-27" href="#__codelineno-31-27"></a>    set(ARCH_forMSVC &quot;ARM&quot;)
+</span><span id="__span-31-28"><a id="__codelineno-31-28" name="__codelineno-31-28" href="#__codelineno-31-28"></a>  elseif(&quot;${CMAKE_SIZEOF_VOID_P}&quot; STREQUAL &quot;8&quot;)
+</span><span id="__span-31-29"><a id="__codelineno-31-29" name="__codelineno-31-29" href="#__codelineno-31-29"></a>    set(ARCH_forMSVC &quot;x64&quot;)
+</span><span id="__span-31-30"><a id="__codelineno-31-30" name="__codelineno-31-30" href="#__codelineno-31-30"></a>  else()
+</span><span id="__span-31-31"><a id="__codelineno-31-31" name="__codelineno-31-31" href="#__codelineno-31-31"></a>    set(ARCH_forMSVC x86)
+</span><span id="__span-31-32"><a id="__codelineno-31-32" name="__codelineno-31-32" href="#__codelineno-31-32"></a>  endif()
+</span><span id="__span-31-33"><a id="__codelineno-31-33" name="__codelineno-31-33" href="#__codelineno-31-33"></a>
+</span><span id="__span-31-34"><a id="__codelineno-31-34" name="__codelineno-31-34" href="#__codelineno-31-34"></a>  if(MSVC_VERSION EQUAL 1400)
+</span><span id="__span-31-35"><a id="__codelineno-31-35" name="__codelineno-31-35" href="#__codelineno-31-35"></a>    set(RUNTIME_forMSVC vc8)
+</span><span id="__span-31-36"><a id="__codelineno-31-36" name="__codelineno-31-36" href="#__codelineno-31-36"></a>  elseif(MSVC_VERSION EQUAL 1500)
+</span><span id="__span-31-37"><a id="__codelineno-31-37" name="__codelineno-31-37" href="#__codelineno-31-37"></a>    set(RUNTIME_forMSVC vc9)
+</span><span id="__span-31-38"><a id="__codelineno-31-38" name="__codelineno-31-38" href="#__codelineno-31-38"></a>  elseif(MSVC_VERSION EQUAL 1600)
+</span><span id="__span-31-39"><a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a>    set(RUNTIME_forMSVC vc10)
+</span><span id="__span-31-40"><a id="__codelineno-31-40" name="__codelineno-31-40" href="#__codelineno-31-40"></a>  elseif(MSVC_VERSION EQUAL 1700)
+</span><span id="__span-31-41"><a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a>    set(RUNTIME_forMSVC vc11)
+</span><span id="__span-31-42"><a id="__codelineno-31-42" name="__codelineno-31-42" href="#__codelineno-31-42"></a>  elseif(MSVC_VERSION EQUAL 1800)
+</span><span id="__span-31-43"><a id="__codelineno-31-43" name="__codelineno-31-43" href="#__codelineno-31-43"></a>    set(RUNTIME_forMSVC vc12)
+</span><span id="__span-31-44"><a id="__codelineno-31-44" name="__codelineno-31-44" href="#__codelineno-31-44"></a>  elseif(MSVC_VERSION EQUAL 1900)
+</span><span id="__span-31-45"><a id="__codelineno-31-45" name="__codelineno-31-45" href="#__codelineno-31-45"></a>    set(RUNTIME_forMSVC vc14)
+</span><span id="__span-31-46"><a id="__codelineno-31-46" name="__codelineno-31-46" href="#__codelineno-31-46"></a>  elseif(MSVC_VERSION MATCHES &quot;^191[0-9]$&quot;)
+</span><span id="__span-31-47"><a id="__codelineno-31-47" name="__codelineno-31-47" href="#__codelineno-31-47"></a>    set(RUNTIME_forMSVC vc15)
+</span><span id="__span-31-48"><a id="__codelineno-31-48" name="__codelineno-31-48" href="#__codelineno-31-48"></a>  elseif(MSVC_VERSION MATCHES &quot;^192[0-9]$&quot;)
+</span><span id="__span-31-49"><a id="__codelineno-31-49" name="__codelineno-31-49" href="#__codelineno-31-49"></a>    set(RUNTIME_forMSVC vc16)
+</span><span id="__span-31-50"><a id="__codelineno-31-50" name="__codelineno-31-50" href="#__codelineno-31-50"></a>  elseif(MSVC_VERSION MATCHES &quot;^19[34][0-9]$&quot;)
+</span><span id="__span-31-51"><a id="__codelineno-31-51" name="__codelineno-31-51" href="#__codelineno-31-51"></a>    set(RUNTIME_forMSVC vc17)
+</span><span id="__span-31-52"><a id="__codelineno-31-52" name="__codelineno-31-52" href="#__codelineno-31-52"></a>  endif()
+</span><span id="__span-31-53"><a id="__codelineno-31-53" name="__codelineno-31-53" href="#__codelineno-31-53"></a>endif()
+</span><span id="__span-31-54"><a id="__codelineno-31-54" name="__codelineno-31-54" href="#__codelineno-31-54"></a>
+</span><span id="__span-31-55"><a id="__codelineno-31-55" name="__codelineno-31-55" href="#__codelineno-31-55"></a># ----------------------------------------------------------
+</span><span id="__span-31-56"><a id="__codelineno-31-56" name="__codelineno-31-56" href="#__codelineno-31-56"></a>#  安装路径设置
+</span><span id="__span-31-57"><a id="__codelineno-31-57" name="__codelineno-31-57" href="#__codelineno-31-57"></a># ----------------------------------------------------------
+</span><span id="__span-31-58"><a id="__codelineno-31-58" name="__codelineno-31-58" href="#__codelineno-31-58"></a>if(MSVC)
+</span><span id="__span-31-59"><a id="__codelineno-31-59" name="__codelineno-31-59" href="#__codelineno-31-59"></a>  if(DEFINED ARCH_forMSVC AND DEFINED RUNTIME_forMSVC)
+</span><span id="__span-31-60"><a id="__codelineno-31-60" name="__codelineno-31-60" href="#__codelineno-31-60"></a>    set(MSVC_INSTALL_PREFIX &quot;${ARCH_forMSVC}/${RUNTIME_forMSVC}&quot;)
+</span><span id="__span-31-61"><a id="__codelineno-31-61" name="__codelineno-31-61" href="#__codelineno-31-61"></a>  else()
+</span><span id="__span-31-62"><a id="__codelineno-31-62" name="__codelineno-31-62" href="#__codelineno-31-62"></a>    set(MSVC_INSTALL_PREFIX &quot;&quot;)
+</span><span id="__span-31-63"><a id="__codelineno-31-63" name="__codelineno-31-63" href="#__codelineno-31-63"></a>  endif()
+</span><span id="__span-31-64"><a id="__codelineno-31-64" name="__codelineno-31-64" href="#__codelineno-31-64"></a>
+</span><span id="__span-31-65"><a id="__codelineno-31-65" name="__codelineno-31-65" href="#__codelineno-31-65"></a>  set(NUMOPT_INC_INSTALL_PATH &quot;include&quot;)
+</span><span id="__span-31-66"><a id="__codelineno-31-66" name="__codelineno-31-66" href="#__codelineno-31-66"></a>  set(NUMOPT_LIB_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/lib&quot;)
+</span><span id="__span-31-67"><a id="__codelineno-31-67" name="__codelineno-31-67" href="#__codelineno-31-67"></a>  set(NUMOPT_BIN_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/bin&quot;)
+</span><span id="__span-31-68"><a id="__codelineno-31-68" name="__codelineno-31-68" href="#__codelineno-31-68"></a>  set(NUMOPT_CFG_INSTALL_PATH &quot;${MSVC_INSTALL_PREFIX}/lib&quot;)
+</span><span id="__span-31-69"><a id="__codelineno-31-69" name="__codelineno-31-69" href="#__codelineno-31-69"></a>elseif()
+</span><span id="__span-31-70"><a id="__codelineno-31-70" name="__codelineno-31-70" href="#__codelineno-31-70"></a>  set(NUMOPT_INC_INSTALL_PATH &quot;include/numopt&quot;)
+</span><span id="__span-31-71"><a id="__codelineno-31-71" name="__codelineno-31-71" href="#__codelineno-31-71"></a>  set(NUMOPT_LIB_INSTALL_PATH &quot;lib&quot;)
+</span><span id="__span-31-72"><a id="__codelineno-31-72" name="__codelineno-31-72" href="#__codelineno-31-72"></a>  set(NUMOPT_BIN_INSTALL_PATH &quot;bin&quot;)
+</span><span id="__span-31-73"><a id="__codelineno-31-73" name="__codelineno-31-73" href="#__codelineno-31-73"></a>  set(NUMOPT_CFG_INSTALL_PATH &quot;lib/cmake/numopt&quot;)
+</span><span id="__span-31-74"><a id="__codelineno-31-74" name="__codelineno-31-74" href="#__codelineno-31-74"></a>endif()
+</span></code></pre></div></p>
 <p>:::</p>
 <h4 id="422">4.2.2 模块配置</h4>
 <p><code>modules</code> 目录下的 <code>CMakeLists.txt</code> 和各个模块的 <code>CMakeLists.txt</code> 文件如下：</p>
 <p>::: code-tabs</p>
 <p>@tab modules</p>
-<pre><code class="language-cmake">add_subdirectory(core)
-add_subdirectory(num)
-add_subdirectory(opt)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">core</span><span class="p">)</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">num</span><span class="p">)</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">opt</span><span class="p">)</span>
+</span></code></pre></div>
 <p>@tab <code>core</code> 模块</p>
 <p>```cmake :collapsed-lines
 aux_source_directory(src core_src)</p>
@@ -1635,29 +2032,28 @@ aux_source_directory(src core_src)</p>
   ARCHIVE DESTINATION ${NUMOPT_LIB_INSTALL_PATH}
   RUNTIME DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
   INCLUDES DESTINATION ${NUMOPT_INC_INSTALL_PATH}
-)</p>
-<pre><code>
-@tab `num` 模块
-
-```cmake :collapsed-lines
-aux_source_directory(src num_src)
-
-add_library(num ${num_src})
-
-target_include_directories(num PUBLIC
-  $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include&gt;
-  $&lt;INSTALL_INTERFACE:${NUMOPT_INC_INSTALL_PATH}&gt;
 )
-
-target_link_libraries(num PUBLIC core)
-
-install(TARGETS num
-  LIBRARY DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
-  ARCHIVE DESTINATION ${NUMOPT_LIB_INSTALL_PATH}
-  RUNTIME DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
-  INCLUDES DESTINATION ${NUMOPT_INC_INSTALL_PATH}
-)
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>@tab `num` 模块
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>```cmake :collapsed-lines
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>aux_source_directory(src num_src)
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>add_library(num ${num_src})
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>target_include_directories(num PUBLIC
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>  $&lt;BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include&gt;
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>  $&lt;INSTALL_INTERFACE:${NUMOPT_INC_INSTALL_PATH}&gt;
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>)
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>target_link_libraries(num PUBLIC core)
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>install(TARGETS num
+</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>  LIBRARY DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>  ARCHIVE DESTINATION ${NUMOPT_LIB_INSTALL_PATH}
+</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a>  RUNTIME DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
+</span><span id="__span-33-19"><a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a>  INCLUDES DESTINATION ${NUMOPT_INC_INSTALL_PATH}
+</span><span id="__span-33-20"><a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a>)
+</span></code></pre></div></p>
 <p>@tab <code>opt</code> 模块</p>
 <p>```cmake :collapsed-lines
 aux_source_directory(src opt_src)</p>
@@ -1672,25 +2068,24 @@ aux_source_directory(src opt_src)</p>
   ARCHIVE DESTINATION ${NUMOPT_LIB_INSTALL_PATH}
   RUNTIME DESTINATION ${NUMOPT_BIN_INSTALL_PATH}
   INCLUDES DESTINATION ${NUMOPT_INC_INSTALL_PATH}
-)</p>
-<pre><code>
-:::
-
-::: tip
-由于没有使用宏，`core` 模块、`num` 模块和 `opt` 模块的配置写了大量的重复代码，可读性降低。因此在必要时候使用宏是一个不错的选择。这里就不再展示宏的使用，读者可以按照[常规非跨平台项目配置](#_1-4-1-项目配置)中的内容自行添加宏。
-:::
-
-#### 4.2.3 示例程序配置
-
-::: code-tabs
-
-@tab samples/CMakeLists.txt
-
-```cmake :collapsed-lines
-add_executable(numopt_version version.cpp)
-
-target_link_libraries(numopt_version PRIVATE core)
-</code></pre>
+)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>:::
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>::: tip
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>由于没有使用宏，`core` 模块、`num` 模块和 `opt` 模块的配置写了大量的重复代码，可读性降低。因此在必要时候使用宏是一个不错的选择。这里就不再展示宏的使用，读者可以按照[常规非跨平台项目配置](#_1-4-1-项目配置)中的内容自行添加宏。
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>:::
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>#### 4.2.3 示例程序配置
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>::: code-tabs
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>@tab samples/CMakeLists.txt
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>```cmake :collapsed-lines
+</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>add_executable(numopt_version version.cpp)
+</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>
+</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>target_link_libraries(numopt_version PRIVATE core)
+</span></code></pre></div></p>
 <p>:::</p>
 <h4 id="424-cmake">4.2.4 CMake 配置文件模板</h4>
 <p><code>cmake_uninstall.cmake.in</code> 文件参考自<a href="https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake">此处</a>，用户在实际使用时最好加上出处。</p>
@@ -1700,7 +2095,7 @@ target_link_libraries(numopt_version PRIVATE core)
 <h1 id="-_12">----------------------------------------------------------------------------</h1>
 <h1 id="numopt-cmake">numopt CMake 配置文件</h1>
 <h1 id="_16"></h1>
-<h1 id="cmake"><strong> 该文件由 CMake 生成，请勿手动修改 </strong></h1>
+<h1 id="cmake">** 该文件由 CMake 生成，请勿手动修改 **</h1>
 <h1 id="_17"></h1>
 <h1 id="_18">基本用法：</h1>
 <h1 id="find_packagenumopt-required">find_package(numopt REQUIRED)</h1>
@@ -1730,57 +2125,56 @@ endif()</p>
 <p>include(FindPackageHandleStandardArgs)</p>
 <p>find_package_handle_standard_args(numopt
   REQUIRED_VARS numopt_INSTALL_PATH
-)</p>
-<pre><code>
-@tab cmake_uninstall.cmake.in
-
-```cmake :collapsed-lines
-# -----------------------------------------------
-# File that provides &quot;make uninstall&quot; target
-# We use the file 'install_manifest.txt'
-#
-# Details:
-# https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake
-# -----------------------------------------------
-
-if(NOT EXISTS &quot;@CMAKE_BINARY_DIR@/install_manifest.txt&quot;)
-  message(FATAL_ERROR
-    &quot;Cannot find install manifest: \&quot;@CMAKE_BINARY_DIR@/install_manifest.txt\&quot;&quot;
-  )
-endif()
-
-file(READ &quot;@CMAKE_BINARY_DIR@/install_manifest.txt&quot; files)
-string(REGEX REPLACE &quot;\n&quot; &quot;;&quot; files &quot;${files}&quot;)
-foreach(file ${files})
-  message(STATUS &quot;Uninstalling: $ENV{DESTDIR}${file}&quot;)
-  if(IS_SYMLINK &quot;$ENV{DESTDIR}${file}&quot; OR EXISTS &quot;$ENV{DESTDIR}${file}&quot;)
-    execute_process(
-      COMMAND &quot;@CMAKE_COMMAND@&quot; &quot;-E&quot; &quot;remove&quot; &quot;$ENV{DESTDIR}${file}&quot;
-      OUTPUT_VARIABLE rm_out
-      RESULT_VARIABLE rm_retval
-    )
-    if(NOT &quot;${rm_retval}&quot; STREQUAL 0)
-      message(FATAL_ERROR &quot;Problem when removing $ENV{DESTDIR}${file}&quot;)
-    endif()
-  else(IS_SYMLINK &quot;$ENV{DESTDIR}${file}&quot; OR EXISTS &quot;$ENV{DESTDIR}${file}&quot;)
-    message(STATUS &quot;File $ENV{DESTDIR}${file} does not exist.&quot;)
-  endif()
-endforeach()
-</code></pre>
+)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>@tab cmake_uninstall.cmake.in
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>```cmake :collapsed-lines
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a># -----------------------------------------------
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a># File that provides &quot;make uninstall&quot; target
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a># We use the file &#39;install_manifest.txt&#39;
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>#
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a># Details:
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a># https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#can-i-do-make-uninstall-with-cmake
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a># -----------------------------------------------
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>if(NOT EXISTS &quot;@CMAKE_BINARY_DIR@/install_manifest.txt&quot;)
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>  message(FATAL_ERROR
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>    &quot;Cannot find install manifest: \&quot;@CMAKE_BINARY_DIR@/install_manifest.txt\&quot;&quot;
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>  )
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>endif()
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>file(READ &quot;@CMAKE_BINARY_DIR@/install_manifest.txt&quot; files)
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a>string(REGEX REPLACE &quot;\n&quot; &quot;;&quot; files &quot;${files}&quot;)
+</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a>foreach(file ${files})
+</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a>  message(STATUS &quot;Uninstalling: $ENV{DESTDIR}${file}&quot;)
+</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a>  if(IS_SYMLINK &quot;$ENV{DESTDIR}${file}&quot; OR EXISTS &quot;$ENV{DESTDIR}${file}&quot;)
+</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>    execute_process(
+</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a>      COMMAND &quot;@CMAKE_COMMAND@&quot; &quot;-E&quot; &quot;remove&quot; &quot;$ENV{DESTDIR}${file}&quot;
+</span><span id="__span-35-25"><a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a>      OUTPUT_VARIABLE rm_out
+</span><span id="__span-35-26"><a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a>      RESULT_VARIABLE rm_retval
+</span><span id="__span-35-27"><a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a>    )
+</span><span id="__span-35-28"><a id="__codelineno-35-28" name="__codelineno-35-28" href="#__codelineno-35-28"></a>    if(NOT &quot;${rm_retval}&quot; STREQUAL 0)
+</span><span id="__span-35-29"><a id="__codelineno-35-29" name="__codelineno-35-29" href="#__codelineno-35-29"></a>      message(FATAL_ERROR &quot;Problem when removing $ENV{DESTDIR}${file}&quot;)
+</span><span id="__span-35-30"><a id="__codelineno-35-30" name="__codelineno-35-30" href="#__codelineno-35-30"></a>    endif()
+</span><span id="__span-35-31"><a id="__codelineno-35-31" name="__codelineno-35-31" href="#__codelineno-35-31"></a>  else(IS_SYMLINK &quot;$ENV{DESTDIR}${file}&quot; OR EXISTS &quot;$ENV{DESTDIR}${file}&quot;)
+</span><span id="__span-35-32"><a id="__codelineno-35-32" name="__codelineno-35-32" href="#__codelineno-35-32"></a>    message(STATUS &quot;File $ENV{DESTDIR}${file} does not exist.&quot;)
+</span><span id="__span-35-33"><a id="__codelineno-35-33" name="__codelineno-35-33" href="#__codelineno-35-33"></a>  endif()
+</span><span id="__span-35-34"><a id="__codelineno-35-34" name="__codelineno-35-34" href="#__codelineno-35-34"></a>endforeach()
+</span></code></pre></div></p>
 <p>:::</p>
 <h3 id="43-visual-studio">4.3 针对 Visual Studio 的特殊设计</h3>
 <p>对于多个目标的项目，会生成多个库文件，例如本 <code>numopt</code> 项目，在 Windows 下会生成 <code>core.lib</code>、<code>num.lib</code> 和 <code>opt.lib</code> 3 个库文件，在 Visual Studio 中，利用这 3 个库文件进行开发，需要再项目中手动添加，这样会增加开发者的工作量。为了简化开发者的工作，可以将这 3 个库文件打包成一个 <code>numopt_world.lib</code> 文件，这样开发者只需要添加一个库文件即可。</p>
 <p>例如 OpenCV 原先会生成 <code>opencv_core.lib</code>、<code>opencv_imgproc.lib</code> 以及 <code>opencv_highgui.lib</code> 等导入库文件，在启用 <code>BUILD_opencv_world</code> 选项后，则不再生成原先的库文件，而是生成一个 <code>opencv_world.lib</code> 导入库文件。这时开发者在使用 Visual Studio 对项目的导入库进行配置的时候，只需添加 <code>opencv_world.lib</code> 该导入库文件的路径和名字即可。</p>
 <p>一个简单的实现方式是在 <code>core</code>、<code>num</code> 和 <code>opt</code> 模块的 <code>CMakeLists.txt</code> 文件中添加判断，下面以 <code>core</code> 模块为例：</p>
-<pre><code class="language-cmake">if(NOT BUILD_WORLD)
-  # 原先的配置
-else()
-  aux source_directory(src core_src)
-  set(NUMOPT_SRC &quot;${NUMOPT_SRCS} ${core_src}&quot; CACHE INTERNAL &quot;&quot;)
-  set(NUMOPT_INC &quot;${NUMOPT_INC} ${CMAKE_CURRENT_SOURCE_DIR}/include&quot; CACHE INTERNAL &quot;&quot;)
-  # 由于没有外部依赖库，所以就不写 NUMOPT_LIB 了
-endif()
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">BUILD_WORLD</span><span class="p">)</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">  </span><span class="c"># 原先的配置</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="nb">else</span><span class="p">()</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">  </span><span class="err">aux</span><span class="w"> </span><span class="nb">source_directory</span><span class="p">(</span><span class="s">src</span><span class="w"> </span><span class="s">core_src</span><span class="p">)</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">  </span><span class="nb">set</span><span class="p">(</span><span class="s">NUMOPT_SRC</span><span class="w"> </span><span class="s2">&quot;${NUMOPT_SRCS} ${core_src}&quot;</span><span class="w"> </span><span class="s">CACHE</span><span class="w"> </span><span class="s">INTERNAL</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">  </span><span class="nb">set</span><span class="p">(</span><span class="s">NUMOPT_INC</span><span class="w"> </span><span class="s2">&quot;${NUMOPT_INC} ${CMAKE_CURRENT_SOURCE_DIR}/include&quot;</span><span class="w"> </span><span class="s">CACHE</span><span class="w"> </span><span class="s">INTERNAL</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="w">  </span><span class="c"># 由于没有外部依赖库，所以就不写 NUMOPT_LIB 了</span>
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="nb">endif</span><span class="p">()</span>
+</span></code></pre></div>
 <p>修改项目的根目录的 <code>CMakeLists.txt</code> 文件</p>
 <p>```cmake :collapsed-lines</p>
 <h1 id="_22">...</h1>
@@ -1802,47 +2196,46 @@ add_subdirectory(samples)</p>
   )
 endif()</p>
 <h1 id="_24">...</h1>
-<pre><code>
-还有一种实现方式是使用[对象库](05-目标构建.md#_3-1-1-对象库)，将 `core`、`num` 和 `opt` 模块的源文件编译成对象文件，然后再将这些对象文件链接成一个库文件。例如
-
-```cmake
-add_library(core_obj OBJECT ${core_src})
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>还有一种实现方式是使用[对象库](05-目标构建.md#_3-1-1-对象库)，将 `core`、`num` 和 `opt` 模块的源文件编译成对象文件，然后再将这些对象文件链接成一个库文件。例如
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>```cmake
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>add_library(core_obj OBJECT ${core_src})
+</span></code></pre></div>
 <p>开发者可以自行增加 <code>if</code> 判断，根据自己的需求来选择合适的实现方式。</p>
 <p>使用形如以下的代码来安装：</p>
 <p>::: code-tabs</p>
 <p>@tab <code>core</code> 模块</p>
-<pre><code class="language-cmake">add_library(core_obj OBJECT ${core_src})
-
-install(TARGETS core_obj
-  EXPORT numoptModules
-)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">add_library</span><span class="p">(</span><span class="s">core_obj</span><span class="w"> </span><span class="s">OBJECT</span><span class="w"> </span><span class="o">${</span><span class="nv">core_src</span><span class="o">}</span><span class="p">)</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span><span class="w"> </span><span class="s">core_obj</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">  </span><span class="s">EXPORT</span><span class="w"> </span><span class="s">numoptModules</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>@tab <code>num</code> 模块</p>
-<pre><code class="language-cmake">add_library(num_obj OBJECT ${num_src})
-
-install(TARGETS num_obj
-  EXPORT numoptModules
-)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nb">add_library</span><span class="p">(</span><span class="s">num_obj</span><span class="w"> </span><span class="s">OBJECT</span><span class="w"> </span><span class="o">${</span><span class="nv">num_src</span><span class="o">}</span><span class="p">)</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span><span class="w"> </span><span class="s">num_obj</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">  </span><span class="s">EXPORT</span><span class="w"> </span><span class="s">numoptModules</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>@tab <code>opt</code> 模块</p>
-<pre><code class="language-cmake">add_library(opt_obj OBJECT ${opt_src})
-
-install(TARGETS opt_obj
-  EXPORT numoptModules
-)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nb">add_library</span><span class="p">(</span><span class="s">opt_obj</span><span class="w"> </span><span class="s">OBJECT</span><span class="w"> </span><span class="o">${</span><span class="nv">opt_src</span><span class="o">}</span><span class="p">)</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span><span class="w"> </span><span class="s">opt_obj</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">  </span><span class="s">EXPORT</span><span class="w"> </span><span class="s">numoptModules</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>:::</p>
 <p>不过，对象库等效于安装一个接口库，安装接口库的效果可以参考<a href="../10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/#思考">【10】项目的导出与安装 - 思考</a>中的第 2 个问题，因此在导出配置文件中也具有相应的信息，例如 <code>numoptModules.cmake</code> 导出配置文件中会包含大致如下内容</p>
-<pre><code class="language-cmake"># Create imported target core_obj
-add_library(core_obj INTERFACE IMPORTED)
-
-# Create imported target num_obj
-add_library(num_obj INTERFACE IMPORTED)
-
-# Create imported target opt_obj
-add_library(opt_obj INTERFACE IMPORTED)
-</code></pre>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c"># Create imported target core_obj</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nb">add_library</span><span class="p">(</span><span class="s">core_obj</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="s">IMPORTED</span><span class="p">)</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="c"># Create imported target num_obj</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="nb">add_library</span><span class="p">(</span><span class="s">num_obj</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="s">IMPORTED</span><span class="p">)</span>
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="c"># Create imported target opt_obj</span>
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="nb">add_library</span><span class="p">(</span><span class="s">opt_obj</span><span class="w"> </span><span class="s">INTERFACE</span><span class="w"> </span><span class="s">IMPORTED</span><span class="p">)</span>
+</span></code></pre></div>
 <p>::: warning
 如果希望在 <code>numoptModules.cmake</code> 导出配置文件中只包含一个 <code>numopt_world</code> 目标而不包含 <code>core_obj</code> 等由对象库导出生成的接口库，可以使用第一种方案。
 :::</p>
@@ -1856,85 +2249,91 @@ add_library(opt_obj INTERFACE IMPORTED)
 </ul>
 <p>对应的 CMake 配置，都能在 RMVL 项目中找到。</p>
 <p>[^1]: open62541 developers. <a href="https://github.com/open62541/open62541.git">open62541</a>, September 2014.
-[^2]: zhaoxi and other RMVL developers. <a href="https://github.com/cv-rmvl/rmvl.git">rmvl</a>, September 2023.</p></div>
-            </div>
-        </div>
+[^2]: zhaoxi and other RMVL developers. <a href="https://github.com/cv-rmvl/rmvl.git">rmvl</a>, September 2023.</p>
 
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright © AI之覔</p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../../js/base.js"></script>
-        <script src="../../../extra.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script src="../../../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © AI之覔
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/serendipitywgy/personal-doc" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>
