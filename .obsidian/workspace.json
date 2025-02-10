@@ -170,9 +170,7 @@
   },
   "active": "1f3f42dd2f8c1572",
   "lastOpenFiles": [
-    "mkdocs.yml~",
     "docs/开发工具/cmake/12-CTest 工具.md",
-    "docs/开发工具/cmake/13-CPack 工具.md",
     "docs/开发工具/cmake/11-项目实战.md",
     "docs/开发工具/cmake/10-项目的导出与安装.md",
     "docs/开发工具/cmake/09-生成器表达式.md",
@@ -183,6 +181,8 @@
     "docs/开发工具/cmake/04-运算符与条件、循环语句.md",
     "docs/开发工具/cmake/03-变量的设置与引用.md",
     "docs/开发工具/cmake/02-CMake 的文件分布.md",
-    "docs/开发工具/cmake/01-安装与基本介绍.md"
+    "docs/开发工具/cmake/01-安装与基本介绍.md",
+    "docs/开发工具/cmake/13-CPack 工具.md",
+    "mkdocs.yml~"
   ]
 }
