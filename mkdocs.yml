@@ -23,21 +23,15 @@ nav:
         - 开发工具/cmake/12-CTest 工具.md
         - 开发工具/cmake/13-CPack 工具.md
     - 编程语言:
-      - dev/coding_standards.md
-      - dev/testing.md
-      - dev/ci_cd.md
     - linux系统:
-      - tools/ide_setup.md
-      - tools/git_workflow.md
-      - tools/debugging.md
     - 构建工具:
-      - project/methodology.md
-      - project/estimation.md
   - 随笔感悟:
-    - thoughts/career.md
-    - thoughts/learning.md
   - GitHub: https://github.com/serendipitywgy/personal-docs
 
+plugins:
+  - search
+  # - macros
+  # - print-site
 theme:
   name: mkdocs
   palette:
@@ -65,16 +59,9 @@ theme:
     - python
     - rust
     - txt
-
-plugins:
-  - search
-  # - macros
-  # - print-site
-
-
 extra_javascript:
-  - javascripts/extra.js
+  - extra.js
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 extra_css:
-  - stylesheets/extra.css
+  - extra.css
