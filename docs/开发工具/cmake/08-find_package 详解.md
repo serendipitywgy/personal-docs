@@ -214,7 +214,7 @@ find_package(<package> [VERSION] [EXACT] [QUIET] [MODULE]
 
 ### 5.2 分析
 
-我们在[【05】目标构建](05.md)的导入目标中遇到过类似的情况，但这里的相机 SDK 并没有位于本项目中。
+我们在[【05】目标构建](05-目标构建.md)的导入目标中遇到过类似的情况，但这里的相机 SDK 并没有位于本项目中。
 
 注意到相机厂商的 SDK 并无提供相应的 `CameraConfig.cmake` 或 `camera-config.cmake` 文件，因此需要自己手写 `FindCamera.cmake` 文件。
 
@@ -331,5 +331,5 @@ find_package_handle_standard_args(
 
 关于 `XXXConfig.cmake` 或 `xxx-config.cmake` 的写法会在后续文章中详细说明：
 
-- [【09】生成器表达式](09.md)
-- [【10】项目的导出与安装](10.md)
+- [【09】生成器表达式](09-生成器表达式.md)
+- [【10】项目的导出与安装](10-项目的导出与安装.md)

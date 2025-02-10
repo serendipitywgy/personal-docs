@@ -9,19 +9,19 @@ nav:
   - 技术博文:
     - 开发工具: 
       - cmake:
-        - 开发工具/cmake/01.md
-        - 开发工具/cmake/02.md
-        - 开发工具/cmake/03.md
-        - 开发工具/cmake/04.md
-        - 开发工具/cmake/05.md
-        - 开发工具/cmake/06.md
-        - 开发工具/cmake/07.md
-        - 开发工具/cmake/08.md
-        - 开发工具/cmake/09.md
-        - 开发工具/cmake/10.md
-        - 开发工具/cmake/11.md
-        - 开发工具/cmake/12.md
-        - 开发工具/cmake/13.md
+        - 开发工具/cmake/01-安装与基本介绍.md
+        - 开发工具/cmake/02-CMake 的文件分布.md
+        - 开发工具/cmake/03-变量的设置与引用.md
+        - 开发工具/cmake/04-运算符与条件、循环语句.md
+        - 开发工具/cmake/05-目标构建.md
+        - 开发工具/cmake/06-变量参与 C++ 的编译.md
+        - 开发工具/cmake/07-宏与函数.md
+        - 开发工具/cmake/08-find_package 详解.md
+        - 开发工具/cmake/09-生成器表达式.md
+        - 开发工具/cmake/10-项目的导出与安装.md
+        - 开发工具/cmake/11-项目实战.md
+        - 开发工具/cmake/12-CTest 工具.md
+        - 开发工具/cmake/13-CPack 工具.md
     - 编程语言:
       - dev/coding_standards.md
       - dev/testing.md
