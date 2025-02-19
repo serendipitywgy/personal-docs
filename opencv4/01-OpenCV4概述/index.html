@@ -13,25 +13,23 @@
       
       
       
-        <link rel="prev" href="../14-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20promise%E7%9A%84%E7%94%A8%E6%B3%95/">
+        <link rel="prev" href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10-http/">
       
       
-        <link rel="next" href="../16-%E4%B8%89%E7%A7%8D%E5%BC%82%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%9A%84%E6%AF%94%E8%BE%83/">
       
-      
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
       
-        <title>【15】异步编程 packaged_task的使用 - personal-知识库</title>
+        <title>【01】OpenCV4概述 - personal-知识库</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#15-packaged_task" class="md-skip">
+        <a href="#01opencv4" class="md-skip">
           跳转至
         </a>
       
@@ -92,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="personal-知识库" class="md-header__button md-logo" aria-label="personal-知识库" data-md-component="logo">
+    <a href="../.." title="personal-知识库" class="md-header__button md-logo" aria-label="personal-知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              【15】异步编程 packaged_task的使用
+              【01】OpenCV4概述
             
           </span>
         </div>
@@ -229,7 +227,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-tabs__link">
+        <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-tabs__link">
           
   
   开发工具
@@ -246,21 +244,17 @@
         
   
   
-    
-  
   
     
     
       
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-tabs__link">
           
   
   C++
@@ -277,11 +271,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../opencv4/01-OpenCV4%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   opencv4
@@ -331,7 +327,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="personal-知识库" class="md-nav__button md-logo" aria-label="personal-知识库" data-md-component="logo">
+    <a href="../.." title="personal-知识库" class="md-nav__button md-logo" aria-label="personal-知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -445,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -466,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/02-CMake%20%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%86%E5%B8%83/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/02-CMake%20%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%86%E5%B8%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -487,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/03-%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%BC%95%E7%94%A8/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/03-%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%BC%95%E7%94%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -508,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/04-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/04-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -529,7 +525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/05-%E7%9B%AE%E6%A0%87%E6%9E%84%E5%BB%BA/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/05-%E7%9B%AE%E6%A0%87%E6%9E%84%E5%BB%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -550,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/06-%E5%8F%98%E9%87%8F%E5%8F%82%E4%B8%8E%20C%2B%2B%20%E7%9A%84%E7%BC%96%E8%AF%91/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/06-%E5%8F%98%E9%87%8F%E5%8F%82%E4%B8%8E%20C%2B%2B%20%E7%9A%84%E7%BC%96%E8%AF%91/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -571,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/07-%E5%AE%8F%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/07-%E5%AE%8F%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -592,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/08-find_package%20%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/08-find_package%20%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -613,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/09-%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/09-%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -634,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -655,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/11-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/11-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -676,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/12-CTest%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/12-CTest%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/13-CPack%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+      <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/13-CPack%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -730,30 +726,27 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -764,7 +757,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             C++
@@ -775,30 +768,27 @@
                 
   
   
-    
   
   
-  
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
-          
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -809,7 +799,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             C++进阶
@@ -823,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-C%2B%2B%E6%A8%A1%E6%9D%BF/01-%E6%A8%A1%E6%9D%BF-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/01-%E6%A8%A1%E6%9D%BF-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -907,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-C%2B%2B%E6%A8%A1%E6%9D%BF/02-%E6%A8%A1%E6%9D%BF-%E7%B1%BB%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/02-%E6%A8%A1%E6%9D%BF-%E7%B1%BB%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -928,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-C%2B%2B%E6%A8%A1%E6%9D%BF/03-%E6%A8%A1%E6%9D%BF-%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/03-%E6%A8%A1%E6%9D%BF-%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -999,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/01-STL/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/01-STL/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1020,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/02-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/02-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1041,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/03-vector%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/03-vector%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1062,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/05-%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/05-%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1083,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/06-deque%EF%BC%88%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%EF%BC%89/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/06-deque%EF%BC%88%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%EF%BC%89/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1104,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/07-list/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/07-list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1125,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/08-Map%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/08-Map%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1146,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/09-Set%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/09-Set%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1167,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/10-stack%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/10-stack%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1188,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/11-queque/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/11-queque/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1209,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/12-unordered_map%20%E5%92%8C%20unordered_set/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/12-unordered_map%20%E5%92%8C%20unordered_set/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1230,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/13-%E4%BB%BF%E5%87%BD%E6%95%B0%EF%BC%88%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%EF%BC%89/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/13-%E4%BB%BF%E5%87%BD%E6%95%B0%EF%BC%88%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%EF%BC%89/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1251,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/14-%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/14-%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/16-%E5%87%BD%E6%95%B0%E9%80%82%E9%85%8D%E5%99%A8/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/16-%E5%87%BD%E6%95%B0%E9%80%82%E9%85%8D%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/04-%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1390,8 +1380,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1403,11 +1391,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1_5" >
         
           
           <label class="md-nav__link" for="__nav_2_1_5" id="__nav_2_1_5_label" tabindex="0">
@@ -1421,7 +1411,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1_5">
             <span class="md-nav__icon md-icon"></span>
             05-多线程编程
@@ -1435,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/01-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1456,7 +1446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/02-%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1477,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8Emutex/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/03-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8Emutex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1498,7 +1488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-lock_guard/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/04-lock_guard/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1519,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-unique_lock/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/05-unique_lock/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1540,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/06-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1561,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8Fcondition_variable/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/07-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8Fcondition_variable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1582,7 +1572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-%E8%AF%BB%E5%86%99%E9%94%81/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/08-%E8%AF%BB%E5%86%99%E9%94%81/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1603,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E5%92%8C%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/09-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E5%92%8C%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1624,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8Ccounting_semaphore/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/10-%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8Ccounting_semaphore/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1645,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-%E6%A0%85%E6%A0%8F%EF%BC%88barrier%EF%BC%89/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/11-%E6%A0%85%E6%A0%8F%EF%BC%88barrier%EF%BC%89/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1666,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-%E6%AD%BB%E9%94%81/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/12-%E6%AD%BB%E9%94%81/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1687,7 +1677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../13-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20future%E5%92%8Casync/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/13-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20future%E5%92%8Casync/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1708,7 +1698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../14-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20promise%E7%9A%84%E7%94%A8%E6%B3%95/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/14-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20promise%E7%9A%84%E7%94%A8%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1726,30 +1716,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    【15】异步编程 packaged_task的使用
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/15-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20packaged_task%E7%9A%84%E4%BD%BF%E7%94%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1758,86 +1728,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-packaged_task" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. packaged_task
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-packaged_task" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. packaged_task基本使用
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. packaged_task基本使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1. 工作流程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2. 定义和使用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3. 主要特性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4. 应用场景
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1850,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../16-%E4%B8%89%E7%A7%8D%E5%BC%82%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%9A%84%E6%AF%94%E8%BE%83/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/16-%E4%B8%89%E7%A7%8D%E5%BC%82%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%9A%84%E6%AF%94%E8%BE%83/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1871,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../17-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/17-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1892,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../18-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B0%8F%E7%BB%93/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/18-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B0%8F%E7%BB%93/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1963,7 +1853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/01-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%88%86%E5%B1%82/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/01-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%88%86%E5%B1%82/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1984,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/02-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-TCPIP%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B%E3%80%81MAC%E5%92%8CIP/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/02-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-TCPIP%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B%E3%80%81MAC%E5%92%8CIP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2005,7 +1895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/03-ARP%E5%8D%8F%E8%AE%AE%E4%B8%8E%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/03-ARP%E5%8D%8F%E8%AE%AE%E4%B8%8E%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2026,7 +1916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/04-TCP%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%8C%85%E5%A4%B4%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/04-TCP%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%8C%85%E5%A4%B4%E8%A7%A3%E6%9E%90/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2047,7 +1937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/05-TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/05-TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2068,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/06-%E5%AD%97%E8%8A%82%E5%BA%8F%20%E5%A4%A7%E7%AB%AF%E5%92%8C%E5%B0%8F%E7%AB%AF/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/06-%E5%AD%97%E8%8A%82%E5%BA%8F%20%E5%A4%A7%E7%AB%AF%E5%92%8C%E5%B0%8F%E7%AB%AF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2089,7 +1979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/07-socket%E7%BC%96%E7%A8%8B%20%E5%92%8C%20TCP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/07-socket%E7%BC%96%E7%A8%8B%20%E5%92%8C%20TCP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2110,7 +2000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/08-UDP%E5%8D%8F%E8%AE%AE%20%E5%92%8C%20Socket%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/08-UDP%E5%8D%8F%E8%AE%AE%20%E5%92%8C%20Socket%E7%BC%96%E7%A8%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2131,7 +2021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/09-IP%EF%BC%8C%E5%8D%95%E6%92%AD%E3%80%81%E5%B9%BF%E6%92%AD%E3%80%81%E7%BB%84%E6%92%AD%E3%80%81%E4%BB%BB%E6%92%AD/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/09-IP%EF%BC%8C%E5%8D%95%E6%92%AD%E3%80%81%E5%B9%BF%E6%92%AD%E3%80%81%E7%BB%84%E6%92%AD%E3%80%81%E4%BB%BB%E6%92%AD/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2152,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10-http/" class="md-nav__link">
+      <a href="../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10-http/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2193,27 +2083,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -2224,7 +2117,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             opencv4
@@ -2235,10 +2128,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../opencv4/01-OpenCV4%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2247,6 +2149,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -2299,74 +2202,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-packaged_task" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. packaged_task
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-packaged_task" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. packaged_task基本使用
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. packaged_task基本使用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1. 工作流程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2. 定义和使用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3. 主要特性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4. 应用场景
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2383,73 +2218,7 @@
   
 
 
-<h1 id="15-packaged_task">【15】异步编程 packaged_task的使用</h1>
-<h2 id="1-packaged_task">1. packaged_task</h2>
-<p><code>packaged_task</code> 是一个模板类，主要用于将一个可调用对象（如函数、lambda 表达式、函数对象等）包装起来，以便异步地执行，并能够获取其返回结果。它和 <code>std::future</code> 以及 <code>std::thread</code> 紧密相关，经常用于多线程编程中。</p>
-<h2 id="2-packaged_task">2. packaged_task基本使用</h2>
-<h3 id="21">2.1. 工作流程</h3>
-<p><img alt="" src="../assets/packaged_task%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.jpg" /></p>
-<h3 id="22">2.2. 定义和使用</h3>
-<p>封装lambda表达式</p>
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;future&gt;</span><span class="c1">  </span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="c1">  </span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="p">});</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myfuture</span><span class="o">=</span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">();</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">task</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">);</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">myfuture</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>封装函数</p>
-<div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;future&gt;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// 一个简单的函数，用于演示</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c1">// 创建一个 packaged_task，包装函数 multiply</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">packaged_task</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">(</span><span class="n">multiply</span><span class="p">);</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="c1">// 获取与 task 相关联的 future</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">get_future</span><span class="p">();</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 将任务交给另一个线程去执行</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">move</span><span class="p">(</span><span class="n">task</span><span class="p">),</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">);</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="c1">// 等待任务完成并获取结果</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Result: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="c1">// 输出 &quot;Result: 30&quot;</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="c1">// 等待线程结束</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="23">2.3. 主要特性</h3>
-<ul>
-<li><strong>不可复制性</strong>：<code>packaged_task</code> 对象是不可复制的，但可以移动。</li>
-<li><strong>与</strong> <code>**future**</code> <strong>协作</strong>：<code>packaged_task</code> 和 <code>std::future</code> 协同工作，允许异步任务的结果在稍后某个时间点被获取。</li>
-<li><strong>适用于多线程环境</strong>：<code>packaged_task</code> 的设计使得它非常适合用于多线程环境中，尤其是需要将任务分发给不同线程执行的场景。</li>
-</ul>
-<h3 id="24">2.4. 应用场景</h3>
-<ul>
-<li><strong>异步任务执行</strong>：当你需要将一个任务分发给另一个线程去执行，并希望在任务完成后获取结果时，可以使用 <code>packaged_task</code>。</li>
-<li><strong>自定义线程池</strong>：在实现自定义线程池时，<code>packaged_task</code> 可以用于将任务封装，并将其分发给线程池中的线程执行。</li>
-</ul>
+<h1 id="01opencv4">【01】OpenCV4概述</h1>
 
 
 
@@ -2523,12 +2292,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
-        <script src="../../../../javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
