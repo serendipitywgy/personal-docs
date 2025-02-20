@@ -7,6 +7,7 @@ repo_url: https://github.com/serendipitywgy/personal-docs
 nav:
   - 开发工具: 
     - cmake:
+      - 开发工具/cmake/00-知识碎碎念.md
       - 开发工具/cmake/01-安装与基本介绍.md
       - 开发工具/cmake/02-CMake 的文件分布.md
       - 开发工具/cmake/03-变量的设置与引用.md
