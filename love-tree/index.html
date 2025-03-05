@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱情树 - 入口</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fffef9;
+            font-family: 'Arial', sans-serif;
+        }
+        .heart-container {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .heart-container:hover {
+            transform: scale(1.1);
+        }
+        .heart {
+            fill: #e25555;
+            width: 100px;
+            height: 100px;
+        }
+        .click-text {
+            position: absolute;
+            right: -80px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #e25555;
+            font-size: 24px;
+            white-space: nowrap;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container" onclick="window.location.href='tree.html'">
+        <svg class="heart" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16,28.261c0,0-14-7.926-14-17.046c0-9.356,13.159-10.399,14-0.454c1.011-9.938,14-8.903,14,0.454
+            C30,20.335,16,28.261,16,28.261z"/>
+        </svg>
+        <span class="click-text">click here</span>
+    </div>
+
+    <script>
+        // 简单的点击动画效果
+        document.querySelector('.heart-container').addEventListener('click', function() {
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1.1)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

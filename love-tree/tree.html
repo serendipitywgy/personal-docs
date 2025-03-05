@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WGY与HLX的爱情树</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffecf1 100%);
+        }
+
+        /* 主容器 */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 中央内容区 */
+        .content-area {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 情话消息样式 */
+        .message-container {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 300px;
+        }
+
+        .message {
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #ff4d79;
+            padding: 25px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
+            animation: float-message 6s ease-in-out infinite;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* 添加装饰性元素 */
+        .message:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 25px;
+            border: 1px dashed rgba(255, 105, 180, 0.3);
+            z-index: -1;
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes float-message {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        .message p {
+            margin: 12px 0;
+            position: relative;
+        }
+
+        /* 字符动画效果 */
+        .char-span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.5s ease;
+        }
+
+        .char-span.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 爱情树容器 */
+        .tree-container {
+            position: absolute;
+            right: 5%;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 爱情树样式 */
+        .love-tree {
+            position: relative;
+            width: 550px;
+            height: 650px;
+            margin-bottom: 20px;
+        }
+
+        .tree-trunk {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 0;
+            background: linear-gradient(to bottom, #8B4513, #A0522D);
+            border-radius: 5px;
+            z-index: 1;
+            transition: height 1s ease-out;
+        }
+
+        /* 修改树冠形状为爱心形状 */
+        .tree-crown {
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            /* 不再使用border-radius，因为我们将通过JS控制心形分布 */
+            background-color: rgba(255, 255, 255, 0.05);
+            z-index: 2;
+        }
+
+        /* 连接线 */
+        .connecting-line {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(to right, rgba(255, 105, 180, 0), rgba(255, 105, 180, 0.3));
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4d79;
+            transform: rotate(45deg) scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            left: -50%;
+        }
+
+        .heart:after {
+            top: -50%;
+        }
+
+        /* 掉落的树叶动画 */
+        @keyframes fallLeaf {
+            0% {
+                transform: rotate(45deg) translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(45deg) translate(100px, 500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heartBeat {
+            0% { transform: rotate(45deg) scale(1); }
+            14% { transform: rotate(45deg) scale(1.1); }
+            28% { transform: rotate(45deg) scale(1); }
+            42% { transform: rotate(45deg) scale(1.1); }
+            70% { transform: rotate(45deg) scale(1); }
+        }
+
+        @keyframes float {
+            0% { transform: rotate(45deg) translateY(0) translateX(0); }
+            33% { transform: rotate(45deg) translateY(-20px) translateX(10px); }
+            66% { transform: rotate(45deg) translateY(-10px) translateX(-10px); }
+            100% { transform: rotate(45deg) translateY(0) translateX(0); }
+        }
+
+        .small-hearts {
+            position: fixed;
+            z-index: 0;
+        }
+
+        /* 计数器样式 */
+        .counter {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            padding: 15px 25px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            z-index: 10;
+        }
+
+        .names {
+            font-size: 18px;
+            color: #ff4d79;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .timer {
+            font-size: 16px;
+            color: #ff6b9c;
+        }
+
+        .timer span {
+            display: inline-block;
+            min-width: 30px;
+            padding: 5px;
+            margin: 0 3px;
+            background-color: #ff85a1;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* 背景装饰 */
+        .bg-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 1200px) {
+            .content-area {
+                width: 95%;
+            }
+            
+            .message-container {
+                left: 2%;
+                width: 280px;
+            }
+            
+            .tree-container {
+                right: 2%;
+                width: 65%;
+            }
+            
+            .love-tree {
+                width: 500px;
+                height: 600px;
+            }
+            
+            .tree-crown {
+                width: 450px;
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .content-area {
+                flex-direction: column;
+                justify-content: center;
+                height: auto;
+                padding: 30px 0;
+            }
+
+            .message-container {
+                position: relative;
+                left: 0;
+                top: 0;
+                transform: none;
+                margin-bottom: 50px;
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .tree-container {
+                position: relative;
+                right: 0;
+                width: 100%;
+            }
+
+            .love-tree {
+                width: 350px;
+                height: 450px;
+            }
+            
+            .tree-crown {
+                width: 300px;
+                height: 300px;
+                bottom: 100px;
+            }
+
+            .connecting-line {
+                display: none;
+            }
+
+            .counter {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .love-tree {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .tree-crown {
+                width: 250px;
+                height: 250px;
+                bottom: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-area">
+            <!-- 左侧情话消息 -->
+            <div class="message-container">
+                <div class="message" id="message">
+                    <!-- 这里的内容会被JavaScript动态替换 -->
+                </div>
+            </div>
+
+            <!-- 连接线 -->
+            <div class="connecting-line"></div>
+
+            <!-- 爱情树容器 -->
+            <div class="tree-container">
+                <!-- 爱情树 -->
+                <div class="love-tree">
+                    <div class="tree-trunk" id="tree-trunk"></div>
+                    <div class="tree-crown" id="tree-crown"></div>
+                </div>
+
+                <!-- 计数器 -->
+                <div class="counter">
+                    <div class="names">WGY与HLX已经相恋了</div>
+                    <div class="timer" id="timer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 背景装饰 -->
+        <div class="bg-decoration" id="bg-decoration"></div>
+    </div>
+
+    <script>
+        // 情话内容
+        const loveMessage = [
+            "亲爱的HLX",
+            "如果真要我",
+            "写一封情书给你的话",
+            "我",
+            "会用一生去写",
+            "而你",
+            "也请花一世去细读",
+            "永远爱你..."
+        ];
+
+        // 设置爱情开始的日期（根据需要修改）
+        const loveStartDate = new Date('2016-07-17T17:20:00');
+
+        // 更丰富的颜色数组
+        const heartColors = [
+            '#ff7eb9', '#ff65a3', '#ff5c8a', '#ff4d79', 
+            '#ff7096', '#ff85a1', '#ff9db2', '#ffb3c1', 
+            '#ffccd5', '#ffe2e2', '#ffc8dd', '#ffafcc', 
+            '#ff99c8', '#ff85a1', '#ff5c8a', '#ff477e',
+            '#ff3d76', '#ff2e6d', '#ff1f64', '#ff105b',
+            '#ff0152', '#ff6b8b', '#ff8da5', '#ffafc0'
+        ];
+
+        // 存储所有心形的数组，用于掉落效果
+        let allHearts = [];
+
+        // 更新计时器
+        function updateTimer() {
+            const now = new Date();
+            const diff = Math.floor((now - loveStartDate) / 1000);
+
+            const days = Math.floor(diff / 86400);
+            const hours = Math.floor((diff % 86400) / 3600);
+            const minutes = Math.floor((diff % 3600) / 60);
+            const seconds = diff % 60;
+
+            document.getElementById('timer').innerHTML =
+                `第 <span>${days}</span> 天 <span>${hours}</span> 小时 <span>${minutes}</span> 分钟 <span>${seconds}</span> 秒`;
+        }
+
+        // 生成随机颜色
+        function getRandomColor() {
+            return heartColors[Math.floor(Math.random() * heartColors.length)];
+        }
+
+        // 创建背景装饰
+        function createBackgroundDecoration() {
+            const bgDecoration = document.getElementById('bg-decoration');
+            bgDecoration.innerHTML = '';
+            
+            // 添加一些背景心形
+            for (let i = 0; i < 60; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'small-hearts heart';
+                
+                // 随机位置
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.top = `${Math.random() * 100}%`;
+                
+                // 随机颜色
+                heart.style.backgroundColor = getRandomColor();
+                
+                // 随机大小
+                const size = 2 + Math.random() * 4;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                // 设置初始可见
+                heart.style.opacity = 0.3 + Math.random() * 0.3;
+                heart.style.transform = 'rotate(45deg) scale(1)';
+                
+                // 添加漂浮动画
+                const animationDuration = 15 + Math.random() * 25;
+                heart.style.animation = `float ${animationDuration}s linear infinite`;
+                heart.style.animationDelay = `${Math.random() * 10}s`;
+                
+                // 添加到背景
+                bgDecoration.appendChild(heart);
+            }
+        }
+
+        // 爱心曲线函数 - 用于生成爱心形状的坐标
+        function heartShape(t, scale = 1) {
+            // 参数方程，生成爱心形状
+            // x = 16 * sin(t)^3
+            // y = 13 * cos(t) - 5 * cos(2t) - 2 * cos(3t) - cos(4t)
+            const x = 16 * Math.pow(Math.sin(t), 3) * scale;
+            const y = (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * scale;
+            return { x, y };
+        }
+
+        // 创建一个新的心形，用于替换掉落的心形
+        function createNewHeart(heartObj) {
+            const treeCrown = document.getElementById('tree-crown');
+            const treeWidth = treeCrown.offsetWidth;
+            const treeHeight = treeCrown.offsetHeight;
+            const centerX = treeWidth / 2;
+            const centerY = treeHeight / 2;
+            const heartScale = Math.min(centerX, centerY) / 18;
+
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            
+            // 复制原始心形的属性
+            let x, y, size, color, isOutline, distance, angle;
+            
+            if (heartObj.isOutline) {
+                // 如果是轮廓心形，使用相同的角度但添加一些随机偏移
+                angle = heartObj.angle;
+                const point = heartShape(angle, heartScale);
+                x = centerX + point.x;
+                y = centerY - point.y;
+                
+                // 添加一些随机偏移
+                const offsetRange = 5;
+                const xOffset = (Math.random() - 0.5) * offsetRange;
+                const yOffset = (Math.random() - 0.5) * offsetRange;
+                
+                x += xOffset;
+                y += yOffset;
+                
+                size = 12 + Math.random() * 4;
+                color = heartColors[Math.floor(Math.random() * 8)];
+                isOutline = true;
+                distance = 0;
+            } else {
+                // 如果是内部心形，生成一个新的随机位置
+                let validPoint = false;
+                let attempts = 0;
+                
+                // 尝试生成爱心内部的点
+                while (!validPoint && attempts < 50) {
+                    // 随机角度
+                    angle = Math.random() * Math.PI * 2;
+                    // 随机半径
+                    const radiusMax = heartScale * 15;
+                    const radius = Math.random() * radiusMax;
+                    
+                    // 计算坐标
+                    const tempX = centerX + radius * Math.cos(angle);
+                    const tempY = centerY - radius * Math.sin(angle);
+                    
+                    // 检查点是否在爱心内部
+                    const t = angle;
+                    const outlinePoint = heartShape(t, heartScale);
+                    const outlineX = centerX + outlinePoint.x;
+                    const outlineY = centerY - outlinePoint.y;
+                    
+                    const outlineDistance = Math.sqrt(
+                        Math.pow(outlineX - centerX, 2) + 
+                        Math.pow(outlineY - centerY, 2)
+                    );
+                    
+                    const pointDistance = Math.sqrt(
+                        Math.pow(tempX - centerX, 2) + 
+                        Math.pow(tempY - centerY, 2)
+                    );
+                    
+                    if (pointDistance < outlineDistance * 0.9) {
+                        x = tempX;
+                        y = tempY;
+                        distance = pointDistance;
+                        validPoint = true;
+                    }
+                    
+                    attempts++;
+                }
+                
+                // 如果无法找到有效点，使用简单的随机位置
+                if (!validPoint) {
+                    angle = Math.random() * Math.PI * 2;
+                    const radius = Math.random() * (heartScale * 10);
+                    x = centerX + radius * Math.cos(angle);
+                    y = centerY - radius * Math.sin(angle);
+                    distance = radius;
+                }
+                
+                size = 8 + Math.random() * 6;
+                color = getRandomColor();
+                isOutline = false;
+            }
+            
+            // 设置心形属性
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            heart.style.backgroundColor = color;
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+            heart.style.opacity = 0;
+            heart.style.transform = 'rotate(45deg) scale(0)';
+            
+            // 添加到DOM
+            treeCrown.appendChild(heart);
+            
+            // 显示动画
+            setTimeout(() => {
+                heart.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                const opacity = isOutline ? 0.95 : (0.85 - (distance / (heartScale * 15)) * 0.3);
+                heart.style.opacity = Math.max(0.6, opacity);
+                heart.style.transform = 'rotate(45deg) scale(1)';
+                
+                // 添加心跳动画
+                setTimeout(() => {
+                    if (isOutline || Math.random() > 0.4) {
+                        const animationDuration = 3 + Math.random() * 5;
+                        const animationDelay = Math.random() * 5;
+                        heart.style.animation = `heartBeat ${animationDuration}s ${animationDelay}s infinite`;
+                    }
+                }, 500);
+            }, 100);
+            
+            // 返回新的心形对象
+            return {
+                element: heart,
+                x: x,
+                y: y,
+                size: size,
+                isOutline: isOutline,
+                distance: distance,
+                angle: angle
+            };
+        }
+
+        // 随机让多个树叶一起掉落的函数
+        function startLeafFalling() {
+            // 确保有足够的心形可以掉落
+            const nonOutlineHearts = allHearts.filter(heart => !heart.isOutline);
+            if (nonOutlineHearts.length < 10) return;
+            
+            // 随机决定这次掉落的树叶数量 (1-5个)
+            const fallCount = 1 + Math.floor(Math.random() * 5);
+            const actualFallCount = Math.min(fallCount, Math.floor(nonOutlineHearts.length / 3)); // 确保不会掉落太多
+            
+            // 随机选择多个非轮廓的心形掉落
+            const heartsToFall = [];
+            const usedIndices = new Set();
+            
+            // 随机选择不重复的心形
+            for (let i = 0; i < actualFallCount; i++) {
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * nonOutlineHearts.length);
+                } while (usedIndices.has(randomIndex));
+                
+                usedIndices.add(randomIndex);
+                heartsToFall.push(nonOutlineHearts[randomIndex]);
+            }
+            
+            // 处理每个要掉落的心形
+            heartsToFall.forEach(heartToFall => {
+                // 从数组中移除这个心形
+                const indexInAllHearts = allHearts.indexOf(heartToFall);
+                if (indexInAllHearts !== -1) {
+                    allHearts.splice(indexInAllHearts, 1);
+                }
+                
+                // 设置掉落动画
+                const heart = heartToFall.element;
+                const fallDuration = 2 + Math.random() * 3; // 2-5秒的掉落时间
+                const fallDirection = Math.random() > 0.5 ? 1 : -1; // 随机左右方向
+                const fallDistance = 100 + Math.random() * 200; // 随机掉落距离
+                const rotationAmount = 180 + Math.random() * 540; // 随机旋转量 (180-720度)
+                
+                // 移除之前的动画
+                heart.style.animation = '';
+                
+                // 设置自定义掉落动画
+                heart.style.transition = `transform ${fallDuration}s ease-out, opacity ${fallDuration}s ease-out`;
+                heart.style.transform = `rotate(45deg) translate(${fallDirection * fallDistance}px, 500px) rotate(${fallDirection * rotationAmount}deg)`;
+                heart.style.opacity = '0';
+                
+                // 创建一个新的心形来替换掉落的心形
+                const newHeart = createNewHeart(heartToFall);
+                allHearts.push(newHeart);
+                
+                // 掉落结束后移除元素
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.parentNode.removeChild(heart);
+                    }
+                }, fallDuration * 1000);
+            });
+            
+            // 随机间隔后再次触发掉落
+            const nextFallDelay = 800 + Math.random() * 2000; // 0.8-2.8秒后再次掉落
+            setTimeout(startLeafFalling, nextFallDelay);
+        }
+
+        // 创建爱心树 - 全新改进版，让树冠形成爱心形状
+        function createHearts() {
+            const treeCrown = document.getElementById('tree-crown');
+            const treeTrunk = document.getElementById('tree-trunk');
+            const treeWidth = treeCrown.offsetWidth;
+            const treeHeight = treeCrown.offsetHeight;
+            const centerX = treeWidth / 2;
+            const centerY = treeHeight / 2;
+
+            // 清除现有的心形
+            treeCrown.innerHTML = '';
+            
+            // 重置心形数组
+            allHearts = [];
+            
+            // 总心形数量
+            const numberOfHearts = 900;
+            
+            // 外围爱心轮廓的心形数量
+            const outlineHeartCount = 250;
+            
+            // 内部填充的心形数量
+            const innerHeartCount = numberOfHearts - outlineHeartCount;
+            
+            // 爱心缩放因子 - 调整爱心大小以适应树冠
+            const heartScale = Math.min(centerX, centerY) / 18;
+            
+            // 1. 首先创建外围爱心轮廓
+            for (let i = 0; i < outlineHeartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                
+                // 使用参数方程生成爱心轮廓上的点
+                const t = (i / outlineHeartCount) * Math.PI * 2;
+                const point = heartShape(t, heartScale);
+                
+                // 计算在树冠中的位置
+                const x = centerX + point.x;
+                const y = centerY - point.y; // 注意这里是减，因为y轴在网页中是向下的
+                
+                // 添加一些随机偏移，使轮廓不那么规则，更自然
+                const offsetRange = 5; // 偏移范围
+                const xOffset = (Math.random() - 0.5) * offsetRange;
+                const yOffset = (Math.random() - 0.5) * offsetRange;
+                
+                // 设置位置
+                heart.style.left = `${x + xOffset}px`;
+                heart.style.top = `${y + yOffset}px`;
+                
+                // 设置颜色 - 外围使用较深的颜色
+                heart.style.backgroundColor = heartColors[Math.floor(Math.random() * 8)]; // 使用前8个较深的颜色
+                
+                // 设置大小 - 外围心形稍大
+                const size = 12 + Math.random() * 4;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                // 初始设置为不可见
+                heart.style.opacity = 0;
+                heart.style.transform = 'rotate(45deg) scale(0)';
+                
+                // 将心形添加到数组
+                allHearts.push({
+                    element: heart,
+                    x: x + xOffset,
+                    y: y + yOffset,
+                    size: size,
+                    isOutline: true, // 标记为轮廓
+                    distance: 0, // 轮廓心形的距离设为0，使它们最先显示
+                    angle: t // 保存角度，用于排序
+                });
+            }
+            
+            // 2. 然后创建内部填充的心形
+            for (let i = 0; i < innerHeartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                
+                // 内部心形使用不同的分布策略
+                let x, y, distance, angle;
+                
+                // 70%的心形在爱心形状内均匀分布
+                if (i < innerHeartCount * 0.7) {
+                    // 使用极坐标方式在爱心内部生成点
+                    let validPoint = false;
+                    let attempts = 0;
+                    
+                    // 尝试生成爱心内部的点
+                    while (!validPoint && attempts < 50) {
+                        // 随机角度
+                        angle = Math.random() * Math.PI * 2;
+                        // 随机半径（从中心到最大半径的随机值）
+                        const radiusMax = heartScale * 15; // 略小于轮廓
+                        const radius = Math.random() * radiusMax;
+                        
+                        // 计算坐标
+                        const tempX = centerX + radius * Math.cos(angle);
+                        const tempY = centerY - radius * Math.sin(angle);
+                        
+                        // 检查点是否在爱心内部
+                        // 简化判断：使用到爱心轮廓的距离
+                        const t = angle;
+                        const outlinePoint = heartShape(t, heartScale);
+                        const outlineX = centerX + outlinePoint.x;
+                        const outlineY = centerY - outlinePoint.y;
+                        
+                        const outlineDistance = Math.sqrt(
+                            Math.pow(outlineX - centerX, 2) + 
+                            Math.pow(outlineY - centerY, 2)
+                        );
+                        
+                        const pointDistance = Math.sqrt(
+                            Math.pow(tempX - centerX, 2) + 
+                            Math.pow(tempY - centerY, 2)
+                        );
+                        
+                        // 如果点到中心的距离小于轮廓到中心的距离，则认为在内部
+                        if (pointDistance < outlineDistance * 0.9) {
+                            x = tempX;
+                            y = tempY;
+                            distance = pointDistance;
+                            validPoint = true;
+                        }
+                        
+                        attempts++;
+                    }
+                    
+                    // 如果无法找到有效点，就使用简单的随机位置
+                    if (!validPoint) {
+                        angle = Math.random() * Math.PI * 2;
+                        const radius = Math.random() * (heartScale * 10);
+                        x = centerX + radius * Math.cos(angle);
+                        y = centerY - radius * Math.sin(angle);
+                        distance = radius;
+                    }
+                } 
+                // 30%的心形集中在爱心的中心区域
+                else {
+                    angle = Math.random() * Math.PI * 2;
+                    const radius = Math.random() * (heartScale * 8);
+                    x = centerX + radius * Math.cos(angle);
+                    y = centerY - radius * Math.sin(angle);
+                    distance = radius;
+                }
+                
+                // 设置位置
+                heart.style.left = `${x}px`;
+                heart.style.top = `${y}px`;
+                
+                // 设置颜色 - 内部使用较浅的颜色
+                heart.style.backgroundColor = heartColors[Math.floor(Math.random() * heartColors.length)];
+                
+                // 设置大小 - 内部心形大小随机
+                const size = 8 + Math.random() * 6;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                
+                // 初始设置为不可见
+                heart.style.opacity = 0;
+                heart.style.transform = 'rotate(45deg) scale(0)';
+                
+                // 将心形添加到数组
+                allHearts.push({
+                    element: heart,
+                    x: x,
+                    y: y,
+                    size: size,
+                    isOutline: false,
+                    distance: distance,
+                    angle: angle
+                });
+            }
+            
+            // 排序心形 - 先显示轮廓，然后从下到上、从中心到边缘
+            allHearts.sort((a, b) => {
+                // 首先按照是否是轮廓排序
+                if (a.isOutline !== b.isOutline) {
+                    return a.isOutline ? -1 : 1;
+                }
+                
+                // 如果都是轮廓，按照角度排序（从下到上）
+                if (a.isOutline && b.isOutline) {
+                    // 将角度转换为y坐标的高低
+                    const aY = Math.sin(a.angle);
+                    const bY = Math.sin(b.angle);
+                    return bY - aY; // 从下到上
+                }
+                
+                // 如果都是内部，先按照y坐标排序（从下到上）
+                if (Math.abs(a.y - b.y) > 30) {
+                    return b.y - a.y;
+                }
+                
+                // 然后按照到中心的距离排序（从中心到边缘）
+                return a.distance - b.distance;
+            });
+            
+            // 添加所有心形到DOM
+            allHearts.forEach(heartObj => {
+                treeCrown.appendChild(heartObj.element);
+            });
+            
+            // 树干生长动画
+            treeTrunk.style.height = '0';
+            setTimeout(() => {
+                treeTrunk.style.transition = 'height 1s ease-out';
+                treeTrunk.style.height = '160px';
+            }, 500);
+            
+            // 树冠生长动画 - 逐个显示心形
+            const growthDuration = 3000; // 生长总时间（毫秒）
+            const delayPerHeart = growthDuration / allHearts.length;
+            
+            allHearts.forEach((heartObj, index) => {
+                setTimeout(() => {
+                    const heart = heartObj.element;
+                    heart.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                    
+                    // 调整透明度 - 轮廓心形不透明，内部心形略透明
+                    const opacity = heartObj.isOutline ? 0.95 : (0.85 - (heartObj.distance / (heartScale * 15)) * 0.3);
+                    heart.style.opacity = Math.max(0.6, opacity);
+                    
+                    heart.style.transform = 'rotate(45deg) scale(1)';
+                    
+                    // 添加心跳动画
+                    setTimeout(() => {
+                        // 轮廓心形都有心跳动画，内部心形随机
+                        if (heartObj.isOutline || Math.random() > 0.4) {
+                            const animationDuration = 3 + Math.random() * 5;
+                            const animationDelay = Math.random() * 5;
+                            heart.style.animation = `heartBeat ${animationDuration}s ${animationDelay}s infinite`;
+                        }
+                    }, 500);
+                }, 1000 + index * delayPerHeart);
+            });
+            
+            // 添加漂浮的小心形
+            setTimeout(() => {
+                for (let i = 0; i < 60; i++) {
+                    const smallHeart = document.createElement('div');
+                    smallHeart.className = 'small-hearts heart';
+                    
+                    // 随机位置
+                    smallHeart.style.left = `${Math.random() * window.innerWidth}px`;
+                    smallHeart.style.top = `${Math.random() * window.innerHeight}px`;
+                    
+                    // 随机颜色
+                    smallHeart.style.backgroundColor = getRandomColor();
+                    
+                    // 随机大小
+                    const size = 3 + Math.random() * 5;
+                    smallHeart.style.width = `${size}px`;
+                    smallHeart.style.height = `${size}px`;
+                    
+                    // 设置初始可见
+                    smallHeart.style.opacity = 0.7;
+                    smallHeart.style.transform = 'rotate(45deg) scale(1)';
+                    
+                    // 添加漂浮动画
+                    const animationDuration = 10 + Math.random() * 20;
+                    smallHeart.style.animation = `float ${animationDuration}s linear infinite`;
+                    smallHeart.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    // 添加到页面
+                    document.body.appendChild(smallHeart);
+                }
+                
+                // 在树冠完全生长后开始树叶掉落效果
+                setTimeout(() => {
+                    startLeafFalling();
+                }, 2000);
+                
+            }, 3000);
+        }
+
+        // 逐字显示情话的函数 - 带跳出效果
+        function showMessageWithJumpEffect() {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = ''; // 清空容器
+            
+            // 为每行创建段落
+            loveMessage.forEach(line => {
+                const paragraph = document.createElement('p');
+                messageDiv.appendChild(paragraph);
+                
+                // 将每行文字拆分为单个字符
+                for (let i = 0; i < line.length; i++) {
+                    const charSpan = document.createElement('span');
+                    charSpan.className = 'char-span';
+                    charSpan.textContent = line[i];
+                    paragraph.appendChild(charSpan);
+                }
+            });
+            
+            // 获取所有字符span
+            const allCharSpans = document.querySelectorAll('.char-span');
+            let charIndex = 0;
+            
+            // 逐个显示字符
+            function showNextChar() {
+                if (charIndex < allCharSpans.length) {
+                    // 添加可见类，触发动画
+                    allCharSpans[charIndex].classList.add('visible');
+                    charIndex++;
+                    
+                    // 设置下一个字符的显示时间
+                    // 随机延迟，使显示更自然
+                    const delay = 80 + Math.random() * 40; // 80-120ms之间的随机延迟
+                    setTimeout(showNextChar, delay);
+                }
+            }
+            
+            // 延迟开始显示
+            setTimeout(showNextChar, 1000);
+        }
+
+        // 初始化
+        window.onload = function() {
+            // 初始化计时器
+            updateTimer();
+            setInterval(updateTimer, 1000);
+
+            // 创建背景装饰
+            createBackgroundDecoration();
+
+            // 创建爱心树
+            createHearts();
+            
+            // 窗口大小变化时重新创建爱心树和背景装饰
+            window.addEventListener('resize', function() {
+                createHearts();
+                createBackgroundDecoration();
+            });
+
+            // 逐字显示情话 - 带跳出效果
+            showMessageWithJumpEffect();
+        };
+    </script>
+</body>
+</html>
