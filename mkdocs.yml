@@ -79,6 +79,7 @@ nav:
   - opencv4:
       - opencv4/01-OpenCV4概述.md
 
+  - 爱情树: love-tree/index.html  # 添加这一行
             
 
 
@@ -149,6 +150,10 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+  # 添加这个部分
+extra_templates:
+  - love-tree/index.html
+  - love-tree/tree.html
 # 页脚社交链接
 extra:
   social:
