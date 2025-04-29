@@ -21,6 +21,8 @@ nav:
       - 开发工具/cmake/11-项目实战.md
       - 开发工具/cmake/12-CTest 工具.md
       - 开发工具/cmake/13-CPack 工具.md
+    - 常用配置:
+      - 开发工具/常用配置/01-clangd配置.md
   - C++:
     - C++进阶:
       - C++/C++进阶/01-C++的内存结构.md
