@@ -13,21 +13,25 @@
       
       
       
+        <link rel="prev" href="../../cmake/13-CPack%20%E5%B7%A5%E5%85%B7/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>personal-知识库</title>
+        <title>【01】clangd/config.yaml配置 - personal-知识库</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#01clangdconfigyaml" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/." title="personal-知识库" class="md-header__button md-logo" aria-label="personal-知识库" data-md-component="logo">
+    <a href="../../.." title="personal-知识库" class="md-header__button md-logo" aria-label="personal-知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              【01】clangd/config.yaml配置
             
           </span>
         </div>
@@ -214,6 +223,8 @@
   
   
   
+    
+  
   
     
     
@@ -221,11 +232,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/00-%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../cmake/00-%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="md-tabs__link">
           
   
   
@@ -255,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-tabs__link">
+        <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-tabs__link">
           
   
   
@@ -278,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/opencv4/01-OpenCV4%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
+        <a href="../../../opencv4/01-OpenCV4%E6%A6%82%E8%BF%B0/" class="md-tabs__link">
           
   
   
@@ -296,7 +309,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/love-tree/" class="md-tabs__link">
+      <a href="../../../love-tree/" class="md-tabs__link">
         
   
   
@@ -350,7 +363,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="personal-知识库" class="md-nav__button md-logo" aria-label="personal-知识库" data-md-component="logo">
+    <a href="../../.." title="personal-知识库" class="md-nav__button md-logo" aria-label="personal-知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -377,28 +390,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -411,7 +427,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             开发工具
@@ -431,10 +447,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -443,7 +462,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_1" >
         
           
-          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="">
             
   
   
@@ -470,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/00-%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="md-nav__link">
+      <a href="../../cmake/00-%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%A2%8E%E5%BF%B5/" class="md-nav__link">
         
   
   
@@ -493,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+      <a href="../../cmake/01-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
         
   
   
@@ -516,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/02-CMake%20%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%86%E5%B8%83/" class="md-nav__link">
+      <a href="../../cmake/02-CMake%20%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%86%E5%B8%83/" class="md-nav__link">
         
   
   
@@ -539,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/03-%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%BC%95%E7%94%A8/" class="md-nav__link">
+      <a href="../../cmake/03-%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E5%BC%95%E7%94%A8/" class="md-nav__link">
         
   
   
@@ -562,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/04-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+      <a href="../../cmake/04-%E8%BF%90%E7%AE%97%E7%AC%A6%E4%B8%8E%E6%9D%A1%E4%BB%B6%E3%80%81%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
         
   
   
@@ -585,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/05-%E7%9B%AE%E6%A0%87%E6%9E%84%E5%BB%BA/" class="md-nav__link">
+      <a href="../../cmake/05-%E7%9B%AE%E6%A0%87%E6%9E%84%E5%BB%BA/" class="md-nav__link">
         
   
   
@@ -608,7 +627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/06-%E5%8F%98%E9%87%8F%E5%8F%82%E4%B8%8E%20C%2B%2B%20%E7%9A%84%E7%BC%96%E8%AF%91/" class="md-nav__link">
+      <a href="../../cmake/06-%E5%8F%98%E9%87%8F%E5%8F%82%E4%B8%8E%20C%2B%2B%20%E7%9A%84%E7%BC%96%E8%AF%91/" class="md-nav__link">
         
   
   
@@ -631,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/07-%E5%AE%8F%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
+      <a href="../../cmake/07-%E5%AE%8F%E4%B8%8E%E5%87%BD%E6%95%B0/" class="md-nav__link">
         
   
   
@@ -654,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/08-find_package%20%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+      <a href="../../cmake/08-find_package%20%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
         
   
   
@@ -677,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/09-%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+      <a href="../../cmake/09-%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
         
   
   
@@ -700,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/" class="md-nav__link">
+      <a href="../../cmake/10-%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%AE%89%E8%A3%85/" class="md-nav__link">
         
   
   
@@ -723,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/11-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="md-nav__link">
+      <a href="../../cmake/11-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="md-nav__link">
         
   
   
@@ -746,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/12-CTest%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+      <a href="../../cmake/12-CTest%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
         
   
   
@@ -769,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/cmake/13-CPack%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+      <a href="../../cmake/13-CPack%20%E5%B7%A5%E5%85%B7/" class="md-nav__link">
         
   
   
@@ -797,28 +816,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
+          
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="">
             
   
   
@@ -831,7 +853,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_2">
             <span class="md-nav__icon md-icon"></span>
             常用配置
@@ -842,10 +864,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/01-clangd%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -856,6 +887,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -973,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/01-C%2B%2B%E7%9A%84%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/" class="md-nav__link">
         
   
   
@@ -1041,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/01-%E6%A8%A1%E6%9D%BF-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/01-%E6%A8%A1%E6%9D%BF-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
         
   
   
@@ -1064,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/02-%E6%A8%A1%E6%9D%BF-%E7%B1%BB%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/02-%E6%A8%A1%E6%9D%BF-%E7%B1%BB%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
         
   
   
@@ -1087,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/03-%E6%A8%A1%E6%9D%BF-%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/02-C%2B%2B%E6%A8%A1%E6%9D%BF/03-%E6%A8%A1%E6%9D%BF-%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF/" class="md-nav__link">
         
   
   
@@ -1163,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/01-STL/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/01-STL/" class="md-nav__link">
         
   
   
@@ -1186,7 +1218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/02-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/02-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1209,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/03-vector%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/03-vector%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1232,7 +1264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/05-%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/05-%E8%BF%AD%E4%BB%A3%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1255,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/06-deque%EF%BC%88%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%EF%BC%89/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/06-deque%EF%BC%88%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1278,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/07-list/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/07-list/" class="md-nav__link">
         
   
   
@@ -1301,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/08-Map%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/08-Map%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1324,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/09-Set%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/09-Set%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1347,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/10-stack%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/10-stack%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1370,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/11-queque/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/11-queque/" class="md-nav__link">
         
   
   
@@ -1393,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/12-unordered_map%20%E5%92%8C%20unordered_set/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/12-unordered_map%20%E5%92%8C%20unordered_set/" class="md-nav__link">
         
   
   
@@ -1416,7 +1448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/13-%E4%BB%BF%E5%87%BD%E6%95%B0%EF%BC%88%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%EF%BC%89/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/13-%E4%BB%BF%E5%87%BD%E6%95%B0%EF%BC%88%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1439,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/14-%E7%AE%97%E6%B3%95/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/14-%E7%AE%97%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -1462,7 +1494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/15-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1485,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/16-%E5%87%BD%E6%95%B0%E9%80%82%E9%85%8D%E5%99%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/03-STL%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93/16-%E5%87%BD%E6%95%B0%E9%80%82%E9%85%8D%E5%99%A8/" class="md-nav__link">
         
   
   
@@ -1561,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/04-%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/04-%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/%E6%96%87%E4%BB%B6%E6%B5%81%E6%93%8D%E4%BD%9C/" class="md-nav__link">
         
   
   
@@ -1637,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/01-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/01-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   
@@ -1660,7 +1692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/02-%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/02-%E5%88%9B%E5%BB%BA%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="md-nav__link">
         
   
   
@@ -1683,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/03-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8Emutex/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/03-%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8Emutex/" class="md-nav__link">
         
   
   
@@ -1706,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/04-lock_guard/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/04-lock_guard/" class="md-nav__link">
         
   
   
@@ -1729,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/05-unique_lock/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/05-unique_lock/" class="md-nav__link">
         
   
   
@@ -1752,7 +1784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/06-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/06-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F/" class="md-nav__link">
         
   
   
@@ -1775,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/07-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8Fcondition_variable/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/07-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8Fcondition_variable/" class="md-nav__link">
         
   
   
@@ -1798,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/08-%E8%AF%BB%E5%86%99%E9%94%81/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/08-%E8%AF%BB%E5%86%99%E9%94%81/" class="md-nav__link">
         
   
   
@@ -1821,7 +1853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/09-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E5%92%8C%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/09-%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E5%92%8C%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C/" class="md-nav__link">
         
   
   
@@ -1844,7 +1876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/10-%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8Ccounting_semaphore/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/10-%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8Ccounting_semaphore/" class="md-nav__link">
         
   
   
@@ -1867,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/11-%E6%A0%85%E6%A0%8F%EF%BC%88barrier%EF%BC%89/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/11-%E6%A0%85%E6%A0%8F%EF%BC%88barrier%EF%BC%89/" class="md-nav__link">
         
   
   
@@ -1890,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/12-%E6%AD%BB%E9%94%81/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/12-%E6%AD%BB%E9%94%81/" class="md-nav__link">
         
   
   
@@ -1913,7 +1945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/13-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20future%E5%92%8Casync/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/13-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20future%E5%92%8Casync/" class="md-nav__link">
         
   
   
@@ -1936,7 +1968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/14-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20promise%E7%9A%84%E7%94%A8%E6%B3%95/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/14-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20promise%E7%9A%84%E7%94%A8%E6%B3%95/" class="md-nav__link">
         
   
   
@@ -1959,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/15-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20packaged_task%E7%9A%84%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/15-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%20packaged_task%E7%9A%84%E4%BD%BF%E7%94%A8/" class="md-nav__link">
         
   
   
@@ -1982,7 +2014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/16-%E4%B8%89%E7%A7%8D%E5%BC%82%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%9A%84%E6%AF%94%E8%BE%83/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/16-%E4%B8%89%E7%A7%8D%E5%BC%82%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%9A%84%E6%AF%94%E8%BE%83/" class="md-nav__link">
         
   
   
@@ -2005,7 +2037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/17-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/17-%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="md-nav__link">
         
   
   
@@ -2028,7 +2060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/18-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B0%8F%E7%BB%93/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/05-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/18-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B0%8F%E7%BB%93/" class="md-nav__link">
         
   
   
@@ -2104,7 +2136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/01-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%88%86%E5%B1%82/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/01-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%88%86%E5%B1%82/" class="md-nav__link">
         
   
   
@@ -2127,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/02-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-TCPIP%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B%E3%80%81MAC%E5%92%8CIP/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/02-%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80-TCPIP%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B%E3%80%81MAC%E5%92%8CIP/" class="md-nav__link">
         
   
   
@@ -2150,7 +2182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/03-ARP%E5%8D%8F%E8%AE%AE%E4%B8%8E%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/03-ARP%E5%8D%8F%E8%AE%AE%E4%B8%8E%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1/" class="md-nav__link">
         
   
   
@@ -2173,7 +2205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/04-TCP%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%8C%85%E5%A4%B4%E8%A7%A3%E6%9E%90/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/04-TCP%E5%8D%8F%E8%AE%AE%E5%92%8C%E5%8C%85%E5%A4%B4%E8%A7%A3%E6%9E%90/" class="md-nav__link">
         
   
   
@@ -2196,7 +2228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/05-TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/05-TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/" class="md-nav__link">
         
   
   
@@ -2219,7 +2251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/06-%E5%AD%97%E8%8A%82%E5%BA%8F%20%E5%A4%A7%E7%AB%AF%E5%92%8C%E5%B0%8F%E7%AB%AF/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/06-%E5%AD%97%E8%8A%82%E5%BA%8F%20%E5%A4%A7%E7%AB%AF%E5%92%8C%E5%B0%8F%E7%AB%AF/" class="md-nav__link">
         
   
   
@@ -2242,7 +2274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/07-socket%E7%BC%96%E7%A8%8B%20%E5%92%8C%20TCP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/07-socket%E7%BC%96%E7%A8%8B%20%E5%92%8C%20TCP%E5%8D%8F%E8%AE%AE/" class="md-nav__link">
         
   
   
@@ -2265,7 +2297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/08-UDP%E5%8D%8F%E8%AE%AE%20%E5%92%8C%20Socket%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/08-UDP%E5%8D%8F%E8%AE%AE%20%E5%92%8C%20Socket%E7%BC%96%E7%A8%8B/" class="md-nav__link">
         
   
   
@@ -2288,7 +2320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/09-IP%EF%BC%8C%E5%8D%95%E6%92%AD%E3%80%81%E5%B9%BF%E6%92%AD%E3%80%81%E7%BB%84%E6%92%AD%E3%80%81%E4%BB%BB%E6%92%AD/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/09-IP%EF%BC%8C%E5%8D%95%E6%92%AD%E3%80%81%E5%B9%BF%E6%92%AD%E3%80%81%E7%BB%84%E6%92%AD%E3%80%81%E4%BB%BB%E6%92%AD/" class="md-nav__link">
         
   
   
@@ -2311,7 +2343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10-http/" class="md-nav__link">
+      <a href="../../../C%2B%2B/C%2B%2B%E8%BF%9B%E9%98%B6/06-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/10-http/" class="md-nav__link">
         
   
   
@@ -2402,7 +2434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/opencv4/01-OpenCV4%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+      <a href="../../../opencv4/01-OpenCV4%E6%A6%82%E8%BF%B0/" class="md-nav__link">
         
   
   
@@ -2432,7 +2464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/love-tree/" class="md-nav__link">
+      <a href="../../../love-tree/" class="md-nav__link">
         
   
   
@@ -2486,6 +2518,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -2497,8 +2531,32 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="01clangdconfigyaml">【01】clangd/config.yaml配置</h1>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">CompileFlags</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">Add</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-std=c++23</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">-I/usr/include</span><span class="p p-Indicator">]</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">Index</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">Background</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2561,12 +2619,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
-        <script src="/javascripts/extra.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
